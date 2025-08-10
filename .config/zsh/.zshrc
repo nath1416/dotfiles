@@ -70,8 +70,8 @@ bindkey '^D' exit_zsh
 
 export OH_MY_POSH_THEME="spaceship"
 
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(fzf --zsh)
 eval "$(oh-my-posh init zsh --config "/usr/share/oh-my-posh/themes/${OH_MY_POSH_THEME}.omp.json")"
 eval "$(zoxide init zsh)"
