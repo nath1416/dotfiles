@@ -16,14 +16,15 @@
 //        "idle_inhibitor",
 //        "pulseaudio",
         //"wireplumber",
-        //"network",
+        "network",
         //"power-profiles-daemon",
         //"temperature",
         "tray",
         "cpu",
         "memory",
-        //"backlight",
+        "backlight",
         //"keyboard-state",
+        "battery",
         "clock"
         //"custom/power"
     ],
