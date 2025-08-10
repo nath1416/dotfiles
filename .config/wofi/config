@@ -1,0 +1,8 @@
+hide_scroll=true
+matching=fuzzy
+insensitive=true
+allow_images=true
+normal_window=true
+prompt=Enter a program name
+term=kitty
+
