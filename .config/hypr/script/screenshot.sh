@@ -19,6 +19,7 @@ sendNotif(){
 fullScreen(){
     name=$(chooseFileName)
     sleep 1
+    mkdir -p "$(xdg-user-dir PICTURES)/screenShots"
     grim "$(xdg-user-dir PICTURES)/screenShots/$name"
     sendNotif "ScreenShot: $name"
 }
@@ -27,6 +28,7 @@ selectScreen(){
     size=$(slurp -w 2)
     name=$(chooseFileName)
     sleep 1
+    mkdir -p "$(xdg-user-dir PICTURES)/screenShots"
     grim -g "$size" "$(xdg-user-dir PICTURES)/screenShots/$name"
     sendNotif "ScreenShot ($size): $name"
 }
