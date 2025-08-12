@@ -51,6 +51,7 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
     kitty-integration
     unfunction kitty-integration
+    fastfetch
 fi
 
 
@@ -78,12 +79,6 @@ eval "$(zoxide init zsh)"
 
 
 #source /usr/share/nvm/init-nvm.sh
-
-if [ -z "${TERM_PROGRAM}" ]; then
-    fastfetch
-fi
-
-
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
