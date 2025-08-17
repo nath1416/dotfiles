@@ -16,7 +16,7 @@ dot config --local status.showUntrackedFiles no
 ## Good to know
 
 I use [uwsm](https://wiki.archlinux.org/title/Universal_Wayland_Session_Manager) has a hyprland session manager.  \
-I use [app2unit](https://aur.archlinux.org/packages/app2unit-git) to launch application. \
+I use [app2unit](https://aur.archlinux.org/packages/app2unit-git) to launch application. 
 
 So systemd will handle Hyprland and application.
 
