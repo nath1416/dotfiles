@@ -47,3 +47,7 @@ So systemd will handle Hyprland and application.
 - pipewire-audio
 - pipewire-alsa
 - pipewire-pulse
+
+## Pictures
+
+![Terminal](./assets/Terminal.png)
