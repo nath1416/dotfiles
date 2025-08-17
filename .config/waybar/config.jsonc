@@ -17,7 +17,7 @@
         "cpu",
         "memory",
         "network",
-        "battery",
+        "battery"
     ],
     "hyprland/workspaces": {
         "format": "{name}",

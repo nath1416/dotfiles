@@ -51,9 +51,11 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
     autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
     kitty-integration
     unfunction kitty-integration
-    fastfetch
 fi
 
+if [ "$TERM" = "xterm-kitty" ]; then
+    fastfetch
+fi
 
 #ranger() {
 #    [ -z "$RANGER_LEVEL" ]; then

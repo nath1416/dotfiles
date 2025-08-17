@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env sh
 
 active_workspace_id=$(hyprctl activeworkspace -j | jq '.id')
 
