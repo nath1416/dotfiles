@@ -7,12 +7,9 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zhistory"    
 export HISTSIZE=10000                  
 export SAVEHIST=10000
-export RANGER_LOAD_DEFAULT_RC=false
-
 
 export PATH="$PATH:$HOME/.bin/"
 export PATH="$PATH:/home/nathan/.local/app/app2unit"
-
 
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
@@ -29,13 +26,12 @@ alias grep="grep --color"
 alias vim="nvim"
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias cd="z"
-alias ssh="kitty +kitten ssh"
 alias ls="ls -h --color"
-alias ranger="yazi"
 
 setopt HIST_SAVE_NO_DUPS
 setopt share_history
 setopt NULL_GLOB
+CASE_SENSITIVE=true
 
 zstyle ':completion:*' menu select
 
@@ -54,16 +50,17 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
 fi
 
 if [ "$TERM" = "xterm-kitty" ]; then
-    fastfetch
+#    fastfetch
+    alias ssh="kitty +kitten ssh"
 fi
 
-#ranger() {
-#    [ -z "$RANGER_LEVEL" ]; then
-#        /usr/bin/ranger "$@"
-#    else
-#        exit
-#    fi
-#}
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 exit_zsh() { exit }
 zle -N exit_zsh
