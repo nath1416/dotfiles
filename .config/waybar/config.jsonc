@@ -11,10 +11,10 @@
         "clock"
     ],
     "modules-right": [
-//        "idle_inhibitor",
         "tray",
         "backlight",
         "wireplumber",
+//        "idle_inhibitor",
         "cpu",
         "memory",
         "network",
