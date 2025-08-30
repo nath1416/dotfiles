@@ -8,7 +8,7 @@ export HISTFILE="$ZDOTDIR/.zhistory"
 export HISTSIZE=10000                  
 export SAVEHIST=10000
 
-export PATH="$PATH:$HOME/.bin/"
+export PATH="$PATH:$HOME/bin/"
 export PATH="$PATH:/home/nathan/.local/app/app2unit"
 
 bindkey  "^[[H"   beginning-of-line
@@ -27,6 +27,7 @@ alias vim="nvim"
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias cd="z"
 alias ls="ls -h --color"
+alias code="code --enable-proposed-api ms-toolsai.jupyter"
 
 setopt HIST_SAVE_NO_DUPS
 setopt share_history
