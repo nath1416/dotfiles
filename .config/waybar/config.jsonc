@@ -17,7 +17,7 @@
 //        "idle_inhibitor",
         "cpu",
         "memory",
-        "network",
+//        "network",
         "battery"
     ],
     "hyprland/workspaces": {
