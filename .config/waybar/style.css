@@ -1,3 +1,5 @@
+@import '../../.cache/hellwal/waybar-colors.css';
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
@@ -6,12 +8,12 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.9); 
+/*    background-color: rgba(43, 48, 59, 0.9); */
+    background-color: @color1;
     color: #ffffff;
     transition-property: box-shadow;
     transition-duration: .5s;
-/*    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px; */
+/*    border-bottom: 2px solid @color2; */
 }
 
 window#waybar.hidden {
@@ -59,7 +61,7 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: @foreground;
     transition: box-shadow 0.5s;
 }
 
@@ -106,7 +108,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: @foreground;
 /*    border-radius: 5px;
     border-color: #6f8ded;
     border: 0.5px solid;
