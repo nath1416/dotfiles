@@ -6,9 +6,9 @@ msgTag="3"
 
 changeVolume() {
     change="$1"
-    wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ $change
+    wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ "$change"
     currentVolume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
-    dunstify -a "d" -u low  -i change-volume -r "$msgTag" -h int:value:$(echo "$currentVolume" | awk -F. '{ print $2 }') " $(echo $currentVolume | awk -F. '{ print $2 }') %"
+    dunstify -a "d" -u low  -i change-volume -r "$msgTag" -h int:value:"$(echo "$currentVolume" | awk -F. '{ print $2 }')" "$currentVolume "
 }
 
 muteSpeaker() {
@@ -42,7 +42,7 @@ case $1 in
         muteMic
     ;;
     change)
-        changeVolume $2
+        changeVolume "$2"
     ;;
     *)
         exit 1
@@ -50,4 +50,4 @@ case $1 in
 esac
 }
 
-main $@
+main "$@"

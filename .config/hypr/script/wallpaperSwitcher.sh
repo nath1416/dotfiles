@@ -2,19 +2,46 @@
 
 WALLPAPER_PATH=/home/nathan/wallpapers
 
-# Exit if already launched
-if [ -n "$(pidof hellpaper)" ]; then
+set -e
+
+hellpaperWallpaper() {
+ if [ -n "$(pidof hellpaper)" ]; then
     printf "hellpaper already launched\n"
     exit 0
 fi
-WALLPAPER=$(hellpaper $WALLPAPER_PATH)
-BASENAME=$(basename "$WALLPAPER")
-FILENAME_WITHOUT_EXT="${BASENAME%.*}"
 
-echo "Selected wallpaper: $WALLPAPER" 
+   wallpaper="$(hellpaper $WALLPAPER_PATH)"
 
-if [ -n "$WALLPAPER" ]; then
-    hyprctl hyprpaper reload , "$WALLPAPER" 
-    hellwal --skip-term-colors --check-contrast -i "$WALLPAPER"
-#    dunstify "Changed Wallpaper to $FILENAME_WITHOUT_EXT"
-fi
+    BaseName="$(basename "$wallpaper")"
+    FileName="${BaseName%.*}"
+    printf "WallPaper seleced: %s\n" "$wallpaper"
+    applyWallpaper "$wallpaper" "$FileName"
+
+}
+
+applyWallpaper(){
+    if [ -n "$1" ]; then
+        hyprctl hyprpaper reload , "$1" 
+        hellwal --skip-term-colors --check-contrast -i "$1"
+        dunstify "Changed Wallpaper to $2"
+    else
+        printf "Missing argument\n"
+    fi
+}
+main(){
+
+case $1 in
+    hellpaper)
+       hellpaperWallpaper 
+    ;;
+    set)
+        sleep 2
+        applyWallpaper "$2"
+    ;;
+    *)
+    exit 0
+    ;;
+esac
+}
+
+main "$@"
