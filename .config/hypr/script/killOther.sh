@@ -7,4 +7,4 @@ clients_to_kill=$(hyprctl clients -j | \
       jq ".pid"
  )
 
- kill "$(echo "$clients_to_kill")"
+ kill $(echo "$clients_to_kill")

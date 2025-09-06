@@ -8,3 +8,7 @@ term=kitty
 
 print_command=true
 print_desktop_file=true
+
+
+
+display_image_dmenu=true
