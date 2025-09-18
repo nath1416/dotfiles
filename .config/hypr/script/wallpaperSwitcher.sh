@@ -56,7 +56,7 @@ case $1 in
         applyWallpaper "$2"
     ;;
     set-once)
-        sleep 1
+        sleep 2
         applyWallpaper "$2"
     ;;
     *)
