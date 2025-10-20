@@ -1,9 +1,9 @@
 #window {
   margin: 8px;
   padding: 4px;
-  border: 2px solid #1f8cb2;
-  background-color: #12171c;
-  color: #ffffff;
+  border: 2px solid --wofi-color2;
+  background-color: --wofi-color10;
+  color: --wofi-color1;
   font-family: "monospace";
   border-radius: 10px;
 }
@@ -18,7 +18,7 @@
 #input {
   margin: 6px;
   padding: 8px;
-  background-color: #1b232a;
+  background-color: --wofi-color4;
   border-radius: 6px;
   color: #ffffff;
   border: none;
@@ -34,16 +34,16 @@
 }
 
 #entry:nth-child(even) {
-  background-color: #1a1f26;
+  background-color: --wofi-color5;
 }
 
 #entry:nth-child(odd) {
-  background-color: #161b21;
+  background-color: --wofi-color6;
 }
 
 #entry:selected {
-  background-color: #296580;
-  border: 1px solid #1f8cb2;
+  background-color: --wofi-color7;
+  border: 1px solid --wofi-color8;
 }
 
 #entry:selected #text {
