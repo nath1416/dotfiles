@@ -14,10 +14,10 @@ changeVolume() {
 muteSpeaker() {
     wpctl set-mute @DEFAULT_SINK@ toggle
     if wpctl get-volume @DEFAULT_SINK@ | grep MUTED; then
-        dunstify "Default Sink muted"
+        dunstify -r "5" "Default Sink muted"
         brightnessctl -d platform::mute s 100%
     else 
-        dunstify "Default Sink unmuted"
+        dunstify  -r "5" "Default Sink unmuted"
         brightnessctl -d platform::mute s 0%
     fi
 }
@@ -25,10 +25,10 @@ muteSpeaker() {
 muteMic(){
     wpctl set-mute @DEFAULT_SOURCE@ toggle
     if wpctl get-volume @DEFAULT_SOURCE@ | grep MUTED; then
-        dunstify "Default Source muted"
+        dunstify  -r "5" "Default Source muted"
         brightnessctl -d platform::micmute s 100%
     else 
-        dunstify "Default Source unmuted"
+        dunstify  -r "5" "Default Source unmuted"
         brightnessctl -d platform::micmute s 0%
     fi
 }
