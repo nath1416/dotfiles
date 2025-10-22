@@ -4,7 +4,7 @@
 set -e
 
 chooseFileName(){
-    name=$(wofi -c "$HOME/.config/wofi/custom/screenshot.config" --show dmenu)
+    name=$(wofi --color ~/.cache/hellwal/wofi.colors  -c "$HOME/.config/wofi/custom/screenshot.config" --show dmenu)
     if [[ "$name" == "" ]]; then
         exit
     fi

@@ -13,3 +13,5 @@ else
     notify-send "Started hypridle"
     systemctl --user start "$SERVICE_NAME"
 fi
+
+
