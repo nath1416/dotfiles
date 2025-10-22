@@ -11,7 +11,7 @@
         "clock"
     ],
     "modules-right": [
-        "tray",
+        "group/expand",
         "backlight",
         "wireplumber",
 //        "idle_inhibitor",
@@ -20,6 +20,23 @@
 //        "network",
         "battery"
     ],
+    "group/expand": {
+        "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 600,
+                "transition-to-left": true,
+                "click-to-reveal": true
+            },
+            "modules": ["custom/expand","tray", "custom/endpoint"]
+    },
+    "custom/expand": {
+         "format": "",
+        "tooltip": false
+     },
+    "custom/endpoint":{
+         "format": "|",
+         "tooltip": false
+    },
     "hyprland/workspaces": {
         "format": "{name}",
         "show-special" : true
@@ -80,5 +97,5 @@
         "format": "{volume}% 󰓃",
         "format-muted": "󰝟",
         "on-click": "pwvucontrol"
-    },
+    }
 }
