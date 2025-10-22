@@ -8,8 +8,7 @@ changeVolume() {
     change="$1"
     wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ "$change"
     currentVolume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
-    dunstify -a "d" -u low  -i change-volume -r "$msgTag" -h int:value:"$(echo "$currentVolume" | awk -F. '{ print $2 }')" "$currentVolume "
-    ec
+    dunstify -a "d" -u low  -i change-volume -r "$msgTag" -h int:value:"$(echo "$currentVolume" | awk -F. '{ print $2 }')" "$currentVolume"
 }
 
 muteSpeaker() {
