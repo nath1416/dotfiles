@@ -228,12 +228,6 @@
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
 
-    # Define the title of the windows spawned by dunst (X11 only)
-    title = Dunst
-
-    # Define the class of the windows spawned by dunst (X11 only)
-    class = Dunst
-
     # Define the corner radius of the notification window
     # in pixel size. If the radius is 0, you have no rounded
     # corners.
@@ -263,18 +257,6 @@
 
     # Set this to true to use X11 output on Wayland.
     force_xwayland = false
-
-    ### Legacy
-
-    # Use the Xinerama extension instead of RandR for multi-monitor support.
-    # This setting is provided for compatibility with older nVidia drivers that
-    # do not support RandR and using it on systems that support RandR is highly
-    # discouraged.
-    #
-    # By enabling this setting dunst will not be able to detect when a monitor
-    # is connected or disconnected which might break follow mode if the screen
-    # layout changes.
-    force_xinerama = false
 
     ### mouse
 
