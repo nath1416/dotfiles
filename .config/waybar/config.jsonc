@@ -11,7 +11,6 @@
   ],
   "modules-right": [
     "group/expand",
-    "backlight",
     "wireplumber",
     "cpu",
     "memory",
@@ -27,6 +26,7 @@
     "modules": [
       "custom/expand",
       "tray",
+      "backlight",
       "custom/endpoint"
     ]
   },
@@ -79,7 +79,9 @@
     "format-plugged": "{capacity}% 󰁹",
     "format-alt": "{time} {icon}",
     "format-icons": [
+     // "󰁺",
       "󰁻",
+      //"󰁼",
       "󰁽",
       "󰁿",
       "󰂁",
