@@ -2,6 +2,8 @@
 
 WALLPAPER_PATH=/home/nathan/wallpapers
 
+DEFAULT_KITTY_OPACITY=0.80
+
 set -e
 
 hellpaperWallpaper() {
@@ -33,8 +35,13 @@ applyWallpaper(){
 }
 
 startKitten(){
-    killKitten
-    kitten panel --edge=background ----margin-top=-1 ----focus-policy=not-allowed htop &
+#    killKitten
+
+
+    kitty @ set-background-opacity 0.0
+    kitten panel --edge=background ----margin-top=-1 ----focus-policy=not-allowed "$1"
+
+    kitty @ set-background-opacity "$DEFAULT_KITTY_OPACITY"
 }
 
 killKitten(){

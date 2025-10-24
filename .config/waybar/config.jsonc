@@ -11,9 +11,9 @@
   ],
   "modules-right": [
     "group/expand",
+    "bluetooth",
     "cpu",
     "memory",
-    "bluetooth",
     "wireplumber",
     "battery"
   ],
