@@ -205,6 +205,9 @@ label:focus {
     min-width: 100px;
 }
 
+#custom-expand {
+    color: @foreground
+}
 #custom-media.custom-spotify {
 }
 

@@ -9,6 +9,7 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 export PATH="$PATH:$HOME/bin/"
+export PATH="$PATH:$HOME/go/bin/"
 export PATH="$PATH:/home/nathan/.local/app/app2unit"
 
 bindkey  "^[[H"   beginning-of-line
