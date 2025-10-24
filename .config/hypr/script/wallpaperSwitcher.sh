@@ -32,6 +32,15 @@ applyWallpaper(){
     fi
 }
 
+startKitten(){
+    killKitten
+    kitten panel --edge=background ----margin-top=-1 ----focus-policy=not-allowed htop &
+}
+
+killKitten(){
+    pkill -f '/usr/bin/kitty \+kitten panel'
+}
+
 activeMonitor(){
     local monitor="$(hyprctl activeworkspace -j | jq '.monitor')"
     echo "$monitor"
@@ -68,6 +77,9 @@ case $1 in
     ;;
     set-random)
         setRandom
+    ;;
+    kitten) 
+        startKitten "$2"
     ;;
     *)
         help "$@"
