@@ -20,14 +20,14 @@ hellpaperWallpaper() {
 
 applyWallpaper(){
 
-    local BaseName="$(basename "$1")"
-    local FileName="${BaseName%.*}"
-
     if [ -n "$1" ]; then
-        swww img --transition-bezier 0.68,.31,.35,1.08 --transition-pos top-right --transition-duration 1 --transition-type grow --transition-fps 60 "$1"
+       local BaseName="$(basename "$1")"
+       local FileName="${BaseName%.*}"
+
+       swww img --transition-bezier 0.68,.31,.35,1.08 --transition-pos top-right --transition-duration 1 --transition-type grow --transition-fps 60 "$1"
         sleep 0.8
         #hyprctl hyprpaper reload "$2, $1" 
-        hellwal --skip-term-colors --check-contrast -i "$1"
+        local Color="$(hellwal --skip-term-colors --check-contrast -i "$1")"
         dunstify -r "4" "Changed Wallpaper to $FileName"
     else
         printf "Missing argument\n"
@@ -53,12 +53,19 @@ activeMonitor(){
     echo "$monitor"
 }
 
+getRandom(){
+    local Wallpaper=$(find "$WALLPAPER_PATH" -type f | shuf -n 1)
+    echo "$Wallpaper"
+}
+
 setRandom(){
     
-    local Wallpaper=$(find "$WALLPAPER_PATH" -type f | shuf -n 1)
+#    local Wallpaper=$(find "$WALLPAPER_PATH" -type f | shuf -n 1)
 
-    applyWallpaper "$Wallpaper"
+applyWallpaper "$(getRandom)"
 }
+
+
 
 help(){
     printf "Unknow argument: %s\n" "$1"
@@ -81,6 +88,9 @@ case $1 in
     ;;
     set)
         applyWallpaper "$2"
+    ;;
+    get-random)
+        echo "$(getRandom)"
     ;;
     set-random)
         setRandom
