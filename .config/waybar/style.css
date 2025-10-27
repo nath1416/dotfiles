@@ -1,35 +1,20 @@
 @import '../../.cache/hellwal/waybar-colors.css';
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
     font-family: 'Cousine Nerd Font';
     font-size: 13px;
 }
 
 window#waybar {
-/*    background-color: rgba(43, 48, 59, 0.9); */
     background-color: @color1;
     color: #ffffff;
-    /*color: @foreground; */
     transition-property: box-shadow;
     transition-duration: .5s;
-/*    border-bottom: 2px solid @color2; */
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
 window#waybar.termite {
     background-color: #3F3F3F;
 }
@@ -53,7 +38,6 @@ button {
     opacity: 1;
   }
 }
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
     box-shadow: inset 0 -3px #ffffff;
@@ -63,7 +47,8 @@ button:hover {
     padding: 0 5px;
     background-color: transparent;
     color: @foreground;
-    transition: box-shadow 0.5s;
+    transition: box-shadow 0.5s, border 0.5s;
+    border-radius: 5px;
 }
 
 #workspaces button:hover {
@@ -73,8 +58,9 @@ button:hover {
 }
 
 #workspaces button.active {
-/*    background-color: #64727D;*/
-    box-shadow: inset 0 -3px #666666;
+    border: 1px solid @color14; 
+    color: @color14;
+    background: inherit;
 }
 
 #workspaces button.urgent {
@@ -87,23 +73,29 @@ button:hover {
 }
 
 #clock {
-/*    padding: 0 10px;
-    background-color: @color9;
-    border-radius: 5px;
-    */
     color: @foreground;
 }
 
-
 #bluetooth,
-#battery,
 #cpu,
 #memory,
+#wireplumber {
+    border: 1px solid @color14; 
+    padding: 0px 10px 0px 10px; 
+    color: @foreground;
+    border-radius: 5px;
+}
+
+#battery {
+    border: 1px solid @color14; 
+    padding: 0px 10px 0px 10px; 
+    color: @foreground;
+    border-radius: 5px;
+}
 #disk,
 #temperature,
 #backlight,
 #network,
-#wireplumber,
 #custom-media,
 #mode,
 #idle_inhibitor,
