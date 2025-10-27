@@ -105,6 +105,8 @@
     "format-wifi": "   {essid} ",
     "format-ethernet": "󰈀 {ifname} ",
     "format-disconnected": "Disconnected ⚠",
+    "tooltip-format": "Ip\t{ipaddr}\nUp\t{bandwidthUpBits}\nDown\t{bandwidthDownBits}",
+    "tooltip-format-wifi": "Ip\t{ipaddr}\nUp\t{bandwidthUpBits}\nDown\t{bandwidthDownBits}\nSignal\t{signalStrength}%\nFreq\t{frequency}GHz",
     "on-click": ""
   },
   "wireplumber": {

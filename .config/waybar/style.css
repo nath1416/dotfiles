@@ -47,8 +47,9 @@ button:hover {
     padding: 0 5px;
     background-color: transparent;
     color: @foreground;
-    transition: box-shadow 0.5s;
+    transition: border 0.5s;
     margin: 3px 0px 3px 0px;
+    border-radius: 5px;
 }
 
 #workspaces button:hover {
