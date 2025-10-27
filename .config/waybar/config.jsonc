@@ -11,6 +11,7 @@
   ],
   "modules-right": [
     "group/expand",
+    "network",
     "bluetooth",
     "wireplumber",
     "cpu",
@@ -101,12 +102,10 @@
     ]
   },
   "network": {
-    "format-wifi": "({signalStrength}%) ",
-    "format-ethernet": "{ifname} 󰈀",
-    "tooltip-format": "{ifname} via {gwaddr}",
-    "format-linked": "{ifname} (No IP) ⚠",
+    "format-wifi": "   {essid} ",
+    "format-ethernet": "󰈀 {ifname} ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "on-click": ""
   },
   "wireplumber": {
     "scroll-step": "5.0",

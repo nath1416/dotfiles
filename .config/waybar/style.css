@@ -47,8 +47,8 @@ button:hover {
     padding: 0 5px;
     background-color: transparent;
     color: @foreground;
-    transition: box-shadow 0.5s, border 0.5s;
-    border-radius: 5px;
+    transition: box-shadow 0.5s;
+    margin: 3px 0px 3px 0px;
 }
 
 #workspaces button:hover {
@@ -59,8 +59,8 @@ button:hover {
 
 #workspaces button.active {
     border: 1px solid @color14; 
-    color: @color14;
     background: inherit;
+    border-radius: 5px;
 }
 
 #workspaces button.urgent {
@@ -76,25 +76,31 @@ button:hover {
     color: @foreground;
 }
 
+#custom-expand {
+    color: @foreground;
+    padding: 0px 10px 0px 0px;
+}
 #bluetooth,
 #cpu,
 #memory,
 #wireplumber {
-    border: 1px solid @color14; 
-    padding: 0px 10px 0px 10px; 
-    color: @foreground;
-    border-radius: 5px;
+    padding: 2px 10px 2px 10px; 
+
 }
 
 #battery {
-    border: 1px solid @color14; 
     padding: 0px 10px 0px 10px; 
-    color: @foreground;
-    border-radius: 5px;
 }
+#backlight {
+    padding: 0px 8px 0px 5px;
+}
+#battery,
+#bluetooth,
+#cpu,
+#memory,
+#wireplumber,
 #disk,
 #temperature,
-#backlight,
 #network,
 #custom-media,
 #mode,
@@ -102,14 +108,11 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
+    border: 1px solid @color14; 
+    margin: 2px 0px 0px 5px;
     color: @foreground;
-/*    border-radius: 5px;
-    border-color: #6f8ded;
-    border: 0.5px solid;
-    opacity: 0.9;
-    background-color: rgba(92, 129, 247,0.8);
-    */
+    border-radius: 5px;
+    margin: 2px 0px 2px 0px;
 }
 
 #tray {
@@ -197,9 +200,6 @@ label:focus {
     min-width: 100px;
 }
 
-#custom-expand {
-    color: @foreground
-}
 #custom-media.custom-spotify {
 }
 
