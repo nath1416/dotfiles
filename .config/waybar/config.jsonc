@@ -14,8 +14,9 @@
     "network",
     "bluetooth",
     "wireplumber",
-    "cpu",
+//    "custom/profile",
     "memory",
+    "cpu",
     "battery"
   ],
   "group/expand": {
@@ -36,6 +37,10 @@
     "format": "",
     "tooltip": false
   },
+"custom/profile": {
+    "format": "{}",
+    "exec": "cat /sys/firmware/acpi/platform_profile"
+},
   "custom/endpoint": {
     "format": "|",
     "tooltip": false
