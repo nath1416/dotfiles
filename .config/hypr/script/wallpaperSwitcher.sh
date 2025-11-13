@@ -24,10 +24,10 @@ applyWallpaper(){
        local BaseName="$(basename "$1")"
        local FileName="${BaseName%.*}"
 
-       swww img --transition-bezier 0.68,.31,.35,1.08 --transition-pos top-right --transition-duration 1 --transition-type grow --transition-fps 60 "$1"
+       awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 2 --transition-type grow --transition-fps 60 "$1"
         sleep 0.8
         #hyprctl hyprpaper reload "$2, $1" 
-        local Color="$(hellwal --skip-term-colors --check-contrast -i "$1")"
+        local Color="$(hellwal --skip-term-colors  --check-contrast -i "$1")"
         dunstify -r "4" "Changed Wallpaper to $FileName"
     else
         printf "Missing argument\n"
@@ -38,8 +38,8 @@ startKitten(){
 #    killKitten
 
 
-    kitty @ set-background-opacity 0.0
-    kitten panel --edge=background ----margin-top=-1 ----focus-policy=not-allowed "$1"
+#    kitty @ set-background-opacity 0.0
+    kitten panel --edge=background --margin-top=-1 --focus-policy=not-allowed "$1"
 
     kitty @ set-background-opacity "$DEFAULT_KITTY_OPACITY"
 }
