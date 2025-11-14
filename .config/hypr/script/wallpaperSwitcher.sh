@@ -24,9 +24,8 @@ applyWallpaper(){
        local BaseName="$(basename "$1")"
        local FileName="${BaseName%.*}"
 
-       awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 2 --transition-type grow --transition-fps 60 "$1"
+        awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type grow --transition-fps 60 "$1"
         sleep 0.8
-        #hyprctl hyprpaper reload "$2, $1" 
         local Color="$(hellwal --skip-term-colors  --check-contrast -i "$1")"
         dunstify -r "4" "Changed Wallpaper to $FileName"
     else
@@ -35,17 +34,16 @@ applyWallpaper(){
 }
 
 startKitten(){
-#    killKitten
-
+    killKitten
 
 #    kitty @ set-background-opacity 0.0
-    kitten panel --edge=background --margin-top=-1 --focus-policy=not-allowed "$1"
+    kitten panel --detach --edge=background --margin-top=-1 --focus-policy=not-allowed "$1"
 
     kitty @ set-background-opacity "$DEFAULT_KITTY_OPACITY"
 }
 
 killKitten(){
-    pkill -f '/usr/bin/kitty \+kitten panel'
+    pkill -f '/usr/bin/kitty \+kitten panel' || true
 }
 
 activeMonitor(){
@@ -75,6 +73,8 @@ help(){
     printf "\t set\n"
     printf "\t set-once\n"
     printf "\t set-random\n"
+    printf "\t kitten <program>\n"
+    printf "\t kill-kitten\n"
 }
 
 main(){
@@ -97,6 +97,9 @@ case $1 in
     ;;
     kitten) 
         startKitten "$2"
+    ;;
+    kill-kitten) 
+        killKitten
     ;;
     *)
         help "$@"
