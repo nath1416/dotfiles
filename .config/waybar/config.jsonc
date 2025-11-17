@@ -69,7 +69,7 @@
   "cpu": {
     "format": "{usage}% ",
     "format-alt": "{usage0}%, {usage1}%, {usage2}%, {usage3}% ",
-    "tooltip": false
+    "tooltip-format": "sdhf"
   },
   "memory": {
     "format": "{}% ",
