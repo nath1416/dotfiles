@@ -26,21 +26,21 @@ number=${pourcentage%\%}
 
 battery_icon="󰂃"
 
-if   (( number <= 10 )); then
+if   (( number <= 15 )); then
     battery_icon="󰁺"   # 0–10%
-elif (( number <= 20 )); then
+elif (( number <= 25 )); then
     battery_icon="󰁻"   # 11–20%
-elif (( number <= 30 )); then
+elif (( number <= 35 )); then
     battery_icon="󰁼"   # 21–30%
-elif (( number <= 40 )); then
+elif (( number <= 45 )); then
     battery_icon="󰁽"   # 31–40%
-elif (( number <= 50 )); then
+elif (( number <= 55 )); then
     battery_icon="󰁿"   # 41–50%
-elif (( number <= 60 )); then
+elif (( number <= 65 )); then
     battery_icon="󰂀"   # 51–60%
-elif (( number <= 70 )); then
+elif (( number <= 75 )); then
     battery_icon="󰂁"   # 61–70%
-elif (( number <= 80 )); then
+elif (( number <= 85 )); then
     battery_icon="󰁹"   # 71–80%
 fi
 
