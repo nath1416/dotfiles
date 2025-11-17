@@ -2,6 +2,9 @@
 
 WALLPAPER_PATH=/home/nathan/wallpapers
 
+
+hyprlockWallpaperPath=/home/nathan/.cache/hyprlock/wallPaper
+
 DEFAULT_KITTY_OPACITY=0.80
 
 set -e
@@ -33,6 +36,11 @@ applyWallpaper(){
     fi
 }
 
+setHyprlockWallpaper(){
+#    echo "\$wallPaperPath = $1" > $hyprlockWallpaperPath
+    ln -fs "$1" $hyprlockWallpaperPath
+}
+
 startKitten(){
     killKitten
 
@@ -56,11 +64,11 @@ getRandom(){
     echo "$Wallpaper"
 }
 
-setRandom(){
-    
-#    local Wallpaper=$(find "$WALLPAPER_PATH" -type f | shuf -n 1)
 
-applyWallpaper "$(getRandom)"
+
+setRandom(){
+    applyWallpaper "$(getRandom)"
+    setHyprlockWallpaper "$(getRandom)"
 }
 
 
