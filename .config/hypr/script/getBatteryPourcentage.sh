@@ -7,9 +7,13 @@ upowerResult=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
 
 state=$(echo "$upowerResult" | grep state | awk '{print $2}')
 
-state_icon=""
+state_icon="unknow: $state"
 
 if [[ "$state" == "pending-charge" ]]; then
+    state_icon=" "
+fi
+
+if [[ "$state" == "fully-charged" ]]; then
     state_icon=" "
 fi
 
@@ -44,4 +48,4 @@ else
     battery_icon="󰁹"
 fi
 
-echo "$pourcentage $battery_icon $state_icon"
+echo "$pourcentage $battery_icon $state_icon "
