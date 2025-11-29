@@ -108,6 +108,7 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+#custom-profile,
 #mpd {
     color: @foreground;
     border-radius: 8px;

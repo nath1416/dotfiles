@@ -11,6 +11,7 @@
   ],
   "modules-right": [
     "group/expand",
+    "custom/profile",
     "network",
     "bluetooth",
     "wireplumber",
@@ -39,7 +40,9 @@
   },
 "custom/profile": {
     "format": "{}",
-    "exec": "cat /sys/firmware/acpi/platform_profile"
+    "exec": "cat /sys/firmware/acpi/platform_profile",
+    "interval": 10,
+    "tooltip-format": "To change power profile:\nFn+l: Low-Power\nFn+m: Balanced\nFn+h: Performance"
 },
   "custom/endpoint": {
     "format": "|",
