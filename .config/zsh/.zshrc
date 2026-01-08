@@ -28,6 +28,8 @@ alias vim="nvim"
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias cd="z"
 alias ls="ls -h --color"
+
+alias make="make -j$(nproc)"
 #alias code="code --enable-proposed-api"
 
 setopt HIST_SAVE_NO_DUPS
