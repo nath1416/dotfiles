@@ -111,9 +111,11 @@ button:hover {
 #custom-profile,
 #mpd {
     color: @foreground;
+    /*
     border-radius: 8px;
     border-bottom: 1px solid @color14; 
     margin: 2px 0px 7px 0px;
+    */
 }
 
 #tray {

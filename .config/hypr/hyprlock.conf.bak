@@ -1,3 +1,4 @@
+
 # wallPaperPath 
 
 $assetPath = /home/nathan/Pictures/hyprlock
@@ -30,7 +31,7 @@ animations {
 }
 
 background {
-    color=rgba(%%background%%ee)
+    color=rgba(04080eff)
     monitor =
     #path = $assetPath/background.png
     path = /home/nathan/.cache/hyprlock/wallPaper
@@ -48,7 +49,6 @@ label {
     text = cmd[update:60000] date +"%A, %d %B %Y" # update every 60 seconds
     font_size = 25
     font_family = $font
-    color = rgb(%%foreground%%)
 
     position = 0, 500
     halign = center
@@ -72,7 +72,6 @@ label {
     text = $TIME 
     font_size = 80
     font_family = $font
-    color = rgb(%%foreground%%)
 #    color = $foreground
     position = 0, 390
     halign = center
@@ -98,12 +97,13 @@ input-field {
     outline_thickness = 4
     inner_color = rgba(0, 0, 0, 0.0) # no fill
 
-    outer_color = rgb(%%foreground%%)
+    outer_color = rgba(200, 200, 200, 1.0) 
     check_color = rgba(100, 100, 100, 1.0) 
     #fail_color = rgba(ff6633ee) rgba(ff0066ee) 40deg
     capslock_color = rgba(ff0000ff)
 
-   color = rgba(255, 255, 255, 1.0)
+    font_color = c
+   font_color = rgba(255, 255, 255, 1.0)
 #    font_size = 25
     fade_on_empty = false
     rounding = 15
@@ -144,7 +144,6 @@ label {
     text = cmd[update:2000] echo "$($scriptPath/mediaPlayer.sh data)"
     font_size = 10
     font_family = $font
-    color = rgb(%%foreground%%)
 
     position = 0, -475
     halign = center
@@ -156,7 +155,6 @@ label {
     text = cmd[update:1000] echo "$($scriptPath/getBatteryPourcentage.sh)"
     font_size = 15
     font_family = $font
-    color = rgb(%%foreground%%)
 
 #    color = $foreground
     position = 875, -550

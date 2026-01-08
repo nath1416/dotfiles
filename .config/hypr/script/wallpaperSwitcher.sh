@@ -67,8 +67,9 @@ getRandom(){
 
 
 setRandom(){
-    applyWallpaper "$(getRandom)"
-    setHyprlockWallpaper "$(getRandom)"
+    local path="$(getRandom)"
+    setHyprlockWallpaper "$path"
+    applyWallpaper "$path"
 }
 
 

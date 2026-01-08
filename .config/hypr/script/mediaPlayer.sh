@@ -15,18 +15,6 @@ getImage(){
     fi
 }
 
-getData(){
-    if ! havePlayer; then
-        exit 0
-    else
-        album="$(playerctl metadata album)"
-        artist="$(playerctl metadata artist)"
-        title="$(playerctl metadata title)"
-        pos="$(getPosition)"
-        echo "$title - $pos"
-    fi
-}
-
 getPosition(){
     if ! havePlayer; then
         exit 0
@@ -35,6 +23,34 @@ getPosition(){
         pos=${pos%.*}
 
         printf "%02d:%02d\n" $((pos/60)) $((pos%60))
+    fi
+}
+
+getPlayingIcon(){
+    local state="$(playerctl status)"
+    case "$state" in 
+        Playing)
+            printf "󰏤"
+        ;;
+        Paused)
+            printf ""
+        ;;
+        *)
+            printf "Unknow: %s" $state
+        ;;
+    esac
+}
+
+getData(){
+    if ! havePlayer; then
+        exit 0
+    else
+        album="$(playerctl metadata album)"
+        artist="$(playerctl metadata artist)"
+        title="$(playerctl metadata title)"
+        pos="$(getPosition)"
+        icon="$(getPlayingIcon)"
+        echo "$title - $icon $pos"
     fi
 }
 
@@ -49,6 +65,9 @@ main(){
         ;;
         position)
             getPosition
+        ;;
+        getPlayingIcon)
+            getPlayingIcon
         ;;
          *)
             helpMan
