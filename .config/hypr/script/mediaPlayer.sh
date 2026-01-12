@@ -10,7 +10,7 @@ getImage(){
     if ! havePlayer; then
         exit 0
     else
-        img="$(playerctl metadata mpris:artUrl | sed 's|^file://||')"
+        local img="$(playerctl metadata mpris:artUrl | sed 's|^file://||')"
         echo "$img"
     fi
 }
@@ -19,8 +19,8 @@ getPosition(){
     if ! havePlayer; then
         exit 0
     else
-        pos=$(playerctl position 2>/dev/null)
-        pos=${pos%.*}
+        local pos=$(playerctl position 2>/dev/null)
+        local pos=${pos%.*}
 
         printf "%02d:%02d\n" $((pos/60)) $((pos%60))
     fi
@@ -45,11 +45,11 @@ getData(){
     if ! havePlayer; then
         exit 0
     else
-        album="$(playerctl metadata album)"
-        artist="$(playerctl metadata artist)"
-        title="$(playerctl metadata title)"
-        pos="$(getPosition)"
-        icon="$(getPlayingIcon)"
+        local album="$(playerctl metadata album)"
+        local artist="$(playerctl metadata artist)"
+        local title="$(playerctl metadata title)"
+        local pos="$(getPosition)"
+        local icon="$(getPlayingIcon)"
         echo "$title - $icon $pos"
     fi
 }
