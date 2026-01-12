@@ -11,14 +11,15 @@
   ],
   "modules-right": [
     "group/expand",
-    "custom/profile",
     "network",
     "bluetooth",
+    "custom/profile",
     "wireplumber",
 //    "custom/profile",
     "memory",
     "cpu",
-    "battery"
+    "battery",
+    "custom/swaync"
   ],
   "group/expand": {
     "orientation": "horizontal",
@@ -41,12 +42,18 @@
   },
 "custom/profile": {
     "format": "{}",
-    "exec": "cat /sys/firmware/acpi/platform_profile",
-    "interval": 10,
-    "tooltip-format": "To change power profile:\nFn+l: Low-Power\nFn+m: Balanced\nFn+h: Performance"
+    "exec": "/home/nathan/.config/waybar/script/powerMode.sh mode",
+    "interval": 5,
+    "tooltip-format": "To change power profile:\nFn+l: Low-Power\t󱤊 \nFn+m: Balanced\t \nFn+h: Perf\t󰠠 ",
+    "on-click": "/home/nathan/.config/waybar/script/powerMode.sh cycle"
 },
   "custom/endpoint": {
     "format": "|",
+    "tooltip": false
+  },
+  "custom/swaync": {
+    "format": "  ",
+    "on-click": "swaync-client -t -sw",
     "tooltip": false
   },
   "hyprland/workspaces": {
@@ -116,7 +123,7 @@
     "format-disconnected": "Disconnected ⚠",
     "tooltip-format": "Ip\t{ipaddr}\nUp\t{bandwidthUpBits}\nDown\t{bandwidthDownBits}",
     "tooltip-format-wifi": "Ip\t{ipaddr}\nUp\t{bandwidthUpBits}\nDown\t{bandwidthDownBits}\nSignal\t{signalStrength}%\nFreq\t{frequency}GHz",
-    "on-click": ""
+    "on-click": "curl ifconfig.me"
   },
   "wireplumber": {
     "scroll-step": "5.0",

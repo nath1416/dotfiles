@@ -15,6 +15,7 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
+
 window#waybar.termite {
     background-color: #3F3F3F;
 }
@@ -59,9 +60,13 @@ button:hover {
 }
 
 #workspaces button.active {
+    background: rgba(0, 0, 0, 0.30);
+    border-radius: 0px;
+    /*
     border: 1px solid @color14; 
     background: inherit;
     border-radius: 5px;
+    */
 }
 
 #workspaces button.urgent {
@@ -90,7 +95,7 @@ button:hover {
 }
 
 #battery {
-    padding: 0px 10px 0px 10px; 
+    padding: 0px 10px 0px 0px;  
 }
 #backlight {
     padding: 0px 8px 0px 5px;
@@ -104,6 +109,7 @@ button:hover {
 #temperature,
 #network,
 #custom-media,
+#custom-swaync,
 #mode,
 #idle_inhibitor,
 #scratchpad,
