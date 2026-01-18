@@ -13,7 +13,7 @@ chooseFileName(){
 }
 
 sendNotif(){
-    dunstify "$1"
+    notify-send "$1"
 }
 
 fullScreen(){
