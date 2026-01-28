@@ -1,4 +1,4 @@
-@define-color cc-bg #16161d;
+/*@define-color cc-bg #16161d;
 @define-color noti-border-color #dcd7ba;
 @define-color noti-bg #11111b;
 @define-color noti-bg-darker #2b2b39;
@@ -14,6 +14,9 @@
 @define-color red-hover #e46876;
 @define-color green-base #98bb6c;
 @define-color blue-base #7e9cd8;
+*/
+
+@import url("swaync-colors.css");
 
 * {
   font-family: 'Cousine Nerd Font', monospace;
@@ -59,6 +62,7 @@
   background: @cc-bg;
   border: 2px solid @border-green;
   margin: 3px -2px 3px 0;
+  color: @text-color;
 }
 
 .close-button {

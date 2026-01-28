@@ -15,9 +15,9 @@
     "bluetooth",
     "custom/profile",
     "wireplumber",
-//    "custom/profile",
     "memory",
     "cpu",
+    "custom/idleIndicator",
     "battery",
     "custom/swaync"
   ],
@@ -31,8 +31,6 @@
     "modules": [
       "custom/expand",
       "tray",
-      "backlight",
-      "mpris",
       "custom/endpoint"
     ]
   },
@@ -44,15 +42,23 @@
     "format": "{}",
     "exec": "/home/nathan/.config/waybar/script/powerMode.sh mode",
     "interval": 5,
-    "tooltip-format": "To change power profile:\nFn+l: Low-Power\t󱤊 \nFn+m: Balanced\t \nFn+h: Perf\t󰠠 ",
+    "tooltip-format": "Fn+l: Low-Power\t󱤊 \nFn+m: Balanced\t \nFn+h: Perf\t󰠠 ",
     "on-click": "/home/nathan/.config/waybar/script/powerMode.sh cycle"
+},
+"custom/idleIndicator": {
+    "format": "{}",
+    "exec": "/home/nathan/.config/waybar/script/idleIndicator.sh getIcon",
+    "interval": 5,
+    "on-click": "/home/nathan/.config/waybar/script/idleIndicator.sh toggle"
 },
   "custom/endpoint": {
     "format": "|",
     "tooltip": false
   },
   "custom/swaync": {
-    "format": "  ",
+    "format": " {} ",
+    "return-type": "json",
+    "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "tooltip": false
   },

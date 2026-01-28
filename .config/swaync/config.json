@@ -21,7 +21,7 @@
   "hide-on-clear": false,
   "hide-on-action": true,
   "text-empty": "No Notification",
-  "widgets": ["title", "buttons-grid", "mpris"],
+  "widgets": ["title", "mpris"],
   "widget-config": {
     "title": {
       "text": "Notification Center",

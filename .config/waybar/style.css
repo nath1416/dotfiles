@@ -111,7 +111,6 @@ button:hover {
 #custom-media,
 #custom-swaync,
 #mode,
-#idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
 #custom-profile,
@@ -124,6 +123,10 @@ button:hover {
     */
 }
 
+#custom-idleIndicator{
+    padding: 0 5px 0 0;
+    color: @foreground;
+}
 #tray {
     padding: 0 10px;
     color: @foreground;
