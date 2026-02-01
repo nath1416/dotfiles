@@ -43,3 +43,6 @@ vim.cmd([[
 -- Set omnifunc
 vim.opt.omnifunc = 'syntaxcomplete#Complete'
 
+
+require("config.lazy")
+
