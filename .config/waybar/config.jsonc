@@ -121,7 +121,8 @@
       "󰁿",
       "󰂁",
       "󰁹"
-    ]
+    ],
+    "tooltip-format": "Full\t{time}\nPower\t{power}W"
   },
   "network": {
     "format-wifi": "   {essid} ",
