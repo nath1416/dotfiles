@@ -16,6 +16,7 @@ performanceMode(){
 low-powerMode(){
     echo "󱤊 "
 }
+
 unknowMode(){
     printf "Unknow: $1"
 }
@@ -47,7 +48,6 @@ main(){
             output=$(getIconMode "$mode")
             printf "$output\n"
         ;;
-            
     esac
 
 }

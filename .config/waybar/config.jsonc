@@ -38,19 +38,18 @@
     "format": "",
     "tooltip": false
   },
-"custom/profile": {
+  "custom/profile": {
     "format": "{}",
     "exec": "/home/nathan/.config/waybar/script/powerMode.sh mode",
     "interval": 5,
-    "tooltip-format": "Fn+l: Low-Power\t󱤊 \nFn+m: Balanced\t \nFn+h: Perf\t󰠠 ",
-    "on-click": "/home/nathan/.config/waybar/script/powerMode.sh cycle"
-},
-"custom/idleIndicator": {
+    "tooltip-format": "Fn+l: Low-Power\t󱤊 \nFn+m: Balanced\t \nFn+h: Perf\t󰠠 "
+  },
+  "custom/idleIndicator": {
     "format": "{}",
     "exec": "/home/nathan/.config/waybar/script/idleIndicator.sh getIcon",
     "interval": 5,
     "on-click": "/home/nathan/.config/waybar/script/idleIndicator.sh toggle"
-},
+  },
   "custom/endpoint": {
     "format": "|",
     "tooltip": false
@@ -94,10 +93,9 @@
   },
   "bluetooth": {
     "format-on": "󰂯",
-    "format-off": "BT-off", 
+    "format-off": "BT-off",
     "format-disabled": "󰂲",
     "format-connected-battery": "󰂯 {device_alias}-{device_battery_percentage}% 󰂂",
-//    "format-alt": "{device_alias}󰂯",
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
@@ -109,6 +107,10 @@
       "good": 90,
       "warning": 30,
       "critical": 15
+    },
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'"
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
@@ -139,16 +141,14 @@
     "on-click": "pwvucontrol"
   },
   "mpris": {
-	"format": "{player_icon} {album}-{artist}",
-	"format-paused": "{status_icon} {album}-{artist}",
-	"player-icons": {
-		"default": "▶",
-		"mpv": "🎵"
-	},
-	"status-icons": {
-		"paused": "⏸"
-	}
-	// "ignored-players": ["firefox"]
-}
-
+    "format": "{player_icon} {album}-{artist}",
+    "format-paused": "{status_icon} {album}-{artist}",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
+  }
 }
