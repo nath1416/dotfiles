@@ -29,7 +29,7 @@ applyWallpaper(){
         local FileName="${BaseName%.*}"
         echo "$1" > $SAVE_PATH_WALLPAPER
 
-        awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type grow --transition-fps 60 "$1"
+        awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$1"
         sleep 0.8
         hellwal --skip-term-colors  --check-contrast -i "$1"
         swaync-client -rs
