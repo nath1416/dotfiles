@@ -1,10 +1,13 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 
 set -e
 
 msgTag="3"
 
 changeVolume() {
+    local change
+    local currentVolume
+
     change="$1"
     wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ "$change"
     currentVolume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
@@ -34,7 +37,7 @@ muteMic(){
 }
 
 main() {
-case $1 in
+case "$1" in
     muteSpeaker)
         muteSpeaker
     ;;

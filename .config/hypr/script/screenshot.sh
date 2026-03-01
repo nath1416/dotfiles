@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 
-
 set -e
 
 chooseFileName(){
+    local name
     name=$(wofi --color ~/.cache/hellwal/wofi.colors  -c "$HOME/.config/wofi/custom/screenshot.config" --show dmenu)
     if [[ "$name" == "" ]]; then
         exit
@@ -17,6 +17,7 @@ sendNotif(){
 }
 
 fullScreen(){
+    local name
     name=$(chooseFileName)
     sleep 1
     mkdir -p "$(xdg-user-dir PICTURES)/screenShots"
@@ -25,6 +26,8 @@ fullScreen(){
 }
 
 selectScreen(){
+    local size
+    local name
     size=$(slurp -w 2)
     name=$(chooseFileName)
     sleep 1

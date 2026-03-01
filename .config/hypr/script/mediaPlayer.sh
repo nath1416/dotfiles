@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 
+set -e 
 
 msgTag="19"
 
@@ -9,19 +10,22 @@ havePlayer(){
 }
 
 getImage(){
-    local img="$(playerctl metadata mpris:artUrl | sed 's|^file://||')"
+    local img
+    img="$(playerctl metadata mpris:artUrl | sed 's|^file://||')"
     echo "$img"
 }
 
 getPosition(){
-    local pos=$(playerctl position 2>/dev/null)
-    local pos=${pos%.*}
+    local pos
+    pos=$(playerctl position 2>/dev/null)
+    pos=${pos%.*}
 
     printf "%02d:%02d\n" $((pos/60)) $((pos%60))
 }
 
 getPlayingIcon(){
-    local state="$(playerctl status)"
+    local state
+    state="$(playerctl status)"
     case "$state" in 
         Playing)
             printf "󰏤"
@@ -30,23 +34,32 @@ getPlayingIcon(){
             printf ""
         ;;
         *)
-            printf "Unknow: %s" $state
+            printf "Unknow: %s" "$state"
         ;;
     esac
 }
 
 getData(){
-    local album="$(playerctl metadata album)"
-    local artist="$(playerctl metadata artist)"
-    local title="$(playerctl metadata title)"
-    local pos="$(getPosition)"
-    local icon="$(getPlayingIcon)"
+    local album
+    local artist
+    local title
+    local pos
+    local icon
+
+    album="$(playerctl metadata album)"
+    artist="$(playerctl metadata artist)"
+    title="$(playerctl metadata title)"
+    pos="$(getPosition)"
+    icon="$(getPlayingIcon)"
     echo "$title - $icon $pos"
 }
 
 sendNotif(){
-    local image="$(getImage)"
-    local data="$(getData)"
+    local image
+    local data
+    
+    image="$(getImage)"
+    data="$(getData)"
     notify-send -i "$image" -r "$msgTag" "$data"
 }
 

@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -e 
+
 LAUNCHER=/usr/bin/app2unit
 
 WORKSPACE_NAME="music"

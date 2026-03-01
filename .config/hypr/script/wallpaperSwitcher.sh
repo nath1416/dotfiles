@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 WALLPAPER_PATH=/home/nathan/wallpapers
 
 SAVE_PATH_WALLPAPER=/home/nathan/.config/hypr/wallpaper.txt
@@ -8,7 +10,6 @@ hyprlockWallpaperPath=/home/nathan/.cache/hyprlock/wallPaper
 
 DEFAULT_KITTY_OPACITY=0.80
 
-set -e
 
 hellpaperWallpaper() {
     if [ -n "$(pidof hellpaper)" ]; then
@@ -16,9 +17,11 @@ hellpaperWallpaper() {
         exit 0
     fi
 
-    local Wallpaper="$(hellpaper $WALLPAPER_PATH)"
-    printf "WallPaper seleced: %s\n" "$Wallpaper"
-    applyWallpaper "$Wallpaper" "${1//\"/}"
+    local wallpaper
+
+    wallpaper="$(hellpaper $WALLPAPER_PATH)"
+    printf "WallPaper seleced: %s\n" "$wallpaper"
+    applyWallpaper "$wallpaper" "${1//\"/}"
 
 }
 
@@ -27,8 +30,11 @@ applyWallpaper(){
     if [ -n "$1" ]; then
         setHyprlockWallpaper "$1"
 
-        local BaseName="$(basename "$1")"
-        local FileName="${BaseName%.*}"
+        local BaseName
+        local FileName
+
+        BaseName="$(basename "$1")"
+        FileName="${BaseName%.*}"
         echo "$1" > $SAVE_PATH_WALLPAPER
 
         awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$1"
@@ -58,19 +64,22 @@ killKitten(){
 }
 
 activeMonitor(){
-    local monitor="$(hyprctl activeworkspace -j | jq '.monitor')"
+    local monitor
+    monitor="$(hyprctl activeworkspace -j | jq '.monitor')"
     echo "$monitor"
 }
 
 getRandom(){
-    local Wallpaper=$(find "$WALLPAPER_PATH" -type f | shuf -n 1)
-    echo "$Wallpaper"
+    local wallpaper
+    wallpaper=$(find "$WALLPAPER_PATH" -type f | shuf -n 1)
+    echo "$wallpaper"
 }
 
 
 
 setRandom(){
-    local path="$(getRandom)"
+    local path
+    path="$(getRandom)"
     applyWallpaper "$path"
 }
 
@@ -90,7 +99,7 @@ help(){
 
 main(){
 
-case $1 in
+case "$1" in
     hellpaper)
        hellpaperWallpaper 
     ;;

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash 
 
+set -e 
+
 active_workspace_id=$(hyprctl activeworkspace -j | jq '.id')
 
 clients_to_kill=$(hyprctl clients -j | \
