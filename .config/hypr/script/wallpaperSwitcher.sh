@@ -25,6 +25,8 @@ hellpaperWallpaper() {
 applyWallpaper(){
 
     if [ -n "$1" ]; then
+        setHyprlockWallpaper "$1"
+
         local BaseName="$(basename "$1")"
         local FileName="${BaseName%.*}"
         echo "$1" > $SAVE_PATH_WALLPAPER
@@ -69,7 +71,6 @@ getRandom(){
 
 setRandom(){
     local path="$(getRandom)"
-    setHyprlockWallpaper "$path"
     applyWallpaper "$path"
 }
 
