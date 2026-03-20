@@ -28,19 +28,22 @@ hellpaperWallpaper() {
 applyWallpaper(){
 
     if [ -n "$1" ]; then
-        setHyprlockWallpaper "$1"
+
+        local RealPath
+        RealPath="$(realpath $1)"
+        echo "$RealPath" > $SAVE_PATH_WALLPAPER
+
+        setHyprlockWallpaper "$RealPath"
+
+        awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$RealPath"
+        sleep 0.8
+        hellwal --skip-term-colors  --check-contrast -i "$RealPath"
+        swaync-client -rs
 
         local BaseName
         local FileName
-
         BaseName="$(basename "$1")"
         FileName="${BaseName%.*}"
-        echo "$1" > $SAVE_PATH_WALLPAPER
-
-        awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$1"
-        sleep 0.8
-        hellwal --skip-term-colors  --check-contrast -i "$1"
-        swaync-client -rs
         notify-send -r "4" "Changed Wallpaper to $FileName"
     else
         printf "Missing argument\n"
