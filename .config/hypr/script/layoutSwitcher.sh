@@ -4,10 +4,12 @@ set -e
 
 MSG_TAG="73"
 
+
 get_layout(){
     # Gives the most popular layout, only one value
     local layout=""
-    layout="$(hyprctl workspaces -j | jq -r '.[].tiledLayout' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')"
+#    layout="$(hyprctl workspaces -j | jq -r '.[].tiledLayout' | sort | uniq -c | sort -nr | head -1 | awk '{print $2}')"
+    layout="$(hyprctl getoption general:layout -j | jq -r '.str')"
 
     echo "$layout"
 }
@@ -34,11 +36,15 @@ Hyprctl returned: $output"""
 }
 
 
-#states=("dwindle" "monocle" "master" "scrolling")
-states=("dwindle" "scrolling")
 
 next_state() {
-    local current="$1"
+    local current=""
+    local states=""
+
+    states=("dwindle" "monocle" "master" "scrolling")
+    #states=("dwindle" "scrolling")
+
+    current="$1"
 
     for i in "${!states[@]}"; do
         if [[ "${states[$i]}" == "$current" ]]; then
@@ -63,6 +69,20 @@ cycle_layout(){
     set_layout "$newLayout"
 }
 
+
+get_layout_icon(){
+    local layout=""
+    layout="$(get_layout)"
+    echo "$layout"
+}
+
+helpMan(){
+    printf "Args to program :\n"
+    printf "\tset\n"
+    printf "\tget\n"
+    printf "\tget-icon\n"
+    printf "\tnext\n"
+}
 main(){
    case "$1" in
          set)
@@ -70,6 +90,9 @@ main(){
          ;;
         get)
             get_layout
+        ;;
+        get-icon)
+            get_layout_icon
         ;;
         next)
            cycle_layout 
@@ -82,5 +105,5 @@ main(){
 
 main "$@"
 
-printf "Current layout: $(get_layout) "
-printf "Args: $@"
+printf "Current layout: $(get_layout)\n"
+printf "Args: $@\n"
