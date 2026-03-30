@@ -14,16 +14,17 @@ get_layout(){
 
 send_notif(){
 
-#	[[ -n "$1" ]] && return
+	[[ -z "$1" ]] && return
     notify-send -r "$MSG_TAG" "$1"
 }
 
 set_layout(){
     local newLayout="" 
-	[[ -n "$newLayout" ]] && return
+    newLayout="$1"
+	[[ -z "$newLayout" ]] && return
     
     local output=""
-    output="$(hyprctl keyword general:layout $1)"
+    output="$(hyprctl keyword general:layout $newLayout)"
 
     local currentLayout=""
     currentLayout="$(get_layout)"
@@ -33,7 +34,8 @@ Hyprctl returned: $output"""
 }
 
 
-states=("dwindle" "master" "scrolling")
+#states=("dwindle" "monocle" "master" "scrolling")
+states=("dwindle" "scrolling")
 
 next_state() {
     local current="$1"
@@ -71,7 +73,6 @@ main(){
         ;;
         next)
            cycle_layout 
-        
          ;;
          *)
             helpMan
