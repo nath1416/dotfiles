@@ -28,6 +28,7 @@ alias vim="nvim"
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias cd="z"
 alias ls="ls -h --color"
+alias nixflake="nix develop --extra-experimental-features 'nix-command flakes' -c"
 
 alias make="make -j$(nproc)"
 #alias code="code --enable-proposed-api"

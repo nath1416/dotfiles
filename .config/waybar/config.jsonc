@@ -30,6 +30,7 @@
     },
     "modules": [
       "custom/expand",
+      "custom/layoutIndicator",
       "tray",
       "custom/endpoint"
     ]
@@ -49,6 +50,12 @@
     "exec": "/home/nathan/.config/waybar/script/idleIndicator.sh getIcon",
     "interval": 5,
     "on-click": "/home/nathan/.config/waybar/script/idleIndicator.sh toggle"
+  },
+  "custom/layoutIndicator": {
+    "format": "{}",
+    "exec": "/home/nathan/.config/hypr/script/layoutSwitcher.sh get-icon",
+    "interval": 5,
+    "on-click": "/home/nathan/.config/hypr/script/layoutSwitcher.sh next"
   },
   "custom/endpoint": {
     "format": "|",
