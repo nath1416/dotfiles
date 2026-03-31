@@ -41,8 +41,8 @@ next_state() {
     local current=""
     local states=""
 
-    states=("dwindle" "monocle" "master" "scrolling")
-    #states=("dwindle" "scrolling")
+    #states=("dwindle" "monocle" "master" "scrolling")
+    states=("dwindle" "scrolling")
 
     current="$1"
 
