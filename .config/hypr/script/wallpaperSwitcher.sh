@@ -31,7 +31,7 @@ applyWallpaper(){
 
         local RealPath
         RealPath="$(realpath $1)"
-        echo "$RealPath" > $SAVE_PATH_WALLPAPER
+        echo "$RealPath" > "$SAVE_PATH_WALLPAPER"
 
         setHyprlockWallpaper "$RealPath"
 
