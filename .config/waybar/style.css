@@ -114,6 +114,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #custom-profile,
+#custom-layoutIndicator,
 #mpd {
     color: @foreground;
     /*
