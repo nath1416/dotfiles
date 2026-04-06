@@ -53,6 +53,25 @@ getData(){
     icon="$(getPlayingIcon)"
     echo "$title - $icon $pos"
 }
+getDataImage(){
+
+    local img=""
+    img="$(getImage)"
+    [[ -z $img ]] && return
+    local album
+    local artist
+    local title
+    local pos
+    local icon
+
+    album="$(playerctl metadata album)"
+    artist="$(playerctl metadata artist)"
+    title="$(playerctl metadata title)"
+    pos="$(getPosition)"
+    icon="$(getPlayingIcon)"
+    echo "$title - $icon $pos"
+}
+
 
 sendNotif(){
     local image
@@ -105,6 +124,9 @@ main(){
         ;;
         data)
             getData
+        ;;
+        dataImageProof)
+            getDataImage
         ;;
         position)
             getPosition
