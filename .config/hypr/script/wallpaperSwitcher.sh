@@ -37,6 +37,8 @@ applyWallpaper(){
 
         awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$RealPath"
         sleep 0.8
+
+        matugen image "$RealPath" --prefer darkness
         hellwal --skip-term-colors  --check-contrast -i "$RealPath"
         swaync-client -rs
 
