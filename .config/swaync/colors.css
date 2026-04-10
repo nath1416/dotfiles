@@ -1,0 +1,59 @@
+
+/*@define-color noti-border-color #243424;
+@define-color noti-bg #b9ccb5;
+@define-color noti-bg-darker #b9ccb5;
+@define-color noti-bg-hover #1b1b2b;
+@define-color noti-bg-focus #1b1b1b;
+@define-color noti-close-bg #dcd7ba;
+@define-color noti-close-bg-hover #dcd7ba;
+
+
+/* Notification main box */
+/*
+@define-color cc-bg #205026;
+@define-color cc-text-color #b9f0b7;
+
+@define-color text-color-disabled #b9f0b7;
+
+@define-color bg-selected #b9f0b7;
+@define-color border-green #b9f0b7;
+@define-color red-base #c34043;
+@define-color red-hover #e46876;
+@define-color green-base #b9f0b7;
+@define-color blue-base #b9f0b7;
+@define-color foreground #b9f0b7;
+@define-color background #b9f0b7;
+*/
+/* Notification colors */
+@define-color noti-border-color #8c9389;
+@define-color noti-bg #3a4b39;
+@define-color noti-bg-darker #3a4b39;
+@define-color noti-bg-hover #3a4b39;
+@define-color noti-bg-focus #b9ccb5;
+
+/* Close button */
+@define-color noti-close-bg #ffb4ab;
+@define-color noti-close-bg-hover #ffb4ab;
+
+/* Control center */
+@define-color cc-bg #101410;
+@define-color cc-text-color #e0e4db;
+
+/* Text */
+@define-color text-color #e0e4db;
+@define-color text-color-disabled #c2c9bd;
+
+/* Borders / accents */
+@define-color border-green #8c9389;
+@define-color green-base #9ed49d;
+@define-color blue-base #b9ccb5;
+@define-color red-base #ffb4ab;
+@define-color red-hover #ffb4ab;
+
+/* Correct background usage */
+@define-color background #101410;
+@define-color foreground #e0e4db;
+
+@define-color primary #9ed49d;
+@define-color on_primary #043912;
+@define-color on_primary_container #b9f0b7;

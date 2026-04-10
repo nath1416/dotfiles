@@ -1,5 +1,5 @@
 
-@import url("swaync-colors.css");
+@import url("colors.css");
 
 * {
   font-family: "Cousine Nerd Font", monospace;
@@ -7,10 +7,20 @@
 }
 
 /* Hover highlight */
-.control-center .notification-row:focus,
-.control-center .notification-row:hover {
-  opacity: 1;
-  background: @noti-bg-darker;
+.control-center .notification-row:hover .notification {
+  background: @noti-bg;
+  border-color: @noti-close-bg;
+}
+
+.control-center .notification-row:hover .summary,
+.control-center .notification-row:hover .body,
+.control-center .notification-row:hover .time {
+  color: @text-color;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+  border: 2px solid @noti-bg;
+  margin: 3px -2px 3px 0;
 }
 
 .notification-row {
@@ -43,28 +53,17 @@
 
 /* Notification main box */
 .notification {
-  background: @cc-bg;
-  border: 2px solid @border-green;
+  background: @background;
+  border: 2px solid @on_background;
   margin: 3px -2px 3px 0;
-  color: @text-color; 
+  color: @on_background; 
 }
 
-.floating-notifications.background .notification-row .notification-background .notification {
-  background: @background;
-  border: 2px solid @noti-bg;
-  margin: 3px -2px 3px 0;
-  color: @background;
-}
-.floating-notifications.background .notification-row .notification-background .notification .notification-content .summary {
-  color: @foreground;
-}
-.floating-notifications.background .notification-row .notification-background .notification .notification-content .body {
-  color: @foreground;
-}
+*/
 /* Close button */
 .close-button {
-  background: @red-base;
-  color: @cc-bg;
+  background: @background;
+  color: @on_background;
   padding: 0;
   margin: 5px;
   opacity: 0;
@@ -75,7 +74,7 @@
 .notification:hover .close-button {
   opacity: 1;
 }
-
+/*
 .close-button:hover {
   background: @red-hover;
 }
@@ -89,7 +88,7 @@
 .notification-default-action:hover,
 .notification-action:hover {
   background: @cc-bg;
-  color: @text-color; /* ✅ keep readable */
+  color: @cc-text-color; /* ✅ keep readable */
 }
 
 /* Inline reply */
@@ -99,14 +98,14 @@
   caret-color: @text-color;
   border: 1px solid @noti-border-color;
 }
-
+/*
 .inline-reply-button {
   margin: 4px;
   background: @noti-bg;
   border: 1px solid @noti-border-color;
   color: @text-color;
 }
-
+*/
 .inline-reply-button:hover {
   background: @noti-bg-hover;
 }
@@ -115,7 +114,7 @@
 .summary {
   font-size: 16px;
   font-weight: 700;
-  color: @green-base;
+  color: @on_background;
 }
 
 .time {
@@ -128,7 +127,7 @@
 .body {
   font-size: 15px;
   font-weight: 400;
-  color: @text-color;
+  color: @cc-text-color;
 }
 
 /* Control center */
@@ -139,8 +138,8 @@
 
 /* Widget titles */
 .widget-title {
-  color: @blue-base;
-  background: @noti-bg-darker;
+  color: @on_background;
+  background: @background;
   padding: 5px 10px;
   margin: 10px;
   font-size: 1.5rem;
@@ -176,50 +175,48 @@
 .widget-buttons-grid > flowbox > flowboxchild > button {
   margin: 3px;
   padding: 4px 30px;
-  background: @cc-bg;
-  color: @text-color;
+  background: @background;
+  color: @on_background;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: @blue-base;
-  color: @cc-bg;
+  background: @background;
+  color: @on_background;
 }
 
 .widget-buttons-grid > flowbox > flowboxchild > button:checked {
-  background: @green-base;
-  color: @cc-bg;
+  background: @background;
+  color: @on_background;
 }
 
 /* Volume & backlight */
 .widget-volume,
 .widget-backlight {
-  background: @noti-bg-darker;
+  background: @background;
   padding: 5px;
   margin: 5px 10px;
   font-size: 2rem;
-  color: @blue-base;
+  color: @on_background;
 }
 
 /* MPRIS */
 .widget-mpris {
-  background: @noti-bg-darker;
+  background: @background;
   margin: 0 10px 10px 10px;
-  color: @text-color;
+  color: @on_background;
 }
 
 picture.mpris-background {
   opacity: 0;
 }
 
-/* ✅ FIXED NOTIFICATION ACTION BUTTONS */
 .notification-action > button {
-  background: @noti-bg-darker;
-  color: @text-color; /* ✅ FIX: readable text */
+  background: @background;
+  color: @on_background;
   border: 1px solid @border-green;
 }
 
 .notification-action > button:hover {
-  background: @border-green;
-  color: @cc-bg; /* ✅ visible hover text */
+  background: @background;
+  color: @on_background;
 }
-
