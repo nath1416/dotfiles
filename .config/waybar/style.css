@@ -1,4 +1,5 @@
-@import '../../.cache/hellwal/waybar-colors.css';
+
+@import './colors.css';
 
 * {
     font-family: 'Cousine Nerd Font';
@@ -6,7 +7,8 @@
 }
 
 window#waybar {
-    background-color: @color1;
+    /*background-color: @color1;*/
+    background-color: @secondary_container;
     color: #ffffff;
     transition-property: box-shadow;
     transition-duration: .5s;
@@ -18,11 +20,6 @@ window#waybar.hidden {
 
 window#waybar.termite {
     background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
 }
 
 
@@ -47,7 +44,7 @@ button:hover {
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: @foreground;
+    color: @on_secondary_container;
     transition: border 0.5s;
     margin: 0 4px;
     border-radius: 5px;
@@ -60,7 +57,7 @@ button:hover {
 }
 
 #workspaces button.active {
-    background: rgba(0, 0, 0, 0.30);
+    background: @on_secondary_fixed;
     border-radius: 0px;
     /*
     border: 1px solid @color14; 
@@ -79,11 +76,11 @@ button:hover {
 }
 
 #clock {
-    color: @foreground;
+    color: @on_secondary_container;
 }
 
 #custom-expand {
-    color: @foreground;
+    color: @on_secondary_container;
     padding: 0px 10px 0px 0px;
 }
 #bluetooth,
@@ -116,7 +113,7 @@ button:hover {
 #custom-profile,
 #custom-layoutIndicator,
 #mpd {
-    color: @foreground;
+    color: @on_secondary_container;
     /*
     border-radius: 8px;
     border-bottom: 1px solid @color14; 
@@ -126,11 +123,11 @@ button:hover {
 
 #custom-idleIndicator{
     padding: 0 5px 0 0;
-    color: @foreground;
+    color: @on_secondary_container;
 }
 #tray {
     padding: 0 10px;
-    color: @foreground;
+    color: @on_secondary_container;
 }
 
 #window,
