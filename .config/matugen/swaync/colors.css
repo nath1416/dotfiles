@@ -1,29 +1,15 @@
-
-/*@define-color noti-border-color {{colors.on_secondary.default.hex}};
-@define-color noti-bg {{colors.secondary.default.hex}};
-@define-color noti-bg-darker {{colors.secondary.dark.hex}};
-@define-color noti-bg-hover #1b1b2b;
-@define-color noti-bg-focus #1b1b1b;
-@define-color noti-close-bg #dcd7ba;
-@define-color noti-close-bg-hover #dcd7ba;
-
-
-/* Notification main box */
 /*
-@define-color cc-bg {{colors.primary_container.default.hex}};
-@define-color cc-text-color {{colors.on_primary_container.default.hex}};
-
-@define-color text-color-disabled {{colors.on_primary_container.default.hex}};
-
-@define-color bg-selected {{colors.on_primary_container.default.hex}};
-@define-color border-green {{colors.on_primary_container.default.hex}};
-@define-color red-base #c34043;
-@define-color red-hover #e46876;
-@define-color green-base {{colors.on_primary_container.default.hex}};
-@define-color blue-base {{colors.on_primary_container.default.hex}};
-@define-color foreground {{colors.on_primary_container.default.hex}};
-@define-color background {{colors.on_primary_container.default.hex}};
+* Css Colors
+* Generated with Matugen
 */
+
+<* for name, value in colors *>
+@define-color {{name}} {{value.default.hex}};
+<* endfor *>
+
+/* End of color auto generation */
+
+
 /* Notification colors */
 @define-color noti-border-color {{colors.outline.default.hex}};
 @define-color noti-bg {{colors.secondary_container.default.hex}};
@@ -51,9 +37,5 @@
 @define-color red-hover {{colors.error.default.hex}};
 
 /* Correct background usage */
-@define-color background {{colors.background.default.hex}};
 @define-color foreground {{colors.on_background.default.hex}};
 
-@define-color primary {{colors.primary.default.hex}};
-@define-color on_primary {{colors.on_primary.default.hex}};
-@define-color on_primary_container {{colors.on_primary_container.default.hex}};

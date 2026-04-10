@@ -39,8 +39,7 @@ applyWallpaper(){
         sleep 0.8
 
         matugen image "$RealPath" --prefer darkness
-        hellwal --skip-term-colors  --check-contrast -i "$RealPath"
-        swaync-client -rs
+        #hellwal --skip-term-colors  --check-contrast -i "$RealPath"
 
         local BaseName
         local FileName

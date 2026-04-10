@@ -1,4 +1,12 @@
 [config]
+version_check = false
+fallback_color = "#ffbf9b"
+
+# Cache location $XDG_CACHE_HOME/matugen/<file> or $HOME/.cache/matugen/images/<file>
+caching = true
+
+# choices: [darkness, lightness, saturation, less-saturation, value, closest-to-fallback]
+prefer = "darkness"
 
 [templates.waybar]
 input_path = '~/.config/matugen/waybar/colors.css'
@@ -15,4 +23,5 @@ output_path = '~/.config/hypr/hyprlock.conf'
 [templates.swaync]
 input_path = '~/.config/matugen/swaync/colors.css'
 output_path = '~/.config/swaync/colors.css'
+post_hook = "swaync-client -rs"
 
