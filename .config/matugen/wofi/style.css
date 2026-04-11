@@ -7,9 +7,9 @@
 #window {
   margin: 8px;
   padding: 4px;
-  border: 2px solid #ffd8e8;
-  background-color: #613b4e;
-  color: #e4dfff;
+  border: 2px solid {{colors.on_tertiary_container.default.hex}};
+  background-color: {{colors.tertiary_container.default.hex}};
+  color: {{colors.on_primary_container.default.hex}};
   font-family: "CousineNerdFont";
   border-radius: 10px;
 }
@@ -24,9 +24,9 @@
 #input {
   margin: 6px;
   padding: 8px;
-  background-color: #454077;
+  background-color: {{colors.primary_container.default.hex}};
   border-radius: 6px;
-  color: #e4dfff;
+  color: {{colors.on_primary_container.default.hex}};
   border: none;
   font-family: "CousineNerdFont";
 }
@@ -40,16 +40,16 @@
 }
 
 #entry:nth-child(even) {
-  background-color: #474459;
+  background-color: {{colors.secondary_container.default.hex}};
 }
 
 #entry:nth-child(odd) {
-  background-color: #474459;
+  background-color: {{colors.secondary_container.default.hex}};
 }
 
 #entry:selected {
-  background-color: #474459;
-  border: 1px solid #e4dff9;
+  background-color: {{colors.secondary_container.default.hex}};
+  border: 1px solid {{colors.on_secondary_container.default.hex}};
 }
 
 #entry:selected #text {

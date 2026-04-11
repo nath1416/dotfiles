@@ -8,6 +8,8 @@ caching = true
 # choices: [darkness, lightness, saturation, less-saturation, value, closest-to-fallback]
 prefer = "darkness"
 
+
+
 [templates.waybar]
 input_path = '~/.config/matugen/waybar/colors.css'
 output_path = '~/.config/waybar/colors.css'
@@ -25,3 +27,6 @@ input_path = '~/.config/matugen/swaync/colors.css'
 output_path = '~/.config/swaync/colors.css'
 post_hook = "swaync-client -rs"
 
+[templates.wofi]
+input_path = '~/.config/matugen/wofi/style.css'
+output_path = '~/.config/wofi/style.css'
