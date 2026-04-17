@@ -32,19 +32,16 @@ applyWallpaper(){
         local RealPath
         RealPath="$(realpath $1)"
         echo "$RealPath" > "$SAVE_PATH_WALLPAPER"
-
+        
+        [[ "$verbose" -eq 1 ]] && echo "Set Wallpaper to $RealPath"
 
         awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$RealPath"
         sleep 0.8
 
 #        matugen image "$RealPath" --prefer darkness || notify-send -r "4" "Failed to load "
 #        set +e
-        if ! error_output=$(matugen image "$RealPath" --prefer darkness 2>&1); then
-            notify-send -r 4 "Matugen Failed" "$error_output"
-            echo "Matugen failed"
-            exit
-        fi
 
+        setMatugen "$RealPath"
         set -e
         local BaseName
         local FileName
@@ -54,6 +51,17 @@ applyWallpaper(){
     else
         printf "Missing argument\n"
     fi
+}
+
+setMatugen(){
+   local path
+   path="$1"
+
+   if ! error_output=$(matugen image "$RealPath" --prefer darkness 2>&1); then
+       notify-send -r 4 "Matugen Failed" "$error_output"
+       echo "Matugen failed"
+       exit
+   fi
 }
 
 startKitten(){
@@ -96,7 +104,10 @@ reloadWallpaper(){
 
 help(){
     printf "Unknow argument: %s\n" "$1"
-    printf "%s [Argument]\n" "$0"
+    printf "%s (Flag) [Argument]\n" "$0"
+    printf "Flags: \n"
+    printf "\t -v\n"
+    printf "\t -h\n"
     printf "Argument: \n"
 #    printf "\t hellpaper\n"
     printf "\t set\n"
@@ -106,15 +117,32 @@ help(){
     printf "\t kill-kitten\n"
 }
 
+verbose=0
+
+flag(){
+while getopts ":vh" opt; do
+    case "$opt" in
+        v)
+            verbose=1
+            echo "Set vebose"
+            ;;
+        h)
+            help
+            exit
+            ;;
+        \?)
+            echo "Unknown option: -$OPTARG"
+            exit 1
+            ;;
+    esac
+done
+}
+
 main(){
 
+    flag "$@"
+    shift $((OPTIND - 1))
 case "$1" in
-#    hellpaper)
-#       hellpaperWallpaper 
-#    ;;
-#    hellpaperActiveMonitor)
-#        hellpaperWallpaper "$(activeMonitor)"
-#    ;;
     set)
         applyWallpaper "$2"
     ;;
