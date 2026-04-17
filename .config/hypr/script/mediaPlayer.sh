@@ -87,6 +87,10 @@ playMedia(){
     sendNotif
 }
 
+stopMedia(){
+    playerctl stop
+}
+
 nextMedia(){
     playerctl next
     sleep 1
@@ -106,6 +110,7 @@ helpMan(){
     echo "  data"
     echo "  position"
     echo "  getPlayingIcon"
+    echo "  dataImageProof"
     echo ""
     echo "With notifications:"
     echo "  play-pause"
@@ -136,6 +141,9 @@ main(){
         ;;
         play-pause)
             playMedia 
+        ;;
+        stop)   
+            stopMedia
         ;;
         next)
             nextMedia

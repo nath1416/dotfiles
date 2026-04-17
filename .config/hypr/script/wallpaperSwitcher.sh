@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+#set -e
 
 WALLPAPER_PATH=/home/nathan/wallpapers
 
@@ -10,19 +10,20 @@ SAVE_PATH_WALLPAPER=/home/nathan/.config/hypr/wallpaper.txt
 DEFAULT_KITTY_OPACITY=0.80
 
 
-hellpaperWallpaper() {
-    if [ -n "$(pidof hellpaper)" ]; then
-        printf "hellpaper already launched\n"
-        exit 0
-    fi
-
-    local wallpaper
-
-    wallpaper="$(hellpaper $WALLPAPER_PATH)"
-    printf "WallPaper seleced: %s\n" "$wallpaper"
-    applyWallpaper "$wallpaper" "${1//\"/}"
-
-}
+#
+# hellpaperWallpaper() {
+#    if [ -n "$(pidof hellpaper)" ]; then
+ #       printf "hellpaper already launched\n"
+#        exit 0
+#    fi
+#
+#    local wallpaper
+#
+#    wallpaper="$(hellpaper $WALLPAPER_PATH)"
+#    printf "WallPaper seleced: %s\n" "$wallpaper"
+#    applyWallpaper "$wallpaper" "${1//\"/}"
+#
+#}
 
 applyWallpaper(){
 
@@ -36,8 +37,15 @@ applyWallpaper(){
         awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$RealPath"
         sleep 0.8
 
-        matugen image "$RealPath" --prefer darkness
+#        matugen image "$RealPath" --prefer darkness || notify-send -r "4" "Failed to load "
+#        set +e
+        if ! error_output=$(matugen image "$RealPath" --prefer darkness 2>&1); then
+            notify-send -r 4 "Matugen Failed" "$error_output"
+            echo "Matugen failed"
+            exit
+        fi
 
+        set -e
         local BaseName
         local FileName
         BaseName="$(basename "$1")"
@@ -72,23 +80,27 @@ getRandom(){
     echo "$wallpaper"
 }
 
-
-
 setRandom(){
     local path
     path="$(getRandom)"
     applyWallpaper "$path"
 }
 
+reloadWallpaper(){
+    local lasWallpaper=""
+    lasWallpaper=$(cat "$SAVE_PATH_WALLPAPER")
+
+    applyWallpaper "$lasWallpaper"
+}
 
 
 help(){
     printf "Unknow argument: %s\n" "$1"
     printf "%s [Argument]\n" "$0"
     printf "Argument: \n"
-    printf "\t hellpaper\n"
+#    printf "\t hellpaper\n"
     printf "\t set\n"
-    printf "\t set-once\n"
+    printf "\t reload\n"
     printf "\t set-random\n"
     printf "\t kitten <program>\n"
     printf "\t kill-kitten\n"
@@ -97,14 +109,17 @@ help(){
 main(){
 
 case "$1" in
-    hellpaper)
-       hellpaperWallpaper 
-    ;;
-    hellpaperActiveMonitor)
-        hellpaperWallpaper "$(activeMonitor)"
-    ;;
+#    hellpaper)
+#       hellpaperWallpaper 
+#    ;;
+#    hellpaperActiveMonitor)
+#        hellpaperWallpaper "$(activeMonitor)"
+#    ;;
     set)
         applyWallpaper "$2"
+    ;;
+    reload)
+        reloadWallpaper
     ;;
     get-random)
         echo "$(getRandom)"

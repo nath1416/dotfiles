@@ -2,6 +2,8 @@
 
 set -e 
 
+main(){
+
 upowerResult=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
 
 
@@ -49,3 +51,6 @@ else
 fi
 
 echo "$pourcentage $battery_icon $state_icon "
+}
+
+main "$@"
