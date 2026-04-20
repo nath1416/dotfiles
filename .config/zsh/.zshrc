@@ -61,31 +61,27 @@ if [ "$TERM" = "xterm-kitty" ]; then
     alias ssh="kitty +kitten ssh"
 fi
 
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
-
 exit_zsh() { exit }
 zle -N exit_zsh
 bindkey '^D' exit_zsh
 
 
-
-export OH_MY_POSH_THEME="spaceship"
+# Plugins
+#
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source <(fzf --zsh)
-eval "$(oh-my-posh init zsh --config "/usr/share/oh-my-posh/themes/${OH_MY_POSH_THEME}.omp.json")"
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 eval "$(zoxide init zsh)"
+source <(fzf --zsh)
+
+export OH_MY_POSH_THEME="spaceship"
+eval "$(oh-my-posh init zsh --config "/usr/share/oh-my-posh/themes/${OH_MY_POSH_THEME}.omp.json")"
 
 
 #source /usr/share/nvm/init-nvm.sh
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.config/nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
