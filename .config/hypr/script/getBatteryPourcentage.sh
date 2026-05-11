@@ -50,7 +50,7 @@ else
     battery_icon="󰁹"
 fi
 
-echo "$pourcentage $battery_icon $state_icon "
+echo "$pourcentage $battery_icon $state_icon"
 }
 
 main "$@"

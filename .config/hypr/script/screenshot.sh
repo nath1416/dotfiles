@@ -26,8 +26,11 @@ fullScreen(){
 }
 
 selectScreen(){
+    pkill slurp 2>/dev/null && return 0
+
     local size
     local name
+
     size=$(slurp -w 2)
     name=$(chooseFileName)
     sleep 1

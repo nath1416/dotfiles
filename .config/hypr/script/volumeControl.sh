@@ -28,7 +28,13 @@ setLigth(){
     fi
 }
 muteSpeaker() {
-    wpctl set-mute @DEFAULT_SINK@ toggle
+    set +e
+    if ! wpctl set-mute @DEFAULT_SINK@ toggle; then
+        notify-send -r "5" "Set mute default sink errored"
+        exit 1
+    fi
+    set -e
+
     if wpctl get-volume @DEFAULT_SINK@ | grep MUTED; then
         notify-send -r "5" "Default Sink muted"
     else 
@@ -37,12 +43,26 @@ muteSpeaker() {
 }
 
 muteMic(){
-    wpctl set-mute @DEFAULT_SOURCE@ toggle
-    if wpctl get-volume @DEFAULT_SOURCE@ | grep MUTED; then
-        notify-send   -r "5" "Default Source muted"
-    else 
-        notify-send   -r "5" "Default Source unmuted"
+    set +e
+    if ! wpctl set-mute @DEFAULT_SOURCE@ toggle; then
+        notify-send -r "5" "Set mute default source errored"
+        exit 1
     fi
+    set -e
+
+    if wpctl get-volume @DEFAULT_SOURCE@ | grep MUTED; then
+        notify-send -r "5" "Default Source muted"
+    else 
+        notify-send -r "5" "Default Source unmuted"
+    fi
+}
+
+helpMan(){
+    printf "Args:\n"
+    printf "muteSpeaker\n"
+    printf "muteMic\n"
+    printf "change ARGS: +5,-5\n"
+    printf "updateLigths\n"
 }
 
 main() {
@@ -62,6 +82,7 @@ case "$1" in
         setLigth
     ;;
     *)
+        helpMan
         exit 1
     ;;
 esac
