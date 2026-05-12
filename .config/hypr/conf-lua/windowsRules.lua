@@ -104,14 +104,4 @@ windowrule {
   match:workspace = f[1]s[false]
 }
 
-windowrule {
-  name = windowrule-11
-  stay_focused = on
-  border_size = 0
-  move = (min(max((monitor_w*0.2),0),monitor_w-window_w)) (min(max((monitor_h*0.2),0),monitor_h-window_h))
-  match:class = (Hellpaper)
-}
-
-
-
 --]]

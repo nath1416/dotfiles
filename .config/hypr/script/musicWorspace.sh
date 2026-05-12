@@ -8,7 +8,7 @@ WORKSPACE_NAME="music"
 APP_NAME="music.apple.com"
 
 createWorkSpace(){
-    hyprctl dispatch workspace "name:$WORKSPACE_NAME"
+    hyprctl dispatch "hl.dsp.focus({ workspace = \"name:$WORKSPACE_NAME\" })"
 }
 
 isMusicOpen(){
@@ -24,7 +24,7 @@ isInMusicWorSpace(){
 }
 
 previousWorkSpace(){
-    hyprctl dispatch workspace previous_per_monitor
+    hyprctl dispatch 'hl.dsp.focus({ workspace = "previous_per_monitor" })'
 }
 
 main(){
@@ -40,6 +40,5 @@ main(){
         openMusic
     fi
 }
-
 
 main "$@"

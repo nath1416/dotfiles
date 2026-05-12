@@ -6,7 +6,6 @@ WALLPAPER_PATH=/home/nathan/wallpapers
 
 SAVE_PATH_WALLPAPER=/home/nathan/.config/hypr/wallpaper.txt
 
-
 DEFAULT_KITTY_OPACITY=0.80
 
 verbose=0

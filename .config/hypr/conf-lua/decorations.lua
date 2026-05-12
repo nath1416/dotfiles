@@ -1,3 +1,5 @@
+local colorsVars = require("colors")
+
 hl.config({
     decoration = {
         rounding = 5,
@@ -8,6 +10,7 @@ hl.config({
         fullscreen_opacity = 1.0,
 
         dim_modal = true,
+
         blur = {
             enabled = true,
             size = 3,
@@ -24,7 +27,13 @@ hl.config({
             enabled = false,
             range = 4,
             render_power = 3,
-            color = 0x1a1a1aee,
-        }
+            color = colorsVars.shadow,
+        },
+        
+        glow = {
+            enabled = false,
+            range = 5,
+            color = colorsVars.on_background,
+        },
     }
 })

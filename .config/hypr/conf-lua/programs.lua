@@ -1,6 +1,5 @@
 local launcher = "/usr/bin/app2unit"
 
-
 local terminal = launcher .. " kitty"
 local fileManager = launcher .. " dolphin"
 local browser = launcher .. " firefox"

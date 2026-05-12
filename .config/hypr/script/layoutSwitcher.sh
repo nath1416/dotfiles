@@ -42,7 +42,7 @@ set_layout(){
 	[[ -z "$newLayout" ]] && return
     
     local output=""
-    output="$(hyprctl keyword general:layout $newLayout)"
+    output="$(hyprctl eval "hl.config({ general = { layout = \"$newLayout\" } })")"
 
     local currentLayout=""
     currentLayout="$(get_layout)"
@@ -52,13 +52,11 @@ Hyprctl returned: $output"""
 
 }
 
-
-
 next_state() {
     local current=""
     local states=""
 
-    #states=("dwindle" "monocle" "master" "scrolling")
+    # states=("dwindle" "monocle" "master" "scrolling")
     states=("dwindle" "scrolling")
 
     current="$1"
@@ -71,7 +69,6 @@ next_state() {
         fi
     done
 
-    # fallback if not found
     echo "${states[0]}"
 }
 

@@ -18,6 +18,8 @@ decreaseBrightness(){
     sendNotif "$current"
 }
 
+
+
 main(){
 case "$1" in
     increase)

@@ -1,14 +1,14 @@
-local vars = require("conf-lua.programs")
+local programs = require("conf-lua.programs")
 
-local scriptPath = os.getenv("HOME") .. "/.config/hypr/script"
+local scriptPath = os.getenv("HOME") .. "/.config/hypr/script/"
 local mainMod = "SUPER"
 
-hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "/screenshot.sh -s"))
-hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "/screenshot.sh -f"))
+hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"))
+hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"))
 
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(scriptPath .. "/reloadLayers.sh"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(scriptPath .. "/wallpaperSwitcher.sh set-random"))
-hl.bind("CTRL + Q", hl.dsp.exec_cmd(scriptPath .. "/killOther.sh"))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(scriptPath .. "reloadLayers.sh"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"))
+hl.bind("CTRL + Q", hl.dsp.exec_cmd(scriptPath .. "killOther.sh"))
 
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 
@@ -16,12 +16,12 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", actio
 
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -USR1 waybar"))
 
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(vars.terminal))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(vars.fileManager))
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("pkill " .. vars.menu .. " || " .. vars.menuRun))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(vars.browser))
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(vars.browser .. " --private-window"))
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(scriptPath .. "/musicWorspace.sh"))
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(programs.terminal))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.fileManager))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("pkill " .. programs.menu .. " || " .. programs.menuRun))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(scriptPath .. "musicWorspace.sh"))
 
 hl.bind(mainMod .. " + Q", hl.dsp.window.kill(hl.get_active_window()))
 
@@ -51,26 +51,26 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.workspace.toggle_special(specialWorspa
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = specialWorspaceName }))
 
 
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(scriptPath .. "/brightness.sh increase"))
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(scriptPath .. "/brightness.sh decrease"))
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(scriptPath .. "brightness.sh increase"), { locked = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(scriptPath .. "brightness.sh decrease"), { locked = true })
 hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
 hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset identity"))
 
 
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(scriptPath .. "/volumeControl.sh change 5%+"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(scriptPath .. "/volumeControl.sh change 5%-"))
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(scriptPath .. "/volumeControl.sh muteSpeaker"))
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(scriptPath .. "/volumeControl.sh muteMic"))
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh change 5%+"), { locked = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh change 5%-"), { locked = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh muteSpeaker"), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh muteMic"), { locked = true })
 
 -- Media for external keyboard
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(scriptPath .. "/mediaPlayer.sh play-pause"))
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd(scriptPath .. "/mediaPlayer.sh nest"))
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(scriptPath .. "/mediaPlayer.sh previous"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-pause"), { locked = true })
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh next"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"), { locked = true })
 
 -- Media for laptop keyboard
-hl.bind("XF86PickupPhone", hl.dsp.exec_cmd(scriptPath .. "/mediaPlayer.sh play-pause"))
-hl.bind("XF86HangupPhone", hl.dsp.exec_cmd(scriptPath .. "/mediaPlayer.sh nest"))
-hl.bind("XF86NotificationCenter", hl.dsp.exec_cmd(scriptPath .. "/mediaPlayer.sh previous"))
+hl.bind("XF86PickupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-pause"), { locked = true })
+hl.bind("XF86HangupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh next"), { locked = true })
+hl.bind("XF86NotificationCenter", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"), { locked = true })
 
 hl.bind(mainMod .. " + period", hl.dsp.layout("colresize +conf"))
 hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("colresize -conf"))
@@ -81,6 +81,9 @@ hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("consume_or_expel prev"))
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float())
 
+hl.bind("XF86Favorites", hl.dsp.exec_cmd(scriptPath .. "layoutSwitcher.sh next"))
+
+hl.bind(mainMod .. " + TAB", hl.dsp.focus({ workspace = "previous_per_monitor" }))
 
 hl.config({
     binds = {
@@ -98,23 +101,5 @@ Missing keybinds:
 # Disable laptop screen when lid is closed
 bindl = , switch:on:[Lid Switch], exec, hyprctl keyword monitor "eDP-1, disable"
 bindl = , switch:off:[Lid Switch], exec, hyprctl keyword monitor "eDP-1, 1920x1200, 0x0, 1"
-
-
-bind = $mainMod, P, pseudo,
-#bind = $mainMod, J, togglesplit, # dwindle
-
-# Up and down
-binde = $mainMod CTRL, K, workspace, +1
-binde = $mainMod CTRL, J, workspace, -1
-
-bind = $mainMod, U, togglespecialworkspace, Scroll
-bind = $mainMod SHIFT, U, movetoworkspace, special:Scroll
-#bind = $mainMod SHIFT, S, movetoworkspace,
-
-bind = $mainMod, TAB, workspace, previous_per_monitor
-bind = $mainMod SHIFT, TAB, workspace, previous_per_monitor
-
-bind = ,XF86Favorites, exec, $SCRIPT_PATH/layoutSwitcher.sh next
-#bind = SHIFT,XF86Display, exec, $SCRIPT_PATH/layoutSwitcher.sh next
 
 --]]

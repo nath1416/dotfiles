@@ -24,14 +24,21 @@ hl.gesture({
   action = "fullscreen",
 })
 
+-- local s = function ()
+--   hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
+--   hl.dsp.focus({ direction = "left" })
+  
+-- end
+
 -- hl.gesture({
---     fingers = 3,
---     direction = "right",
---     action = ""
+--   fingers = 3,
+--   direction = "left",
+--   action = s,
 -- })
 
 --[[
-
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 gesture = 3, right, dispatcher, movefocus, r
 gesture = 3, left, dispatcher, movefocus, l
 
