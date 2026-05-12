@@ -1,4 +1,4 @@
-local vars = require("programs")
+local vars = require("conf-lua.programs")
 
 local SCRIPT_PATH = os.getenv("HOME") .. "/.config/hypr/script"
 local mainMod = "SUPER"
@@ -14,7 +14,7 @@ hl.bind("CTRL + Q", hl.dsp.exec_cmd(SCRIPT_PATH .. "/killOther.sh"))
 
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen_state(2, 0))
+--hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen_state(2, 0))
 -- bind = $mainMod, F, fullscreenstate, 2 0
 
 
@@ -44,17 +44,17 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.focus({ hl.get_active_workspace().id + 1 }))
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.focus({ hl.get_active_workspace().id - 1 }))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.focus({ workspace =  "+1" }))
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.focus({ workspace =  "-1" }))
 
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ workspace = hl.get_active_window().stable_id + 1 }))
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ workspace = hl.get_active_window().stable_id - 1 }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ workspace = "+1" }))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ workspace = "-1" }))
 
 local specialWorspaceName = "Extra"
 
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special(specialWorspaceName))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.workspace.toggle_special(specialWorspaceName))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = specialWorspaceName })
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = specialWorspaceName }))
 
 --[[
 # Disable laptop screen when lid is closed

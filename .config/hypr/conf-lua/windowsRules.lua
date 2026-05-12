@@ -8,11 +8,11 @@ hl.window_rule({
 
   float = true,
   border_size = 2,
-  keep_aspect_ratio = "on",
-  dim_around = "on",
-  opaque = "on",
-  pin = "on",
-  no_shadow = "on",
+  keep_aspect_ratio = true,
+  dim_around = true,
+  opaque = true,
+  pin = true,
+  no_shadow = true,
   border_color = "rgb(000000) rgb(000000)",
 })
 

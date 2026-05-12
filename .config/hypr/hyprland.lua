@@ -9,6 +9,11 @@ require("conf-lua.programs")
 require("conf-lua.windowsRules")
 require("conf-lua.workspace")
 
+
+hl.on("hyprland.start", function () 
+  hl.exec_cmd("awww-daemon")
+end)
+
 hl.config({
     general = {
         border_size = 2,
