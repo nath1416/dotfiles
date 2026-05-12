@@ -1,19 +1,19 @@
 -- Rules for firefox picture in picture window type.
 -- Used for youtube video and actually amy picture in picutre content
 hl.window_rule({
-  name = "Firefox picture in picture",
-  match = {
-    title = "(.*)(Picture-in-Picture)"
-  },
+    name = "Firefox picture in picture",
+    match = {
+        title = "(.*)(Picture-in-Picture)"
+    },
 
-  float = true,
-  border_size = 2,
-  keep_aspect_ratio = true,
-  dim_around = true,
-  opaque = true,
-  pin = true,
-  no_shadow = true,
-  border_color = "rgb(000000) rgb(000000)",
+    float = true,
+    border_size = 2,
+    keep_aspect_ratio = true,
+    dim_around = true,
+    opaque = true,
+    pin = true,
+    no_shadow = true,
+    border_color = "rgb(000000) rgb(000000)",
 })
 
 hl.window_rule({
@@ -30,7 +30,7 @@ hl.window_rule({
         class = "(blueman-manager)"
     },
     float = true,
-    size = {"(monitor_w*0.2)", "(monitor_h*0.3)"}
+    size = { "(monitor_w*0.2)", "(monitor_h*0.3)" }
 
 })
 

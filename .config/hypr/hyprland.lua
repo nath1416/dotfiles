@@ -9,9 +9,11 @@ require("conf-lua.programs")
 require("conf-lua.windowsRules")
 require("conf-lua.workspace")
 
+local colorsVars = require("colors")
 
-hl.on("hyprland.start", function () 
-  hl.exec_cmd("awww-daemon")
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd("kitty")
 end)
 
 hl.config({
@@ -21,9 +23,8 @@ hl.config({
         gaps_in = 3,
         gaps_out = 5,
 
-        -- col.active_border = $outline,
         col = {
-            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+            active_border   = { colors = { colorsVars.outline } },
             inactive_border = "rgba(595959aa)",
         },
 
@@ -40,6 +41,7 @@ hl.config({
         focus_on_activate = true,
         middle_click_paste = false,
     },
+    
     ecosystem = {
         no_donation_nag = true,
     }

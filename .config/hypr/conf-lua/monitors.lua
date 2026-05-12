@@ -1,19 +1,17 @@
-
-
 -- Laptop Screen
 hl.monitor({
-  output = "desc:AU Optronics 0xD291",
-  mode = "1920x1200@60.03",
-  position = "0x0",
-  scale = 1,
+    output = "desc:AU Optronics 0xD291",
+    mode = "1920x1200@60.03",
+    position = "0x0",
+    scale = "1",
 })
 
 -- Acer
 hl.monitor({
-  output = "desc:Acer Technologies XV270U X1 2511033253LEH",
-  mode = "2560x1440@160.00Hz",
-  position = "auto-left",
-  scale = 1,
+    output = "desc:Acer Technologies XV270U X1 2511033253LEH",
+    mode = "2560x1440@160.00Hz",
+    position = "auto-left",
+    scale = "1",
 })
 
 -- Default HDMI
@@ -21,7 +19,7 @@ hl.monitor({
     output = "HDMI-A-1",
     mode = "preferred",
     position = "auto-left",
-    scale = 1
+    scale = "1"
 })
 
 

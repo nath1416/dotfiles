@@ -1,5 +1,3 @@
-
-
 hl.gesture({
   fingers = 4,
   direction = "up",
@@ -15,15 +13,15 @@ hl.gesture({
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "up",
-    action = "fullscreen",
+  fingers = 3,
+  direction = "up",
+  action = "fullscreen",
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "down",
-    action = "fullscreen",
+  fingers = 3,
+  direction = "down",
+  action = "fullscreen",
 })
 
 -- hl.gesture({

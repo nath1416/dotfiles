@@ -12,8 +12,6 @@ local menuRun = string.format(
     menu
 )
 
-
-
 local vars = {
     terminal = terminal,
     fileManager = fileManager,
