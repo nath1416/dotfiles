@@ -29,7 +29,7 @@ hl.config({
             render_power = 3,
             color = colorsVars.shadow,
         },
-        
+
         glow = {
             enabled = false,
             range = 5,

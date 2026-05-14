@@ -24,10 +24,43 @@ hl.gesture({
   action = "fullscreen",
 })
 
+hl.gesture({
+  fingers = 4,
+  direction = "left",
+  action = function()
+    hl.dispatch(hl.dsp.layout("consume_or_expel prev"))
+  end,
+})
+
+hl.gesture({
+  fingers = 3,
+  direction = "right",
+  action = function()
+    hl.dispatch(hl.dsp.focus({ direction = "right" }))
+  end,
+})
+
+
+hl.gesture({
+  fingers = 3,
+  direction = "left",
+  action = function()
+    hl.dispatch(hl.dsp.focus({ direction = "left" }))
+  end,
+})
+
+hl.gesture({
+  fingers = 4,
+  direction = "right",
+  action = function()
+    hl.dispatch(hl.dsp.layout("consume_or_expel next"))
+  end,
+})
+
 -- local s = function ()
 --   hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
 --   hl.dsp.focus({ direction = "left" })
-  
+
 -- end
 
 -- hl.gesture({
@@ -35,12 +68,3 @@ hl.gesture({
 --   direction = "left",
 --   action = s,
 -- })
-
---[[
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
-gesture = 3, right, dispatcher, movefocus, r
-gesture = 3, left, dispatcher, movefocus, l
-
-
---]]

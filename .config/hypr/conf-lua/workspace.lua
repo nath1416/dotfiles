@@ -7,9 +7,8 @@ hl.workspace_rule({
 local nb_worspace_persistent = 5
 
 for i = 2, nb_worspace_persistent do
-    local id = tostring(i)
     hl.workspace_rule({
-        workspace = id,
+        workspace = tostring(i),
         persistent = true,
     })
 end

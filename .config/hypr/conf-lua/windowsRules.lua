@@ -85,23 +85,4 @@ windowrule {
   match:fullscreen = 0
   match:pin = 0
 }
-
-
-# No rounding on the border and no actual borderGap when One window
-#windowrule = bordersize 0, floating:0, onworkspace:w[tv1]s[false]
-#windowrule {
-#  name = no rounding if only window
-#  rounding = 0
-#  match:float = 0
-#  match:workspace = w[tv1]s[false]
-#}
-
-windowrule {
-  name = rounding only if in special workspace
-  border_size = 0
-  rounding = 0
-  match:float = 0
-  match:workspace = f[1]s[false]
-}
-
 --]]

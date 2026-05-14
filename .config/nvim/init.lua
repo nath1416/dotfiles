@@ -44,5 +44,29 @@ vim.cmd([[
 vim.opt.omnifunc = 'syntaxcomplete#Complete'
 
 
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimports()
+  end,
+  group = format_sync_grp,
+})
+
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').gofmt()
+  end,
+  group = format_sync_grp,
+})
+
 require("config.lazy")
 
+
+require('go').setup({
+  lsp_cfg = true,
+})
+require("go.format").gofmt()  -- gofmt only
+require("go.format").goimports()  -- goimports + gofmt

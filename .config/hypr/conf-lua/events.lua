@@ -1,5 +1,4 @@
-
-
+local scriptPath = os.getenv("HOME") .. "/.config/hypr/script/"
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("kitty")
@@ -10,4 +9,3 @@ end)
 hl.on("monitor.added", function()
     hl.exec_cmd("sleep 2 && " .. scriptPath .. "wallpaperSwitcher.sh reload")
 end)
-

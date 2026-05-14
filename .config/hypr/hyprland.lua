@@ -11,9 +11,8 @@ require("conf-lua.workspace")
 require("conf-lua.events")
 
 local colorsVars = require("colors")
-local scriptPath = os.getenv("HOME") .. "/.config/hypr/script/"
 
-
+-- require("script.musicWorspace")
 
 hl.config({
     general = {

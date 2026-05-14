@@ -15,8 +15,8 @@ input_path = '~/.config/matugen/waybar/colors.css'
 output_path = '~/.config/waybar/colors.css'
 
 [templates.hyprland]
-input_path = '~/.config/matugen/hyprland/colors.conf'
-output_path = '~/.config/hypr/colors.conf'
+input_path = '~/.config/matugen/hyprland/colors.lua'
+output_path = '~/.config/hypr/colors.lua'
 
 [templates.hyprlock]
 input_path = '~/.config/matugen/hyprlock/hyprlock.conf'
