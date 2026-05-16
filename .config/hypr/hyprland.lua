@@ -1,3 +1,9 @@
+SCRIPT_PATH = os.getenv("HOME") .. "/.config/hypr/script/"
+
+COLORS_VARS = require("colors")
+MAIN_MOD = "SUPER"
+
+
 require("conf-lua.binds")
 require("conf-lua.animations")
 require("conf-lua.decorations")
@@ -5,14 +11,12 @@ require("conf-lua.gestures")
 require("conf-lua.inputs")
 require("conf-lua.layouts")
 require("conf-lua.monitors")
-require("conf-lua.programs")
 require("conf-lua.windowsRules")
 require("conf-lua.workspace")
 require("conf-lua.events")
 
-local colorsVars = require("colors")
 
--- require("script.musicWorspace")
+require("script.musicWorspace")
 
 hl.config({
     general = {
@@ -22,7 +26,7 @@ hl.config({
         gaps_out = { top = 5, left = 5, right = 5, bottom = 5 },
 
         col = {
-            active_border   = { colors = { colorsVars.outline } },
+            active_border   = { colors = { COLORS_VARS.outline } },
             inactive_border = "rgba(595959aa)",
         },
 

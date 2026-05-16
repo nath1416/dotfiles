@@ -8,7 +8,8 @@ WORKSPACE_NAME="music"
 APP_NAME="music.apple.com"
 
 createWorkSpace(){
-    hyprctl dispatch "hl.dsp.focus({ workspace = \"name:$WORKSPACE_NAME\" })"
+    # hyprctl dispatch "hl.dsp.focus({ workspace = \"name:$WORKSPACE_NAME\" })"
+    # hyprctl dispatch "hl.dsp.workspace.toggle_special($WORKSPACE_NAME)"
 }
 
 isMusicOpen(){
@@ -28,6 +29,7 @@ previousWorkSpace(){
 }
 
 main(){
+    exit
 
     if isInMusicWorSpace; then
         previousWorkSpace

@@ -17,3 +17,13 @@ hl.workspace_rule({
     workspace = "s[true]",
     layout = "dwindle",
 })
+
+hl.workspace_rule({
+    workspace = "name:music",
+    gaps_in = 0,
+    gaps_out = 0,
+    border_size = 0,
+    no_rounding = true,
+    layout = "",
+    decorate = false,
+})
