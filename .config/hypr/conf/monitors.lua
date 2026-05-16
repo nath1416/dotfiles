@@ -38,9 +38,9 @@ hl.monitor({
     scale = "1",
 })
 
--- Default HDMI
+-- Default 
 hl.monitor({
-    output = "HDMI-A-1",
+    output = "",
     mode = "preferred",
     position = "auto-left",
     scale = "1"

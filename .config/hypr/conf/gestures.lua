@@ -56,15 +56,3 @@ hl.gesture({
     hl.dispatch(hl.dsp.layout("consume_or_expel next"))
   end,
 })
-
--- local s = function ()
---   hl.notification.create({ text = "I just swiped on my trackpad!", duration = 5000, icon = "ok" })
---   hl.dsp.focus({ direction = "left" })
-
--- end
-
--- hl.gesture({
---   fingers = 3,
---   direction = "left",
---   action = s,
--- })

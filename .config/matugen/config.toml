@@ -2,13 +2,7 @@
 version_check = false
 fallback_color = "#ffbf9b"
 
-# Cache location $XDG_CACHE_HOME/matugen/<file> or $HOME/.cache/matugen/images/<file>
-#caching = true
-
-# choices: [darkness, lightness, saturation, less-saturation, value, closest-to-fallback]
 prefer = "darkness"
-
-
 
 [templates.waybar]
 input_path = '~/.config/matugen/waybar/colors.css'
@@ -16,7 +10,7 @@ output_path = '~/.config/waybar/colors.css'
 
 [templates.hyprland]
 input_path = '~/.config/matugen/hyprland/colors.lua'
-output_path = '~/.config/hypr/colors.lua'
+output_path = '~/.config/hypr/constants/colors.lua'
 
 [templates.hyprlock]
 input_path = '~/.config/matugen/hyprlock/hyprlock.conf'

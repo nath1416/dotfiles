@@ -5,8 +5,7 @@ local fileManager = launcher .. " dolphin"
 local browser = launcher .. " firefox"
 local menu = "wofi"
 
-local app_name = "music.apple.com"
-local music = launcher .. ' chromium --app="https://' .. app_name .. '" --password-store=basic'
+local music = launcher .. ' chromium --app="https://music.apple.com" --password-store=basic'
 
 local menuRun = string.format(
     "%s %s --color ~/.cache/hellwal/wofi.colors --show drun",

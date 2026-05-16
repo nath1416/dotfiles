@@ -1,3 +1,4 @@
+-- local colors = require("constants.colors")
 
 hl.config({
     decoration = {
@@ -26,13 +27,13 @@ hl.config({
             enabled = false,
             range = 4,
             render_power = 3,
-            color = COLORS_VARS.shadow,
+            color = CONSTANTS.colors.shadow,
         },
 
         glow = {
             enabled = false,
             range = 5,
-            color = COLORS_VARS.on_background,
+            color = CONSTANTS.colors.on_background,
         },
     }
 })
