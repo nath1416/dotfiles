@@ -1,6 +1,5 @@
 CONSTANTS = require("constants.conts")
 
-
 require("conf.binds")
 require("conf.animations")
 require("conf.decorations")

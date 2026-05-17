@@ -74,10 +74,10 @@ next_state() {
 
 cycle_layout(){
 
-    local currentLayout=""
+    local currentLayout
     currentLayout="$(get_layout)"
 
-    local nextLayout=""
+    local nextLayout
     newLayout="$(next_state $currentLayout)"
 
     set_layout "$newLayout"
@@ -100,7 +100,7 @@ helpMan(){
 main(){
    case "$1" in
          set)
-             set_layout $2
+             set_layout "$2"
          ;;
         get)
             get_layout
@@ -119,5 +119,5 @@ main(){
 
 main "$@"
 
-printf "Current layout: $(get_layout)\n"
-printf "Args: $@\n"
+printf "Current layout: %s\n" "$(get_layout)"
+printf "Args: %s\n" "$@"

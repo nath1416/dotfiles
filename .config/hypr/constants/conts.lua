@@ -6,17 +6,16 @@ local mainMod = "SUPER"
 
 local musicWorkSpace = "music"
 
-local nb_worspace_persistent = 5
+local nbWorspacePersistent = 5
 
 
 local constants = {
-
     mainMod = mainMod,
     scriptPath = scriptPath,
     colors = colors,
     programs = programs,
     musicWorkSpaceName = musicWorkSpace,
-    nbPersistentWorkspace = 5
+    nbPersistentWorkspace = nbWorspacePersistent
 }
 
 return constants

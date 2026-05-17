@@ -133,7 +133,7 @@ case "$1" in
         reloadWallpaper
     ;;
     get-random)
-        echo "$(getRandom)"
+        getRandom
     ;;
     set-random)
         setRandom

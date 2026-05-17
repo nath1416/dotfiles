@@ -2,6 +2,8 @@ local mainMod = CONSTANTS.mainMod
 local scriptPath = CONSTANTS.scriptPath
 local programs = CONSTANTS.programs
 
+local killOthers = require("script.killOthers")
+
 local musicWorkSpace = CONSTANTS.musicWorkSpaceName
 
 hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"))
@@ -9,7 +11,7 @@ hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"))
 
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart waybar"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"))
-hl.bind("CTRL + Q", hl.dsp.exec_cmd(scriptPath .. "killOther.sh"))
+hl.bind("CTRL + Q", killOthers)
 
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 
@@ -86,7 +88,6 @@ hl.bind("XF86Favorites", hl.dsp.exec_cmd(scriptPath .. "layoutSwitcher.sh next")
 
 -- hl.bind(mainMod .. " + TAB", hl.dsp.focus({ workspace = "" }))
 
--- hl.bind("Super_", hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh muteMic"))
 
 hl.config({
     binds = {
