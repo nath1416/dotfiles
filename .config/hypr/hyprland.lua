@@ -49,8 +49,8 @@ hl.config({
 hl.config({
     general = {
         col = {
-            active_border   = { colors = { CONSTANTS.colors.outline } },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = { CONSTANTS.colors.on_background } },
+            inactive_border = "rgba(595959ff)",
         },
     }
 })
