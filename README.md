@@ -51,4 +51,4 @@ So systemd will handle Hyprland and application.
 ## Pictures
 
 ![Terminal](./assets/Terminal.png)
-![Wofi](./assets/Wofi.png)
+![HomeScreen](./assets/HomeScreen.png)
