@@ -134,11 +134,11 @@
     "tooltip-format": "Full\t{time}\nPower\t{power}W"
   },
   "network": {
-    "format-wifi": "   {essid} ",
+    "format-wifi": " ",
     "format-ethernet": "󰈀 {ifname} ",
     "format-disconnected": "Disconnected ⚠",
     "tooltip-format": "Ip\t{ipaddr}\nUp\t{bandwidthUpBits}\nDown\t{bandwidthDownBits}",
-    "tooltip-format-wifi": "Ip\t{ipaddr}\nUp\t{bandwidthUpBits}\nDown\t{bandwidthDownBits}\nSignal\t{signalStrength}%\nFreq\t{frequency}GHz",
+    "tooltip-format-wifi": "Essid\t{essid}\nIp\t{ipaddr}\nUp\t{bandwidthUpBits}\nDown\t{bandwidthDownBits}\nSignal\t{signalStrength}%\nFreq\t{frequency}GHz",
     "on-click": "curl ifconfig.me"
   },
   "wireplumber": {
@@ -146,6 +146,5 @@
     "format": "{volume}% 󰓃",
     "format-muted": "󰝟",
     "on-click": "pwvucontrol"
-  }
   }
 }

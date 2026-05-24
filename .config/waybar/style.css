@@ -104,7 +104,7 @@ window#waybar {
     background-color: transparent;
     color: @on_secondary_container;
     transition: border 0.5s;
-    margin: 0 4px;
+    margin: 0 2px;
     border-radius: 5px;
 }
 
