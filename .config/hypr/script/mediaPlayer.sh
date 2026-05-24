@@ -79,6 +79,8 @@ sendNotif(){
     
     image="$(getImage)"
     data="$(getData)"
+    [[ -z $img ]] && notify-send -r "$msgTag" "$data"
+
     notify-send -i "$image" -r "$msgTag" "$data"
 }
 

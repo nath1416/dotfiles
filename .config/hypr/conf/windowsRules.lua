@@ -7,13 +7,12 @@ hl.window_rule({
     },
 
     float = true,
-    border_size = 2,
+    border_size = 1,
     keep_aspect_ratio = true,
-    dim_around = true,
     opaque = true,
     pin = true,
     no_shadow = true,
-    border_color = "rgb(000000) rgb(000000)",
+    border_color = "rgb(000000)",
 })
 
 hl.window_rule({
