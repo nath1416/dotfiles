@@ -15,7 +15,7 @@ local constants = {
     colors = colors,
     programs = programs,
     musicWorkSpaceName = musicWorkSpace,
+    defaultLayout = "scrolling",
     nbPersistentWorkspace = nbWorspacePersistent
 }
-
 return constants

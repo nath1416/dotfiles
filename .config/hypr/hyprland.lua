@@ -10,7 +10,7 @@ require("conf.monitors")
 require("conf.windowsRules")
 require("conf.workspace")
 require("conf.events")
-
+require("conf.permisions")
 
 hl.config({
     general = {
@@ -22,7 +22,6 @@ hl.config({
         resize_on_border = false,
         allow_tearing = false,
         no_focus_fallback = false,
-        layout = "scrolling",
     },
 
     misc = {
@@ -57,13 +56,23 @@ hl.config({
             active_border   = { colors = { CONSTANTS.colors.on_background } },
             inactive_border = "rgba(595959ff)",
         },
+        layout = CONSTANTS.defaultLayout,
+        -- layout = "scrolling",
     },
+
     binds = {
         hide_special_on_workspace_change = true,
         window_direction_monitor_fallback = true,
     },
+
     cursor = {
         inactive_timeout = 10,
         warp_on_change_workspace = 1,
     }
+})
+
+hl.config({
+    ecosystem = {
+        enforce_permissions = true,
+    },
 })

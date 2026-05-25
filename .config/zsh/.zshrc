@@ -76,8 +76,14 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 
-export OH_MY_POSH_THEME="spaceship"
-eval "$(oh-my-posh init zsh --config "/usr/share/oh-my-posh/themes/${OH_MY_POSH_THEME}.omp.json")"
+tty_path=$(tty)
+
+if [[ $tty_path == /dev/pts/* ]]; then
+    export OH_MY_POSH_THEME="spaceship"
+    eval "$(oh-my-posh init zsh --config "/usr/share/oh-my-posh/themes/${OH_MY_POSH_THEME}.omp.json")"
+else
+    PROMPT='%n@%m %~ %# '
+fi
 
 
 #source /usr/share/nvm/init-nvm.sh

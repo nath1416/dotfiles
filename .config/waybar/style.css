@@ -23,10 +23,10 @@ window#waybar {
 .modules-left {
     background: alpha(@secondary_container, 0.90);
 
-    border-radius: 0px 0px 8px 0px;
+    border-radius: 0px 0px 4px 0px;
 
     margin: 0;
-    padding: 0 0px 0 0px;
+    padding: 0 3px 0 0px;
 
     min-height: 25px;
 }
@@ -36,7 +36,7 @@ window#waybar {
 .modules-center {
     background: alpha(@secondary_container, 0.90);
 
-    border-radius: 0px 0px 8px 8px;
+    border-radius: 0px 0px 4px 4px;
 
     margin: 0 5px;
     padding: 0 3px;
@@ -49,7 +49,7 @@ window#waybar {
 .modules-right {
     background: alpha(@secondary_container, 0.90);
 
-    border-radius: 0px 0px 0px 8px;
+    border-radius: 0px 0px 0px 4px;
 
     margin: 0 0 0 5px;
     padding: 0 0px 0 3px;
@@ -117,7 +117,7 @@ window#waybar {
 #workspaces button.active {
     background: @on_secondary_fixed;
 
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 #workspaces button.urgent {

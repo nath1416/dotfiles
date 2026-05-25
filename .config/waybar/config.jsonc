@@ -11,6 +11,7 @@
   ],
   "modules-right": [
     "group/expand",
+    "custom/endpoint",
     "network",
     "bluetooth",
     "custom/profile",
@@ -24,15 +25,14 @@
   "group/expand": {
     "orientation": "horizontal",
     "drawer": {
-      "transition-duration": 600,
+      "transition-duration": 400,
       "transition-to-left": true,
       "click-to-reveal": true
     },
     "modules": [
       "custom/expand",
       "custom/layoutIndicator",
-      "tray",
-      "custom/endpoint"
+      "tray"
     ]
   },
   "custom/expand": {
