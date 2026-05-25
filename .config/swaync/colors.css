@@ -1,59 +1,139 @@
-
-/*@define-color noti-border-color #243424;
-@define-color noti-bg #b9ccb5;
-@define-color noti-bg-darker #b9ccb5;
-@define-color noti-bg-hover #1b1b2b;
-@define-color noti-bg-focus #1b1b1b;
-@define-color noti-close-bg #dcd7ba;
-@define-color noti-close-bg-hover #dcd7ba;
-
-
-/* Notification main box */
 /*
-@define-color cc-bg #205026;
-@define-color cc-text-color #b9f0b7;
-
-@define-color text-color-disabled #b9f0b7;
-
-@define-color bg-selected #b9f0b7;
-@define-color border-green #b9f0b7;
-@define-color red-base #c34043;
-@define-color red-hover #e46876;
-@define-color green-base #b9f0b7;
-@define-color blue-base #b9f0b7;
-@define-color foreground #b9f0b7;
-@define-color background #b9f0b7;
+* Css Colors
+* Generated with Matugen
 */
+
+
+@define-color background #0e1415;
+
+@define-color error #ffb4ab;
+
+@define-color error_container #93000a;
+
+@define-color inverse_on_surface #2b3132;
+
+@define-color inverse_primary #006972;
+
+@define-color inverse_surface #dee4e4;
+
+@define-color on_background #dee4e4;
+
+@define-color on_error #690005;
+
+@define-color on_error_container #ffdad6;
+
+@define-color on_primary #00363c;
+
+@define-color on_primary_container #9df0fb;
+
+@define-color on_primary_fixed #001f23;
+
+@define-color on_primary_fixed_variant #004f56;
+
+@define-color on_secondary #1c3437;
+
+@define-color on_secondary_container #cde7eb;
+
+@define-color on_secondary_fixed #051f22;
+
+@define-color on_secondary_fixed_variant #324b4e;
+
+@define-color on_surface #dee4e4;
+
+@define-color on_surface_variant #bec8ca;
+
+@define-color on_tertiary #23304d;
+
+@define-color on_tertiary_container #d9e2ff;
+
+@define-color on_tertiary_fixed #0c1b36;
+
+@define-color on_tertiary_fixed_variant #394664;
+
+@define-color outline #899294;
+
+@define-color outline_variant #3f484a;
+
+@define-color primary #81d3de;
+
+@define-color primary_container #004f56;
+
+@define-color primary_fixed #9df0fb;
+
+@define-color primary_fixed_dim #81d3de;
+
+@define-color scrim #000000;
+
+@define-color secondary #b1cbcf;
+
+@define-color secondary_container #324b4e;
+
+@define-color secondary_fixed #cde7eb;
+
+@define-color secondary_fixed_dim #b1cbcf;
+
+@define-color shadow #000000;
+
+@define-color source_color #2b393b;
+
+@define-color surface #0e1415;
+
+@define-color surface_bright #343a3b;
+
+@define-color surface_container #1b2122;
+
+@define-color surface_container_high #252b2c;
+
+@define-color surface_container_highest #303637;
+
+@define-color surface_container_low #171d1d;
+
+@define-color surface_container_lowest #090f10;
+
+@define-color surface_dim #0e1415;
+
+@define-color surface_tint #81d3de;
+
+@define-color surface_variant #3f484a;
+
+@define-color tertiary #b9c6ea;
+
+@define-color tertiary_container #394664;
+
+@define-color tertiary_fixed #d9e2ff;
+
+@define-color tertiary_fixed_dim #b9c6ea;
+
+
+/* End of color auto generation */
+
+
 /* Notification colors */
-@define-color noti-border-color #8c9389;
-@define-color noti-bg #3a4b39;
-@define-color noti-bg-darker #3a4b39;
-@define-color noti-bg-hover #3a4b39;
-@define-color noti-bg-focus #b9ccb5;
+@define-color noti-border-color #899294;
+@define-color noti-bg #324b4e;
+@define-color noti-bg-darker #324b4e;
+@define-color noti-bg-hover #324b4e;
+@define-color noti-bg-focus #b1cbcf;
 
 /* Close button */
 @define-color noti-close-bg #ffb4ab;
 @define-color noti-close-bg-hover #ffb4ab;
 
 /* Control center */
-@define-color cc-bg #101410;
-@define-color cc-text-color #e0e4db;
+@define-color cc-bg #0e1415;
+@define-color cc-text-color #dee4e4;
 
 /* Text */
-@define-color text-color #e0e4db;
-@define-color text-color-disabled #c2c9bd;
+@define-color text-color #dee4e4;
+@define-color text-color-disabled #bec8ca;
 
 /* Borders / accents */
-@define-color border-green #8c9389;
-@define-color green-base #9ed49d;
-@define-color blue-base #b9ccb5;
+@define-color border-green #899294;
+@define-color green-base #81d3de;
+@define-color blue-base #b1cbcf;
 @define-color red-base #ffb4ab;
 @define-color red-hover #ffb4ab;
 
 /* Correct background usage */
-@define-color background #101410;
-@define-color foreground #e0e4db;
+@define-color foreground #dee4e4;
 
-@define-color primary #9ed49d;
-@define-color on_primary #043912;
-@define-color on_primary_container #b9f0b7;
