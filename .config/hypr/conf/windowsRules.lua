@@ -1,5 +1,3 @@
--- Rules for firefox picture in picture window type.
--- Used for youtube video and actually amy picture in picutre content
 hl.window_rule({
     name = "Firefox picture in picture",
     match = {

@@ -69,7 +69,7 @@ hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-paus
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh next"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"), { locked = true })
 
--- Media for laptop keyboard
+-- Media for laptop keyboard, no media keys on Thinkapd
 hl.bind("XF86PickupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-pause"), { locked = true })
 hl.bind("XF86HangupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh next"), { locked = true })
 hl.bind("XF86NotificationCenter", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"), { locked = true })

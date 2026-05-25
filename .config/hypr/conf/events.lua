@@ -30,7 +30,7 @@ end
 
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("kitty")
+    hl.exec_cmd(CONSTANTS.programs.terminal)
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     launchKdeConnect()
 end)

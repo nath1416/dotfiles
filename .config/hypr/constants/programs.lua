@@ -1,14 +1,14 @@
-local launcher = "/usr/bin/app2unit"
+local launcher = "/usr/bin/app2unit "
 
-local terminal = launcher .. " kitty"
-local fileManager = launcher .. " dolphin"
-local browser = launcher .. " firefox"
+local terminal = launcher .. "kitty"
+local fileManager = launcher .. "dolphin"
+local browser = launcher .. "firefox"
+local music = launcher .. 'chromium --app="https://music.apple.com" --password-store=basic'
+
+
 local menu = "wofi"
-
-local music = launcher .. ' chromium --app="https://music.apple.com" --password-store=basic'
-
 local menuRun = string.format(
-    "%s %s --color ~/.cache/hellwal/wofi.colors --show drun",
+    "%s %s --show drun",
     launcher,
     menu
 )
