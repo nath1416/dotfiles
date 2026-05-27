@@ -12,6 +12,7 @@ require("conf.workspace")
 require("conf.events")
 require("conf.permisions")
 
+
 hl.config({
     general = {
         border_size = 1,
@@ -22,6 +23,11 @@ hl.config({
         resize_on_border = false,
         allow_tearing = false,
         no_focus_fallback = false,
+
+        snap = {
+            enabled = true,
+            window_gap = 10,
+        }
     },
 
     misc = {
@@ -47,7 +53,8 @@ hl.config({
         enabled = true,
         force_zero_scaling = true,
         use_nearest_neighbor = true
-    }
+    },
+
 })
 
 hl.config({

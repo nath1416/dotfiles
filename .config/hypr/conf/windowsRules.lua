@@ -9,7 +9,6 @@ hl.window_rule({
     keep_aspect_ratio = true,
     opaque = true,
     pin = true,
-    no_shadow = true,
     border_color = "rgb(000000)",
 })
 
