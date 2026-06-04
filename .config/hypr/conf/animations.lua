@@ -28,3 +28,4 @@ hl.animation({ leaf = "workspacesIn", enabled = true, speed = 2, bezier = "almos
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2, bezier = "almostLinear", style = "fade" })
 
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2, bezier = "almostLinear", style = "slide top" })
+

@@ -32,6 +32,19 @@ hl.gesture({
   end,
 })
 
+-- hl.gesture({
+--   fingers = 3,
+--   direction = "right",
+--   action = "scroll_move"
+-- })
+
+
+-- hl.gesture({
+--   fingers = 3,
+--   direction = "left",
+--   action = "scroll_move"
+-- })
+
 hl.gesture({
   fingers = 3,
   direction = "right",

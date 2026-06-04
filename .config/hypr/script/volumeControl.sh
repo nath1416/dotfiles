@@ -27,6 +27,7 @@ setLigth(){
         brightnessctl -d platform::micmute s 0%
     fi
 }
+
 muteSpeaker() {
     set +e
     if ! wpctl set-mute @DEFAULT_SINK@ toggle; then

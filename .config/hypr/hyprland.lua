@@ -11,6 +11,7 @@ require("conf.windowsRules")
 require("conf.workspace")
 require("conf.events")
 require("conf.permisions")
+require("conf.timers")
 
 
 hl.config({
@@ -26,7 +27,7 @@ hl.config({
 
         snap = {
             enabled = true,
-            window_gap = 10,
+            window_gap = 20,
         }
     },
 

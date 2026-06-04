@@ -8,7 +8,7 @@ hl.config({
 
         follow_mouse       = 1,
         focus_on_close     = 2,
-        mouse_refocus = true,
+        mouse_refocus      = true,
 
         sensitivity        = 0,
         repeat_delay       = 250,
@@ -19,8 +19,8 @@ hl.config({
 
         touchpad           = {
             disable_while_typing = true,
-            natural_scroll = false,
-            drag_lock = 0
+            natural_scroll       = false,
+            drag_lock            = 0
         },
     },
 })

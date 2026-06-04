@@ -1,34 +1,37 @@
 local function killOthers()
-    local activeWorkspace = hl.get_active_workspace()
-    if activeWorkspace == nil then
+
+    local workspace = hl.get_active_workspace()
+    if not workspace then
         return
     end
 
     local activeWindow = hl.get_active_window()
-    if activeWindow == nil then
+    if not activeWindow then
         return
     end
 
-        hl.notification.create({ text = string.format("Killed: %s windows.",activeWindow.active), timeout = 2000 })
-
-
     local count = 0
-    local toClose = {}
-    local workSpace = hl.get_workspace_windows(activeWorkspace)
-    for _, w in pairs(workSpace) do
-        if (activeWindow.stable_id ~= w.stable_id) then
+    local windows = hl.get_workspace_windows(workspace)
+
+    for _, w in ipairs(windows) do
+        if w.stable_id ~= activeWindow.stable_id then
             count = count + 1
-            hl.notification.create({ text = "Killed: " .. w.pid .. " windows."..activeWindow.pid, timeout = 5000 })
-            table.insert(toClose, w)
+
+            -- Debug notification
+            hl.notification.create({
+                text = string.format("Killing PID %d (%s)", w.pid, w.title),
+                timeout = 2000
+            })
+
+            -- Actually kill it
+            hl.dispatch(hl.dsp.window.kill(w))
         end
     end
 
-    -- for _, activeWindow in ipairs(t) do
-        
-    -- end
-    if count > 0 then
-        hl.notification.create({ text = "Killed: " .. count .. " windows.", timeout = 2000 })
-    end
+    hl.notification.create({
+        text = string.format("Killed %d windows.", count),
+        timeout = 2000
+    })
 end
 
 return killOthers
@@ -42,5 +45,8 @@ clients_to_kill=$(hyprctl clients -j | \
  )
 
  kill $(echo "$clients_to_kill")
+ --
 
+
+return killOthers
 --]]

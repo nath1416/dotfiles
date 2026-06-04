@@ -95,12 +95,12 @@ stopMedia(){
 
 nextMedia(){
     playerctl next
-    sleep 1
+    sleep 2
     sendNotif
 }
 previousMedia(){
     playerctl previous
-    sleep 1
+    sleep 2
     sendNotif
 }
 

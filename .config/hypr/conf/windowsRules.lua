@@ -1,84 +1,67 @@
+-- general rule
 hl.window_rule({
-    name = "Firefox picture in picture",
-    match = {
-        title = "(.*)(Picture-in-Picture)"
-    },
-
-    float = true,
-    border_size = 1,
-    keep_aspect_ratio = true,
-    opaque = true,
-    pin = true,
-    border_color = "rgb(000000)",
-})
-
-hl.window_rule({
-    name = "Float for file-png",
-    match = {
-        class = "(file-png)"
-    },
-    float = true
-})
-
-hl.window_rule({
-    name = "Rule for blueman",
-    match = {
-        class = "(blueman-manager)"
-    },
-    float = true,
-    size = { "(monitor_w*0.2)", "(monitor_h*0.3)" }
-
-})
-
-hl.window_rule({
-    name = "newtwork connection",
-    match = {
-        class = "(nm-connection-editor)"
-    },
-    float = true,
-})
-
-hl.window_rule({
-    name = "Default rule",
-    match = {
+    name           = "Suppress maximing events from all window",
+    match          = {
         class = ".*"
     },
     suppress_event = "maximize"
 })
 
+-- Specific rules
 hl.window_rule({
-    name = "Wofi rules",
-    match = {
-        class = "(wofi)"
+    name              = "Firefox picture in picture",
+    match             = {
+        title = "(.*)(Picture-in-Picture)"
     },
-    border_size = 0,
+
+    float             = true,
+    border_size       = 1,
+    keep_aspect_ratio = true,
+    opaque            = true,
+    pin               = true,
+    border_color      = "rgb(000000)",
+})
+
+-- force floating windows
+hl.window_rule({
+    name  = "Blueman floating",
+    float = true,
+    match = {
+        class = "blueman-manager"
+    },
+})
+
+hl.window_rule({
+    name  = "Pwvucontrol floating",
+    float = true,
+    match = {
+        class = "com.saivert.pwvucontrol",
+    }
+})
+
+hl.window_rule({
+    name  = "newtwork connection floating",
+    float = true,
+    match = {
+        class = "nm-connection-editor"
+    },
+})
+
+-- other
+hl.window_rule({
+    name         = "Force focus on wofi",
+    match        = {
+        class = "wofi"
+    },
+    border_size  = 0,
     stay_focused = true,
 })
 
 hl.window_rule({
-    name = "mpv keep ratio",
-    match = {
-        class = "(mpv)"
+    name              = "mpv keep ratio",
+    match             = {
+        class = "mpv"
     },
     keep_aspect_ratio = true,
-    opaque = true,
+    opaque            = true,
 })
-
---[[
-windowrule {
-  name = windowrule-5
-  float = on
-  match:title = .*Extension*
-}
-
-windowrule {
-  name = windowrule-7
-  no_focus = on
-  match:class = ^$
-  match:title = ^$
-  match:xwayland = 1
-  match:float = 1
-  match:fullscreen = 0
-  match:pin = 0
-}
---]]

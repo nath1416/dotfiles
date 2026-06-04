@@ -1,26 +1,22 @@
-local launcher = "/usr/bin/app2unit "
+local launcher    = "/usr/bin/app2unit "
 
-local terminal = launcher .. "kitty"
+local menuName    = "wofi"
+local terminal    = launcher .. "kitty"
 local fileManager = launcher .. "dolphin"
-local browser = launcher .. "firefox"
-local music = launcher .. 'chromium --app="https://music.apple.com" --password-store=basic'
+local browser     = launcher .. "firefox"
+local music       = launcher .. 'chromium --app="https://music.apple.com" --password-store=basic'
 
 
-local menu = "wofi"
-local menuRun = string.format(
-    "%s %s --show drun",
-    launcher,
-    menu
-)
+local menu = launcher .. menuName .. " --show drun"
 
 local vars = {
-    terminal = terminal,
+    terminal    = terminal,
     fileManager = fileManager,
-    browser = browser,
-    menu = menu,
-    menuRun = menuRun,
-    launcher = launcher,
-    music = music
+    browser     = browser,
+    menu        = menu,
+    menuName    = menuName,
+    launcher    = launcher,
+    music       = music
 }
 
 return vars
