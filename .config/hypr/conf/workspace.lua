@@ -20,7 +20,7 @@ hl.workspace_rule({
     border_size      = 0,
     no_rounding      = true,
     decorate         = false,
-    on_created_empty = "[fullscreen] " .. CONSTANTS.programs.terminal
+    on_created_empty = CONSTANTS.programs.terminal
 })
 
 hl.workspace_rule({
@@ -31,5 +31,5 @@ hl.workspace_rule({
     border_size      = 0,
     no_rounding      = true,
     decorate         = false,
-    on_created_empty = "[fullscreen] " .. CONSTANTS.programs.music
+    on_created_empty = CONSTANTS.programs.music
 })

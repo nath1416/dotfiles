@@ -28,20 +28,14 @@ local function launchKdeConnect()
     end
 end
 
-local function launchWaybar()
-    hl.exec_cmd(CONSTANTS.programs.launcher .. "waybar")
-end
-
+---
 
 hl.on("hyprland.start", function()
     hl.exec_cmd(CONSTANTS.programs.terminal)
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     launchKdeConnect()
-    -- launchWaybar()
 end)
 
 hl.on("monitor.added", function()
     hl.exec_cmd("sleep 2 && " .. CONSTANTS.scriptPath .. "wallpaperSwitcher.sh reload")
 end)
-
--- hl.bind(CONSTANTS.mainMod .. " + N", launchKdeConnect)
