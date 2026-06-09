@@ -58,6 +58,15 @@ muteMic(){
     fi
 }
 
+
+getVolumeSink(){
+    local volumeSink=""
+    volumeSink="$(wpctl get-volume @DEFAULT_SINK@)"
+
+    printf "V: %s" "$volumeSink"
+    printf "\n"
+}
+
 helpMan(){
     printf "Args:\n"
     printf "muteSpeaker\n"
@@ -81,6 +90,9 @@ case "$1" in
     ;;
     updateLigths)
         setLigth
+    ;;
+    getVolume)
+        getVolumeSink
     ;;
     *)
         helpMan

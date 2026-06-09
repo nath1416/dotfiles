@@ -2,109 +2,109 @@
 -- Generated with Matugen
 
 -- Wallpaper path
-local imageBackground = "/home/nathan/wallpapers/a_tall_buildings_with_power_lines_in_the_sky.jpg"
+local imageBackground = "/home/nathan/wallpapers/torii-gate-japan-vrata-torii-iaponiia-itsukushima-shrine-khr.jpg"
 
 local colors = {  
   
-  background = "rgba(12140DFF)",  
+  background = "rgba(0F1417FF)",  
   
   error = "rgba(FFB4ABFF)",  
   
   error_container = "rgba(93000AFF)",  
   
-  inverse_on_surface = "rgba(2F3129FF)",  
+  inverse_on_surface = "rgba(2C3134FF)",  
   
-  inverse_primary = "rgba(516526FF)",  
+  inverse_primary = "rgba(156683FF)",  
   
-  inverse_surface = "rgba(E3E3D7FF)",  
+  inverse_surface = "rgba(DFE3E7FF)",  
   
-  on_background = "rgba(E3E3D7FF)",  
+  on_background = "rgba(DFE3E7FF)",  
   
   on_error = "rgba(690005FF)",  
   
   on_error_container = "rgba(FFDAD6FF)",  
   
-  on_primary = "rgba(263500FF)",  
+  on_primary = "rgba(003547FF)",  
   
-  on_primary_container = "rgba(D4EC9EFF)",  
+  on_primary_container = "rgba(C0E8FFFF)",  
   
-  on_primary_fixed = "rgba(141F00FF)",  
+  on_primary_fixed = "rgba(001F2BFF)",  
   
-  on_primary_fixed_variant = "rgba(3A4D10FF)",  
+  on_primary_fixed_variant = "rgba(004D66FF)",  
   
-  on_secondary = "rgba(2C331DFF)",  
+  on_secondary = "rgba(1F333DFF)",  
   
-  on_secondary_container = "rgba(DEE6C5FF)",  
+  on_secondary_container = "rgba(D0E6F3FF)",  
   
-  on_secondary_fixed = "rgba(171E09FF)",  
+  on_secondary_fixed = "rgba(091E27FF)",  
   
-  on_secondary_fixed_variant = "rgba(424A31FF)",  
+  on_secondary_fixed_variant = "rgba(364954FF)",  
   
-  on_surface = "rgba(E3E3D7FF)",  
+  on_surface = "rgba(DFE3E7FF)",  
   
-  on_surface_variant = "rgba(C6C8B9FF)",  
+  on_surface_variant = "rgba(C0C7CDFF)",  
   
-  on_tertiary = "rgba(013732FF)",  
+  on_tertiary = "rgba(302D4CFF)",  
   
-  on_tertiary_container = "rgba(BCECE4FF)",  
+  on_tertiary_container = "rgba(E4DFFFFF)",  
   
-  on_tertiary_fixed = "rgba(00201DFF)",  
+  on_tertiary_fixed = "rgba(1B1736FF)",  
   
-  on_tertiary_fixed_variant = "rgba(204E48FF)",  
+  on_tertiary_fixed_variant = "rgba(464364FF)",  
   
-  outline = "rgba(909284FF)",  
+  outline = "rgba(8A9297FF)",  
   
-  outline_variant = "rgba(45483CFF)",  
+  outline_variant = "rgba(40484CFF)",  
   
-  primary = "rgba(B8CF84FF)",  
+  primary = "rgba(8CCFF1FF)",  
   
-  primary_container = "rgba(3A4D10FF)",  
+  primary_container = "rgba(004D66FF)",  
   
-  primary_fixed = "rgba(D4EC9EFF)",  
+  primary_fixed = "rgba(C0E8FFFF)",  
   
-  primary_fixed_dim = "rgba(B8CF84FF)",  
+  primary_fixed_dim = "rgba(8CCFF1FF)",  
   
   scrim = "rgba(000000FF)",  
   
-  secondary = "rgba(C2CAAAFF)",  
+  secondary = "rgba(B4CAD6FF)",  
   
-  secondary_container = "rgba(424A31FF)",  
+  secondary_container = "rgba(364954FF)",  
   
-  secondary_fixed = "rgba(DEE6C5FF)",  
+  secondary_fixed = "rgba(D0E6F3FF)",  
   
-  secondary_fixed_dim = "rgba(C2CAAAFF)",  
+  secondary_fixed_dim = "rgba(B4CAD6FF)",  
   
   shadow = "rgba(000000FF)",  
   
-  source_color = "rgba(1C2606FF)",  
+  source_color = "rgba(54859DFF)",  
   
-  surface = "rgba(12140DFF)",  
+  surface = "rgba(0F1417FF)",  
   
-  surface_bright = "rgba(383A32FF)",  
+  surface_bright = "rgba(353A3DFF)",  
   
-  surface_container = "rgba(1E2019FF)",  
+  surface_container = "rgba(1B2023FF)",  
   
-  surface_container_high = "rgba(292B23FF)",  
+  surface_container_high = "rgba(262B2EFF)",  
   
-  surface_container_highest = "rgba(34362EFF)",  
+  surface_container_highest = "rgba(303539FF)",  
   
-  surface_container_low = "rgba(1A1C15FF)",  
+  surface_container_low = "rgba(171C1FFF)",  
   
-  surface_container_lowest = "rgba(0D0F08FF)",  
+  surface_container_lowest = "rgba(0A0F12FF)",  
   
-  surface_dim = "rgba(12140DFF)",  
+  surface_dim = "rgba(0F1417FF)",  
   
-  surface_tint = "rgba(B8CF84FF)",  
+  surface_tint = "rgba(8CCFF1FF)",  
   
-  surface_variant = "rgba(45483CFF)",  
+  surface_variant = "rgba(40484CFF)",  
   
-  tertiary = "rgba(A0D0C8FF)",  
+  tertiary = "rgba(C7C2EAFF)",  
   
-  tertiary_container = "rgba(204E48FF)",  
+  tertiary_container = "rgba(464364FF)",  
   
-  tertiary_fixed = "rgba(BCECE4FF)",  
+  tertiary_fixed = "rgba(E4DFFFFF)",  
   
-  tertiary_fixed_dim = "rgba(A0D0C8FF)",  
+  tertiary_fixed_dim = "rgba(C7C2EAFF)",  
   
 }
 

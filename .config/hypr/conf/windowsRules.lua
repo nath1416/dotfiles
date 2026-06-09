@@ -47,6 +47,15 @@ hl.window_rule({
     },
 })
 
+hl.window_rule({
+    name  = "newtwork connection floating",
+    float = true,
+    match = {
+        class = "com.yubico.yubioath"
+    },
+})
+
+
 -- other
 hl.window_rule({
     name         = "Force focus on wofi",

@@ -72,6 +72,26 @@ getDataImage(){
     echo "$title - $icon $pos"
 }
 
+updateColors(){
+    local img=""
+    img="$(getImage)"
+    [[ -z $img ]] && return
+
+    mime=$(file --brief --mime-type "$img")
+
+    case "$mime" in
+        image/jpeg) ext=jpg ;;
+        image/png)  ext=png ;;
+        image/webp) ext=webp ;;
+        image/gif)  ext=gif ;;
+        *) echo "$mime" && exit 1 ;;
+    esac
+
+    local link=""
+    link="/tmp/image.$ext"
+    printf "Creating link: %s -> %s" "$img" "$link"
+    ln -sf "$img" "$link"
+}
 
 sendNotif(){
     local image
@@ -153,6 +173,9 @@ main(){
         previous)
             previousMedia 
         ;;
+        matugenMediaPlayer)
+           updateColors 
+           ;;
          *)
             helpMan
         ;;
