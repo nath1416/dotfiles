@@ -9,7 +9,7 @@ hl.monitor({
 -- Acer
 hl.monitor({
     output   = "desc:Acer Technologies XV270U X1 2511033253LEH",
-    mode     = "2560x1440@160.00Hz",
+    mode     = "2560x1440@144.00Hz",
     position = "auto-left",
     scale    = "1",
 })
@@ -36,6 +36,7 @@ hl.monitor({
     mode     = "1920x1080@60.00Hz",
     position = "auto-left",
     scale    = "1",
+    
 })
 
 -- Default

@@ -49,7 +49,6 @@ programWallpaper(){
     wallpaperPath="$1"
 
     awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$wallpaperPath"
-
 }
 
 setMatugen(){
@@ -85,11 +84,6 @@ killKitten() {
         [[ "$verbose" -eq 1 ]] && printf 'No matching kitty panel instances were found.\n'
     fi
 }
-activeMonitor(){
-    local monitor
-    monitor="$(hyprctl activeworkspace -j | jq '.monitor')"
-    echo "$monitor"
-}
 
 getRandom(){
     local wallpaper
@@ -109,7 +103,6 @@ reloadWallpaper(){
 
     applyWallpaper "$lasWallpaper"
 }
-
 
 help(){
     local argument=""

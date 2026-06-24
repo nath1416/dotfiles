@@ -74,3 +74,12 @@ hl.window_rule({
     keep_aspect_ratio = true,
     opaque            = true,
 })
+
+-- hl.window_rule({
+--     name              = "Ensure music workspace has music window fullscreen",
+--     fullscreen        = true,
+--     match             = {
+--         -- workspace         = "special:".. CONSTANTS.workspace.musicWorkspace,
+--         class = "chrome-music.apple.com__-Default"
+--     },
+-- })

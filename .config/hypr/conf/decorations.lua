@@ -1,10 +1,10 @@
 hl.config({
     decoration = {
-        rounding           = 5,
-        rounding_power     = 2.0,
+        rounding           = 6,
+        rounding_power     = 1.5,
 
         active_opacity     = 1.0,
-        inactive_opacity   = 0.90,
+        inactive_opacity   = 0.85,
         fullscreen_opacity = 1.0,
 
         dim_modal          = true,
@@ -12,10 +12,10 @@ hl.config({
         blur               = {
             enabled        = true,
             size           = 3,
-            passes         = 1,
+            passes         = 2,
             ignore_opacity = true,
 
-            noise          = 0.0117,
+            noise          = 0.01117,
             contrast       = 0.8916,
             brightness     = 0.8172,
             vibrancy       = 0.1696,
@@ -34,7 +34,7 @@ hl.config({
 
         glow = {
             enabled = false,
-            range   = 5,
+            range   = 10,
             color   = CONSTANTS.colors.on_background,
         },
     }

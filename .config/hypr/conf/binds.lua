@@ -47,7 +47,28 @@ hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ workspace = "-1" }))
 hl.bind(mainMod .. " + T", hl.dsp.workspace.toggle_special(musicWorkSpace))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special(specialWorspaceName))
 
+hl.bind(mainMod .. " + V", hl.dsp.window.float())
 
+hl.bind("XF86Favorites", hl.dsp.exec_cmd(scriptPath .. "layoutSwitcher.sh next"))
+
+hl.config({
+    binds = {
+        drag_threshold = 10,
+    }
+})
+
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+
+-- Scrolling layout keybinds
+hl.bind(mainMod .. " + period", hl.dsp.layout("colresize +conf"))
+hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("colresize -conf"))
+
+hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel next"))
+hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("consume_or_expel prev"))
+
+-- Bash Scripts
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(scriptPath .. "brightness.sh increase"), { locked = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(scriptPath .. "brightness.sh decrease"), { locked = true })
 hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
@@ -68,26 +89,6 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"
 hl.bind("XF86PickupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-pause"), { locked = true })
 hl.bind("XF86HangupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh next"), { locked = true })
 hl.bind("XF86NotificationCenter", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"), { locked = true })
-
-hl.bind(mainMod .. " + period", hl.dsp.layout("colresize +conf"))
-hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("colresize -conf"))
-
-hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel next"))
-hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("consume_or_expel prev"))
-
-
-hl.bind(mainMod .. " + V", hl.dsp.window.float())
-
-hl.bind("XF86Favorites", hl.dsp.exec_cmd(scriptPath .. "layoutSwitcher.sh next"))
-
-hl.config({
-    binds = {
-        drag_threshold = 10,
-    }
-})
-
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 
 

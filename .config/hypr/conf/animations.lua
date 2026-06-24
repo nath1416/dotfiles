@@ -4,13 +4,17 @@ hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
+hl.curve("overshoot", { type = "bezier", points = { { 0.5, 0.9 }, { 0.1, 1.1 } } })
+hl.curve("rubber", { type = "spring", mass = 1, stiffness = 70, dampening = 10 })
+
 hl.animation({ leaf = "global", enabled = true, speed = 1, bezier = "default" })
 
 hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
 
 hl.animation({ leaf = "windows", enabled = true, speed = 4.79, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.1, bezier = "easeInOutCubic", style = "gnomed" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "gnomed" })
+
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.1, bezier = "easeInOutCubic", style = "gnomed" })
 
 hl.animation({ leaf = "fade", enabled = true, speed = 3.03, bezier = "quick" })
 hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "quick" })
@@ -28,4 +32,3 @@ hl.animation({ leaf = "workspacesIn", enabled = true, speed = 2, bezier = "almos
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 2, bezier = "almostLinear", style = "fade" })
 
 hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 2, bezier = "almostLinear", style = "slide top" })
-

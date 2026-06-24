@@ -1,0 +1,9 @@
+[config]
+version_check = false
+fallback_color = "#ffbf9b"
+
+prefer = "darkness"
+
+[templates.media]
+input_path = '~/.config/matugen/media/colors.lua'
+output_path = '~/.config/hypr/constants/colorsMedia.lua'
