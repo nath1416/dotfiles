@@ -13,6 +13,7 @@
     "group/expand",
     "custom/endpoint",
     "network",
+    "custom/vpn",
     "bluetooth",
     "custom/profile",
     "wireplumber",
@@ -44,6 +45,11 @@
     "exec": "/home/nathan/.config/waybar/script/powerMode.sh mode",
     "interval": 5,
     "tooltip-format": "Fn+l: Low-Power\t󱤊 \nFn+m: Balanced\t \nFn+h: Perf\t󰠠 "
+  },
+  "custom/vpn": {
+    "format": "{}",
+    "exec": "/home/nathan/bin/vpnUp -icon",
+    "interval": 5,
   },
   "custom/idleIndicator": {
     "format": "{}",
@@ -148,3 +154,4 @@
     "on-click": "pwvucontrol"
   }
 }
+
