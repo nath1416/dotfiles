@@ -38,11 +38,11 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.focus({ workspace = "-1" }))
+hl.bind(mainMod .. " + CTRL + K", hl.dsp.focus({ workspace = "+1" }))
+hl.bind(mainMod .. " + CTRL + J", hl.dsp.focus({ workspace = "-1" }))
 
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ workspace = "+1" }))
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ workspace = "-1" }))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ workspace = "+1" }))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ workspace = "-1" }))
 
 hl.bind(mainMod .. " + T", hl.dsp.workspace.toggle_special(musicWorkSpace))
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special(specialWorspaceName))

@@ -1,15 +1,12 @@
-
-
 hl.config({
     plugin = {
         scrolloverview = {
-            gesture_distance = 300, -- how far is the "max" for the gestureoLL
-            scale = 0.65,            -- preferred overview scale
+            gesture_distance = 300,
+            scale = 0.65,
             workspace_gap = 0,
-            layout = "vertical",    -- vertical or horizontal
-            wallpaper = 0,          -- 0: global only, 1: per-workspace only, 2: both
-            blur =false,           -- blur only the main overview wallpaper
-
+            layout = "vertical",
+            wallpaper = 0,
+            blur = false,
             shadow = {
                 enabled = false,
                 range = 5,
@@ -36,13 +33,9 @@ local selectClient = function()
     hl.plugin.scrolloverview.overview("off")
 end
 
-hl.define_submap("scrolloverview", function()
-
+-- hl.define_submap("scrolloverview", function()
     -- Navigation
-    hl.bind("H", hl.plugin.scrolloverview.navigate("left"))
-    hl.bind("L", hl.plugin.scrolloverview.navigate("right"))
-    hl.bind("K", hl.plugin.scrolloverview.navigate("up"))
-    hl.bind("J", hl.plugin.scrolloverview.navigate("down"))
+
     hl.bind(mainMod .. " + H", hl.plugin.scrolloverview.navigate("left"))
     hl.bind(mainMod .. " + L", hl.plugin.scrolloverview.navigate("right"))
     hl.bind(mainMod .. " + K", hl.plugin.scrolloverview.navigate("up"))
@@ -51,12 +44,12 @@ hl.define_submap("scrolloverview", function()
     hl.bind(mainMod .. " + Q", hl.plugin.scrolloverview.window("close"))
 
     -- Select workspace
-    hl.bind("RETURN", selectClient)
-    hl.bind("mouse:272", selectClient, { mouse = true })
+    -- hl.bind("RETURN", selectClient)
+    -- hl.bind("mouse:272", selectClient, { mouse = true })
 
     -- Quit
     hl.bind("ESCAPE", hl.plugin.scrolloverview.overview("off"))
     hl.bind("G", hl.plugin.scrolloverview.overview("off"))
 
     -- hl.bind("mouse:274", hl.plugin.scrolloverview.window("close"), { mouse = true })
-end)
+-- end)
