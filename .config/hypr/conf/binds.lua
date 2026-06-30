@@ -10,7 +10,7 @@ hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"))
 hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"))
 
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart waybar"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"))
+hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"))
 
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 
@@ -89,6 +89,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"
 hl.bind("XF86PickupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-pause"), { locked = true })
 hl.bind("XF86HangupPhone", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh next"), { locked = true })
 hl.bind("XF86NotificationCenter", hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"), { locked = true })
+
 
 
 

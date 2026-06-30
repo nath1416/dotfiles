@@ -39,3 +39,8 @@ end)
 hl.on("monitor.added", function()
     hl.exec_cmd("sleep 2 && " .. CONSTANTS.scriptPath .. "wallpaperSwitcher.sh reload")
 end)
+
+
+-- hl.on("workspace.special_active", function(w)
+--     -- hl.notification.create({ text = "Launch: " .. w, icon = 5, timeout = 5000 })
+-- end)

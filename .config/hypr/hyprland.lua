@@ -12,6 +12,8 @@ require("conf.workspace")
 require("conf.events")
 require("conf.permisions")
 require("conf.timers")
+require("conf.layerRules")
+require("plugins.scrollOverView")
 
 
 hl.config({
@@ -27,7 +29,7 @@ hl.config({
 
         snap = {
             enabled = true,
-            window_gap = 20,
+            window_gap = 1,
         }
     },
 
@@ -84,3 +86,4 @@ hl.config({
         enforce_permissions = true,
     },
 })
+
