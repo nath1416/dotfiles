@@ -13,7 +13,8 @@ require("conf.events")
 require("conf.permisions")
 require("conf.timers")
 require("conf.layerRules")
-require("plugins.scrollOverView")
+
+require("plugins.loader")
 
 
 hl.config({

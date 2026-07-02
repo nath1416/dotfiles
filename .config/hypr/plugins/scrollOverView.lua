@@ -33,7 +33,7 @@ local selectClient = function()
     hl.plugin.scrolloverview.overview("off")
 end
 
--- hl.define_submap("scrolloverview", function()
+local bindsSubmapFunc = function()
     -- Navigation
 
     hl.bind(mainMod .. " + H", hl.plugin.scrolloverview.navigate("left"))
@@ -52,4 +52,6 @@ end
     hl.bind("G", hl.plugin.scrolloverview.overview("off"))
 
     -- hl.bind("mouse:274", hl.plugin.scrolloverview.window("close"), { mouse = true })
--- end)
+end
+
+hl.define_submap("scrolloverview", bindsSubmapFunc)
