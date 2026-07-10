@@ -19,15 +19,9 @@ hl.config({
 
 
 local mainMod = CONSTANTS.mainMod
-
 local toggleBind = mainMod .. " + O"
 
-hl.bind(toggleBind, function()
-    hl.plugin.scrolloverview.overview("toggle")
-end)
-
 local selectClient = function()
-    -- Select the clicked window, or just the workspace if no window was clicked, then close the overview.
     hl.plugin.scrolloverview.overview("select")
     hl.plugin.scrolloverview.window("select")
     hl.plugin.scrolloverview.overview("off")
@@ -35,23 +29,25 @@ end
 
 local bindsSubmapFunc = function()
     -- Navigation
-
     hl.bind(mainMod .. " + H", hl.plugin.scrolloverview.navigate("left"))
     hl.bind(mainMod .. " + L", hl.plugin.scrolloverview.navigate("right"))
     hl.bind(mainMod .. " + K", hl.plugin.scrolloverview.navigate("up"))
     hl.bind(mainMod .. " + J", hl.plugin.scrolloverview.navigate("down"))
 
-    hl.bind(mainMod .. " + Q", hl.plugin.scrolloverview.window("close"))
+    hl.bind("ESCAPE", hl.plugin.scrolloverview.overview("off"))
+
 
     -- Select workspace
-    -- hl.bind("RETURN", selectClient)
-    -- hl.bind("mouse:272", selectClient, { mouse = true })
-
-    -- Quit
-    hl.bind("ESCAPE", hl.plugin.scrolloverview.overview("off"))
-    hl.bind("G", hl.plugin.scrolloverview.overview("off"))
-
-    -- hl.bind("mouse:274", hl.plugin.scrolloverview.window("close"), { mouse = true })
+    hl.bind("RETURN", selectClient)
+    -- Left click
+    hl.bind("mouse:272", selectClient, { mouse = true })
+    -- Right click
+    hl.bind("mouse:273", selectClient, { mouse = true })
+    -- Scroll wheel click
+    hl.bind("mouse:274", selectClient, { mouse = true })
 end
 
+
 hl.define_submap("scrolloverview", bindsSubmapFunc)
+
+hl.bind(toggleBind, hl.plugin.scrolloverview.overview("toggle"), { submap_universal = true })

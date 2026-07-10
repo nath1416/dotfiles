@@ -34,6 +34,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(CONSTANTS.programs.terminal)
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     launchKdeConnect()
+    -- Load plugins
+    hl.exec_cmd("sleep 5 && hyprpm reload -n")
 end)
 
 hl.on("monitor.added", function()
