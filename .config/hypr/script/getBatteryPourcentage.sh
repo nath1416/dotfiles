@@ -1,56 +1,51 @@
 #! /usr/bin/env bash
 
-set -e 
+set -e
 
-main(){
+main() {
 
-    upowerResult=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0)
+    capacity=$(< /sys/class/power_supply/BAT0/capacity)
+    status=$(< /sys/class/power_supply/BAT0/status)
 
-
-    state=$(echo "$upowerResult" | grep state | awk '{print $2}')
-
-    state_icon="unknow: $state"
-
-    if [[ "$state" == "pending-charge" ]]; then
-        state_icon=" "
-    fi
-
-    if [[ "$state" == "fully-charged" ]]; then
-        state_icon=" "
-    fi
-
-    if [[ "$state" == "charging" ]]; then
-        state_icon="󱐋"
-    fi
-
-    if [[ "$state" == "discharging" ]]; then
-        state_icon="󰶹"
-    fi
-
-    pourcentage=$(echo "$upowerResult" | grep perce | awk '{print $2}')
-    number=${pourcentage%\%}
+    case "$status" in
+        Charging)
+            state_icon="󱐋"
+            ;;
+        Discharging)
+            state_icon="󰶹"
+            ;;
+        Full)
+            state_icon=""
+            ;;
+        "Not charging")
+            state_icon=""
+            ;;
+        *)
+            state_icon="unknown: $status"
+            ;;
+    esac
 
     battery_icon="󰂃"
 
-    if   (( number <= 15 )); then
+    if   (( capacity <= 15 )); then
         battery_icon="󰁺"
-    elif (( number <= 25 )); then
+    elif (( capacity <= 25 )); then
         battery_icon="󰁻"
-    elif (( number <= 35 )); then
+    elif (( capacity <= 35 )); then
         battery_icon="󰁼"
-    elif (( number <= 45 )); then
+    elif (( capacity <= 45 )); then
         battery_icon="󰁽"
-    elif (( number <= 55 )); then
+    elif (( capacity <= 55 )); then
         battery_icon="󰁿"
-    elif (( number <= 65 )); then
+    elif (( capacity <= 65 )); then
         battery_icon="󰂀"
-    elif (( number <= 75 )); then
+    elif (( capacity <= 75 )); then
         battery_icon="󰂁"
     else
         battery_icon="󰁹"
     fi
 
-    echo "$pourcentage $battery_icon $state_icon"
+    echo "${capacity}% $battery_icon $state_icon"
 }
 
 main "$@"

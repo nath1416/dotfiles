@@ -99,7 +99,10 @@ sendNotif(){
     
     image="$(getImage)"
     data="$(getData)"
-    [[ -z $img ]] && notify-send -r "$msgTag" "$data"
+    # if [[ -z $img ]] then
+    #     notify-send -r "$msgTag" "$data"
+    #     return 0
+    # fi
 
     notify-send -i "$image" -r "$msgTag" "$data"
 }

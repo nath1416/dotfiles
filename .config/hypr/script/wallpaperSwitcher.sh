@@ -9,6 +9,7 @@ SAVE_PATH_WALLPAPER="$HOME/.config/hypr/wallpaper.txt"
 DEFAULT_KITTY_OPACITY=0.80
 
 verbose=0
+silent=0
 
 applyWallpaper(){
 
@@ -40,7 +41,7 @@ applyWallpaper(){
     local FileName
     BaseName="$(basename "$RealPath")"
     FileName="${BaseName%.*}"
-    notify-send -r "4" "Changed Wallpaper to $FileName"
+    [[ "$silent" -eq 0 ]] && notify-send -r "4" "Changed Wallpaper to $FileName"
 
 }
 
@@ -58,7 +59,7 @@ setMatugen(){
     [[ "$verbose" -eq 1 ]] && printf "Ran matugen with file: %s\n" "$path"
 
     if ! error_output=$(matugen image "$RealPath" --prefer darkness 2>&1); then
-        notify-send -r 4 "Matugen Failed" "$error_output"
+        [[ "$silent" -eq 0 ]] && notify-send -r 4 "Matugen Failed" "$error_output"
         echo "Matugen failed"
         exit
     fi
@@ -113,6 +114,7 @@ help(){
     printf "%s (Flag) [Argument]\n" "$0"
     printf "Flags: \n"
     printf "\t -v (verbose)\n"
+    printf "\t -s (silent notification)\n"
     printf "\t -h (help)\n"
     printf "Argument: \n"
     printf "\t set\n"
@@ -124,18 +126,21 @@ help(){
 
 
 flag(){
-while getopts ":vh" opt; do
+while getopts ":vhs" opt; do
     case "$opt" in
         v)
             verbose=1
             echo "Set vebose"
+            ;;
+        s)
+            silent=1
             ;;
         h)
             help
             exit
             ;;
         \?)
-            echo "Unknown option: -$OPTARG"
+            help
             exit 1
             ;;
     esac

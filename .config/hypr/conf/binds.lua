@@ -1,38 +1,36 @@
-local mainMod = CONSTANTS.mainMod
+local mainMod = CONSTANTS.programs.mainMod
 local programs = CONSTANTS.programs
 local scriptPath = CONSTANTS.scriptPath
 
-local musicWorkSpace = CONSTANTS.workspace.musicWorkspace
-local specialWorspaceName = CONSTANTS.workspace.extraWorspace
+-- Mouse
+hl.config({
+    binds = {
+        drag_threshold = 10,
+    }
+})
 
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(programs.terminal), { submap_universal = true })
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.fileManager), { submap_universal = true })
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser), { submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"), { submap_universal = true })
-
-hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("pkill " .. programs.menuName .. " || " .. programs.menu),
-    { submap_universal = true })
-
-hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"), { submap_universal = true })
-hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { submap_universal = true })
-
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart waybar"))
-hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"), { submap_universal = true })
-
-hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
-
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
-
-hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -USR1 waybar"))
+local kill_or_start = function(programName, program)
+    return hl.dsp.exec_cmd("pkill " .. programName .. " || " .. program)
+end
 
 
-hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { submap_universal = true })
+-- Keybinds Default submap
 
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprlock"), { submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))
 
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -USR1 waybar"))
+
+hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
+hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset identity"))
+
+hl.bind(mainMod .. " + V", hl.dsp.window.float())
+-- hl.bind("XF86Favorites", hl.dsp.exec_cmd(scriptPath .. "layoutSwitcher.sh next"))
+
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart waybar"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))
 
 for i = 1, 10 do
     local key = i % 10
@@ -40,27 +38,28 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind(mainMod .. " + K", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + J", hl.dsp.focus({ workspace = "-1" }))
-
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ workspace = "+1" }), { submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ workspace = "-1" }), { submap_universal = true })
-
-hl.bind(mainMod .. " + T", hl.dsp.workspace.toggle_special(musicWorkSpace))
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special(specialWorspaceName))
-
-hl.bind(mainMod .. " + V", hl.dsp.window.float())
-
-hl.bind("XF86Favorites", hl.dsp.exec_cmd(scriptPath .. "layoutSwitcher.sh next"))
-
-hl.config({
-    binds = {
-        drag_threshold = 10,
-    }
-})
-
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+
+-- Keybinds Universal
+hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { submap_universal = true })
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(programs.terminal), { submap_universal = true })
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.fileManager), { submap_universal = true })
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"), { submap_universal = true })
+hl.bind(mainMod .. " + SPACE", kill_or_start(programs.menuName, programs.menu), { submap_universal = true })
+
+hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"), { submap_universal = true })
+hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { submap_universal = true })
+
+hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"), { submap_universal = true })
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprlock"), { submap_universal = true })
+
+hl.bind(mainMod .. " + K", hl.dsp.focus({ workspace = "-1" }), { submap_universal = true })
+hl.bind(mainMod .. " + J", hl.dsp.focus({ workspace = "+1" }), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ workspace = "-1" }), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ workspace = "+1" }), { submap_universal = true })
 
 
 -- Scrolling layout keybinds
@@ -79,11 +78,6 @@ hl.bind("XF86MonBrightnessDown",
     hl.dsp.exec_cmd(scriptPath .. "brightness.sh decrease"),
     { locked = true, submap_universal = true }
 )
-
-hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
-hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset identity"))
-
-
 hl.bind("XF86AudioRaiseVolume",
     hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh change 5%+"),
     { locked = true, submap_universal = true }

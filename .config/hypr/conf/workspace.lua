@@ -12,24 +12,25 @@ for i = 2, CONSTANTS.workspace.nbWorspacePersistent do
     })
 end
 
-hl.workspace_rule({
-    workspace        = "special:" .. CONSTANTS.workspace.extraWorspace,
-    layout           = "dwindle",
-    gaps_in          = 0,
-    gaps_out         = 0,
-    border_size      = 0,
-    no_rounding      = true,
-    decorate         = false,
-    on_created_empty = CONSTANTS.programs.terminal
-})
 
-hl.workspace_rule({
-    workspace        = "special:" .. CONSTANTS.workspace.musicWorkspace,
-    layout           = "dwindle",
-    gaps_in          = 0,
-    gaps_out         = 0,
-    border_size      = 0,
-    no_rounding      = true,
-    decorate         = false,
-    on_created_empty = CONSTANTS.programs.music
-})
+for index, object in ipairs(CONSTANTS.workspace.specialWorkspaces) do
+    if object.name == nil or object.application == nil then
+        hl.notification.create({ text = 'Missing required at index' .. index .. ' fields { name="", application="" } ', timeout = 3000 })
+        goto continue
+    end
+    if object.bind ~= nil then
+        hl.bind(object.bind, hl.dsp.workspace.toggle_special(object.name))
+    end
+
+    hl.workspace_rule({
+        workspace        = "special:" .. object.name,
+        layout           = "dwindle",
+        gaps_in          = 0,
+        gaps_out         = 0,
+        border_size      = 0,
+        no_rounding      = true,
+        decorate         = false,
+        on_created_empty = object.application
+    })
+    ::continue::
+end

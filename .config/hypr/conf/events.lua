@@ -7,11 +7,7 @@ local function isProcessRunning(processName)
     local result = handle:read("*a")
     handle:close()
 
-    if result == "" then
-        return false
-    else
-        return true
-    end
+    return result ~= ""
 end
 
 local function launchKdeConnect()
@@ -31,18 +27,11 @@ end
 ---
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd(CONSTANTS.programs.terminal)
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     launchKdeConnect()
-    -- Load plugins
-    hl.exec_cmd("sleep 5 && hyprpm reload -n")
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd(CONSTANTS.programs.terminal)
 end)
 
 hl.on("monitor.added", function()
-    hl.exec_cmd("sleep 2 && " .. CONSTANTS.scriptPath .. "wallpaperSwitcher.sh reload")
+    hl.exec_cmd("sleep 2 && " .. CONSTANTS.scriptPath .. "wallpaperSwitcher.sh -s reload")
 end)
-
-
--- hl.on("workspace.special_active", function(w)
---     -- hl.notification.create({ text = "Launch: " .. w, icon = 5, timeout = 5000 })
--- end)j

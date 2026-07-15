@@ -18,11 +18,10 @@ hl.config({
 })
 
 
-local mainMod = CONSTANTS.mainMod
+local mainMod = CONSTANTS.programs.mainMod
 local toggleBind = mainMod .. " + O"
 
 local selectClient = function()
-    hl.plugin.scrolloverview.overview("select")
     hl.plugin.scrolloverview.window("select")
     hl.plugin.scrolloverview.overview("off")
 end
@@ -31,11 +30,8 @@ local bindsSubmapFunc = function()
     -- Navigation
     hl.bind(mainMod .. " + H", hl.plugin.scrolloverview.navigate("left"))
     hl.bind(mainMod .. " + L", hl.plugin.scrolloverview.navigate("right"))
-    hl.bind(mainMod .. " + K", hl.plugin.scrolloverview.navigate("up"))
-    hl.bind(mainMod .. " + J", hl.plugin.scrolloverview.navigate("down"))
 
     hl.bind("ESCAPE", hl.plugin.scrolloverview.overview("off"))
-
 
     -- Select workspace
     hl.bind("RETURN", selectClient)
