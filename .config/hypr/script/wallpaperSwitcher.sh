@@ -17,7 +17,7 @@ applyWallpaper(){
     wallpaperPath="$1"
 
     local RealPath
-    RealPath="$(realpath $1)"
+    RealPath="$(realpath "$1")"
 
     [[ "$verbose" -eq 1 ]] && printf "Checking if file exist: %s\n" "$RealPath"
 
@@ -28,7 +28,7 @@ applyWallpaper(){
     fi
     echo "$RealPath" > "$SAVE_PATH_WALLPAPER"
 
-    programWallpaper $RealPath
+    programWallpaper "$RealPath"
     
     [[ "$verbose" -eq 1 ]] && printf "Set Wallpaper to %s\n" "$RealPath"
 
