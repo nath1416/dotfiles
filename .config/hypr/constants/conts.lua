@@ -1,4 +1,4 @@
-local colors        = require("constants.colors")
+local colorsTable        = require("constants.colors")
 local programs      = require("constants.programs")
 local workspace     = require("constants.workspace")
 
@@ -13,7 +13,8 @@ local scriptMediaPlayer = "mediaPlayer.sh "
 
 local constants     = {
     scriptPath    = scriptPath,
-    colors        = colors,
+    colors        = colorsTable.colors,
+    colorsHex        = colorsTable.colorsHex,
     programs      = programs,
     defaultLayout = defaultLayout,
     workspace     = workspace

@@ -39,11 +39,13 @@ end)
 
 local waybar = hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
-hl.on("workspace.special_active", function(workspace, monitor)
-    local workspacename = workspace.name
-    if workspacename then
-        waybar:set_enabled(true)
-        return
-    end
-    waybar:set_enabled(false)
-end)
+waybar:set_enabled(false)
+
+-- hl.on("workspace.special_active", function(workspace, monitor)
+--     local workspacename = workspace.name
+--     if workspacename then
+--         waybar:set_enabled(true)
+--         return
+--     end
+--     waybar:set_enabled(false)
+-- end)

@@ -8,10 +8,11 @@ hl.config({
             wallpaper = 0,
             blur = false,
             shadow = {
-                enabled = false,
-                range = 5,
+                enabled = true,
+                range = 25,
                 render_power = 3,
-                color = 0xee1a1a1a,
+                -- color = 0xee1a1a1a,
+                -- color = CONSTANTS.colorsHex.error
             },
         },
     },
@@ -47,3 +48,5 @@ end
 hl.define_submap("scrolloverview", bindsSubmapFunc)
 
 hl.bind(toggleBind, hl.plugin.scrolloverview.overview("toggle"), { submap_universal = true })
+
+-- hl.plugin

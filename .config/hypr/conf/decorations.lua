@@ -37,5 +37,8 @@ hl.config({
             range   = 10,
             color   = CONSTANTS.colors.on_background,
         },
+        motion_blur = {
+            enabled = true
+        }
     }
 })

@@ -7,3 +7,12 @@ end)
 if hl.plugin.scrolloverview ~= nil then
     require("plugins.scrollOverView")
 end
+
+local a =  hl.get_loaded_plugins()
+
+for i,p in ipairs(a) do
+    print(p.author)
+    print(p.description)
+    print(p.name)
+    print(p.version)
+end
