@@ -1,5 +1,7 @@
 CONSTANTS = require("constants.conts")
 
+require("globals")
+
 require("conf.binds")
 require("conf.animations")
 require("conf.decorations")
@@ -16,6 +18,7 @@ require("conf.layerRules")
 
 require("plugins.loader")
 
+local loadTest = true
 
 hl.config({
     general = {
@@ -88,3 +91,6 @@ hl.config({
     },
 })
 
+if loadTest then
+    require("plugins.test")
+end

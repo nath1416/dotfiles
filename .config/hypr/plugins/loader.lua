@@ -3,16 +3,17 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("sleep 5 && hyprpm reload -n")
 end)
 
--- Load configurations for enabled plugins
-if hl.plugin.scrolloverview ~= nil then
-    require("plugins.scrollOverView")
-end
+local plugins = hl.get_loaded_plugins()
 
-local a =  hl.get_loaded_plugins()
-
-for i,p in ipairs(a) do
-    print(p.author)
-    print(p.description)
-    print(p.name)
-    print(p.version)
+if #plugins > 0 then
+    for _, plugin in ipairs(plugins) do
+        if plugin.name == "scrolloverview" then
+            require("plugins.scrollOverView")
+            LOG("Plugin loaded with config: " .. plugin.name)
+        else
+            LOG("Plugin loaded with no config: " .. plugin.name)
+        end
+    end
+else
+    LOG("No plugin loaded")
 end

@@ -50,6 +50,7 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser), { submap_universal
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"), { submap_universal = true })
 hl.bind(mainMod .. " + SPACE", kill_or_start(programs.menuName, programs.menu), { submap_universal = true })
 
+-- hl.bind("print", hl.dsp.exec_cmd(CONSTANTS.scriptScreenshot .. "-s"), { submap_universal = true })
 hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"), { submap_universal = true })
 hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { submap_universal = true })
 
