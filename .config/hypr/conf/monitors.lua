@@ -36,7 +36,6 @@ hl.monitor({
     mode     = "1920x1080@60.00Hz",
     position = "auto-left",
     scale    = "1",
-    
 })
 
 -- Default

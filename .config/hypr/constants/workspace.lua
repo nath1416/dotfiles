@@ -2,11 +2,17 @@ local programs = require("constants.programs")
 local launcher = programs.launcher
 local mainMod = programs.mainMod
 
+---@class NA.WORKSPACE_DATA
+---@field name string
+---@field bind string
+---@field application string
+---@field apply_rule? boolean
+---@type NA.WORKSPACE_DATA[]
 local specialWorkspaces    = {
     {
         name = "music",
         bind = mainMod .. " + T",
-        application = launcher .. 'chromium --password-store=basic --app="https://music.apple.com"',
+        application = launcher .. programs.music,
     },
     {
         name = "dwindle",
@@ -26,4 +32,5 @@ local workspace            = {
     nbWorspacePersistent = nbWorspacePersistent,
     specialWorkspaces    = specialWorkspaces
 }
+
 return workspace

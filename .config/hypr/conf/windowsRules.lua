@@ -22,40 +22,6 @@ hl.window_rule({
     border_color      = "rgb(000000)",
 })
 
--- force floating windows
-hl.window_rule({
-    name  = "Blueman floating",
-    float = true,
-    match = {
-        class = "blueman-manager"
-    },
-})
-
-hl.window_rule({
-    name  = "Pwvucontrol floating",
-    float = true,
-    match = {
-        class = "com.saivert.pwvucontrol",
-    }
-})
-
-hl.window_rule({
-    name  = "newtwork connection floating",
-    float = true,
-    match = {
-        class = "nm-connection-editor"
-    },
-})
-
-hl.window_rule({
-    name  = "newtwork connection floating",
-    float = true,
-    match = {
-        class = "com.yubico.yubioath"
-    },
-})
-
-
 -- other
 hl.window_rule({
     name         = "Force focus on wofi",
@@ -75,11 +41,37 @@ hl.window_rule({
     opaque            = true,
 })
 
--- hl.window_rule({
---     name              = "Ensure music workspace has music window fullscreen",
---     fullscreen        = true,
---     match             = {
---         -- workspace         = "special:".. CONSTANTS.workspace.musicWorkspace,
---         class = "chrome-music.apple.com__-Default"
---     },
--- })
+
+-- force floating windows
+---@class NA.FLOATING_WINDOW_DATA
+---@field name string
+---@field class string
+---@type NA.FLOATING_WINDOW_DATA[]
+local floatingWindows = {
+    {
+        name  = "Blueman floating",
+        class = "blueman-manager",
+    },
+    {
+        name  = "Pwvucontrol floating",
+        class = "com.saivert.pwvucontrol",
+    },
+    {
+        name  = "newtwork connection floating",
+        class = "nm-connection-editor",
+    },
+    {
+        name  = "Yubico connect",
+        class = "com.yubico.yubioath",
+    },
+}
+
+for _, window in ipairs(floatingWindows) do
+    hl.window_rule({
+        name  = window.name,
+        float = true,
+        match = {
+            class = window.class,
+        },
+    })
+end
