@@ -21,12 +21,12 @@ hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -USR1 waybar"))
+hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.exec_cmd("systemctl --user restart waybar.service"))
 
 hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
 hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset identity"))
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float())
--- hl.bind("XF86Favorites", hl.dsp.exec_cmd(scriptPath .. "layoutSwitcher.sh next"))
 
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart waybar"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))

@@ -9,11 +9,13 @@ if #plugins > 0 then
     for _, plugin in ipairs(plugins) do
         if plugin.name == "scrolloverview" then
             require("plugins.scrollOverView")
-            LOG("Plugin loaded with config: " .. plugin.name)
+            LOG({ text = "Plugin loaded with config: " .. plugin.name, icon = 5 })
         else
-            LOG("Plugin loaded with no config: " .. plugin.name)
+            LOG({ text = "Plugin loaded with no config: " .. plugin.name, icon = 2 })
         end
     end
 else
-    LOG("No plugin loaded")
+    LOG({ text = "No plugin loaded", icon = 4 })
 end
+
+

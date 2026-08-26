@@ -1,28 +1,12 @@
-CONSTANTS = require("constants.conts")
+-- Source monitors config
 
-require("globals")
-
-require("conf.binds")
-require("conf.animations")
-require("conf.decorations")
-require("conf.gestures")
-require("conf.inputs")
-require("conf.layouts")
 require("conf.monitors")
-require("conf.windowsRules")
-require("conf.workspace")
-require("conf.events")
-require("conf.permisions")
-require("conf.timers")
-require("conf.layerRules")
-
-require("plugins.loader")
-
-local loadTest = true
 
 hl.config({
     general = {
         border_size = 1,
+        layout = "scrolling",
+
 
         gaps_in = { top = 3, left = 3, right = 3, bottom = 3 },
         gaps_out = { top = 5, left = 5, right = 5, bottom = 5 },
@@ -61,19 +45,6 @@ hl.config({
         force_zero_scaling = true,
         use_nearest_neighbor = true
     },
-
-})
-
-hl.config({
-    general = {
-        col = {
-            active_border   = { colors = { CONSTANTS.colors.on_background } },
-            inactive_border = "rgba(595959ff)",
-        },
-        layout = CONSTANTS.defaultLayout,
-        -- layout = "scrolling",
-    },
-
     binds = {
         hide_special_on_workspace_change = true,
         window_direction_monitor_fallback = true,
@@ -82,15 +53,40 @@ hl.config({
     cursor = {
         inactive_timeout = 10,
         warp_on_change_workspace = 1,
-    }
-})
-
-hl.config({
-    ecosystem = {
-        enforce_permissions = true,
     },
 })
 
-if loadTest then
-    require("plugins.test")
-end
+CONSTANTS = require("constants.conts")
+
+require("globals")
+
+require("conf.binds")
+require("conf.inputs")
+require("conf.windowsRules")
+require("conf.workspaceRules")
+require("conf.layerRules")
+require("conf.layouts")
+require("conf.events")
+require("conf.timers")
+require("conf.animations")
+require("conf.decorations")
+require("conf.gestures")
+require("conf.permisions")
+
+require("plugins.loader")
+
+
+-- Config with variables
+
+hl.config({
+    general = {
+        col = {
+            active_border   = { colors = { CONSTANTS.colors.on_background } },
+            inactive_border = "rgba(595959ff)",
+        },
+    },
+})
+
+
+loadTest = true
+require("plugins.test")

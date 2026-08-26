@@ -9,13 +9,14 @@ local specialWorkspaces    = {
         application = launcher .. 'chromium --password-store=basic --app="https://music.apple.com"',
     },
     {
-        name = "musicOther",
-        bind = mainMod .. " + SHIFT + T",
-        application = launcher .. 'chromium --password-store=basic --app="https://navidrome.data.nasservice.net"',
+        name = "dwindle",
+        bind = mainMod .. " + S",
+        application = launcher .. programs.terminal,
+        apply_rule = false,
     },
     {
         name = "extra",
-        bind = mainMod .. " + S",
+        bind = mainMod .. " + SHIFT + S",
         application = launcher .. programs.terminal,
     }
 }

@@ -1,7 +1,7 @@
 local function isProcessRunning(processName)
     local handle = io.popen("pgrep -f " .. processName)
     if handle == nil then
-        hl.notification.create({ text = "Unable to get a handle", icon = 2, timeout = 5000 })
+        LOG({ text = "Unable to get a handle", icon = 2, timeout = 5000 })
         return
     end
     local result = handle:read("*a")
@@ -14,13 +14,13 @@ local function launchKdeConnect()
     local deamon = "kdeconnectd"
     if not isProcessRunning(deamon) then
         hl.exec_cmd(deamon)
-        hl.notification.create({ text = "Launch: " .. deamon, icon = 5, timeout = 5000 })
+        LOG({ text = 'Launch: ' .. deamon })
     end
 
     local indicator = "kdeconnect-indicator"
     if not isProcessRunning(indicator) then
         hl.exec_cmd(indicator)
-        hl.notification.create({ text = "Launch: " .. indicator, icon = 5, timeout = 5000 })
+        LOG({ text = "Launch: " .. indicator, icon = 5, timeout = 5000 })
     end
 end
 
