@@ -6,15 +6,15 @@ getCurrentMode(){
 }
 
 balancedMode(){
-    echo " "
+    echo ""
 }
 
 performanceMode(){
-    echo "󰠠 "
+    echo "󰠠"
 }
 
 low-powerMode(){
-    echo "󱤊 "
+    echo "󱤊"
 }
 
 unknowMode(){

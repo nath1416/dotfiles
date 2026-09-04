@@ -1,5 +1,9 @@
 @import './colors.css';
 
+/* =====================================================
+ * GLOBAL
+ * ===================================================== */
+
 * {
     font-family: "Cousine Nerd Font";
     font-size: 13px;
@@ -14,54 +18,67 @@ window#waybar {
     padding: 0;
 }
 
+
 /* =====================================================
  * LEFT / CENTER / RIGHT BUBBLES
  * ===================================================== */
 
-/* LEFT touches left screen edge */
+/*
+ * Keep padding out of the containers as much as possible.
+ * Individual modules control their own spacing.
+ */
+
+/* LEFT — touches left edge of screen */
 
 .modules-left {
     background: alpha(@secondary_container, 0.90);
 
-    border-radius: 0px 0px 4px 0px;
+    border-radius: 0 0 4px 0;
 
     margin: 0;
-    padding: 0 3px 0 0px;
+    padding: 0;
 
     min-height: 25px;
 }
 
-/* CENTER floating */
+
+/* CENTER — floating */
 
 .modules-center {
     background: alpha(@secondary_container, 0.90);
 
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 0 0 4px 4px;
 
     margin: 0 5px;
-    padding: 0 3px;
+    padding: 0;
 
     min-height: 25px;
 }
 
-/* RIGHT touches right screen edge */
+
+/* RIGHT — touches right edge of screen */
 
 .modules-right {
     background: alpha(@secondary_container, 0.90);
 
-    border-radius: 0px 0px 0px 4px;
+    border-radius: 0 0 0 4px;
 
     margin: 0 0 0 5px;
-    padding: 0 0px 0 3px;
+    padding: 0;
 
     min-height: 25px;
 }
 
+
 /* =====================================================
- * REMOVE INDIVIDUAL MODULE BOXES
+ * COMMON MODULE STYLE
  * ===================================================== */
 
-#workspaces,
+/*
+ * Every regular module gets exactly the same horizontal
+ * padding. This makes spacing consistent across the bar.
+ */
+
 #clock,
 #battery,
 #cpu,
@@ -80,9 +97,11 @@ window#waybar {
 #custom-expand,
 #custom-endpoint,
 #custom-idleIndicator,
+#custom-vpn,
 #mpd,
 #window {
     background: transparent;
+
     border: none;
     box-shadow: none;
 
@@ -92,37 +111,81 @@ window#waybar {
     color: @on_secondary_container;
 }
 
+
 /* =====================================================
- * WORKSPACES
+ * LEFT MODULES
  * ===================================================== */
 
+/*
+ * Workspaces are special because the buttons themselves
+ * already provide horizontal padding.
+ */
+
 #workspaces {
-    padding: 0 0px;
+    background: transparent;
+
+    border: none;
+    box-shadow: none;
+
+    margin: 0;
+    padding: 0;
+
+    color: @on_secondary_container;
 }
+
+
+/* The first workspace starts close to the screen edge. */
+
 #workspaces button {
-    padding: 0 5px;
     background-color: transparent;
     color: @on_secondary_container;
-    transition: border 0.5s;
-    margin: 0 2px;
-    border-radius: 5px;
+
+    margin: 0;
+    padding: 0 6px;
+
+    border: none;
+    border-radius: 0;
+
+    transition: background-color 0.2s;
 }
+
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: inherit;
-    text-shadow: inherit;
+
+    box-shadow: none;
+    text-shadow: none;
 }
+
 
 #workspaces button.active {
     background: @on_secondary_fixed;
 
-    border-radius: 0px;
+    border-radius: 0;
 }
+
 
 #workspaces button.urgent {
     background-color: @urgent-bg;
 }
+
+#custom-idleIndicator {
+    padding-right: 10px;
+}
+/* =====================================================
+ * CLOCK
+ * ===================================================== */
+
+/*
+ * No container padding + equal clock padding means the
+ * clock gets exactly the same space on both sides.
+ */
+
+#clock {
+    margin: 0;
+    padding: 0 8px;
+}
+
 
 /* =====================================================
  * WINDOW
@@ -133,6 +196,7 @@ window#waybar {
     padding-right: 14px;
 }
 
+
 /* =====================================================
  * TRAY
  * ===================================================== */
@@ -141,11 +205,15 @@ window#waybar {
     -gtk-icon-effect: dim;
 }
 
+
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
+
     background: #eb4d4b;
+
     border-radius: 8px;
 }
+
 
 /* =====================================================
  * BATTERY
@@ -161,11 +229,13 @@ window#waybar {
     animation-direction: alternate;
 }
 
+
 @keyframes blink {
     to {
         opacity: 0.4;
     }
 }
+
 
 /* =====================================================
  * TOOLTIP
@@ -173,9 +243,11 @@ window#waybar {
 
 tooltip {
     background: @secondary_container;
-    border-radius: 10px;
+
     border: none;
+    border-radius: 10px;
 }
+
 
 tooltip label {
     color: @on_secondary_container;
