@@ -2,14 +2,14 @@ local launcher    = "/usr/bin/app2unit "
 
 local menuName    = "wofi"
 
-local menu = launcher .. menuName .. " --show drun"
+local menu        = launcher .. menuName .. " --show drun"
 local terminal    = launcher .. "kitty"
-local fileManager = launcher .. "dolphin"
+local fileManager = launcher .. "nautilus -w"
 local browser     = launcher .. "firefox"
 
 local music       = launcher .. 'chromium --password-store=basic --app="https://music.apple.com"'
 
-local mainMod  = "SUPER"
+local mainMod     = "SUPER"
 
 
 local programs = {

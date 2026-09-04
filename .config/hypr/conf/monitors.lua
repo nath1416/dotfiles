@@ -10,6 +10,7 @@ hl.monitor({
 hl.monitor({
     output   = "desc:Acer Technologies XV270U X1 2511033253LEH",
     mode     = "2560x1440@144.00Hz",
+    -- mode = "1920x1080@200.00Hz",
     position = "auto-left",
     scale    = "1",
 })

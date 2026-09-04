@@ -4,7 +4,11 @@
   "spacing": 4,
   "reload_style_on_change": true,
   "modules-left": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "custom/endpoint",
+    "custom/layoutIndicator",
+    "custom/profile",
+    "custom/idleIndicator"
   ],
   "modules-center": [
     "clock"
@@ -15,11 +19,9 @@
     "network",
     "custom/vpn",
     "bluetooth",
-    "custom/profile",
     "wireplumber",
     "memory",
     "cpu",
-    "custom/idleIndicator",
     "battery",
     "custom/swaync"
   ],
@@ -32,7 +34,6 @@
     },
     "modules": [
       "custom/expand",
-      "custom/layoutIndicator",
       "tray"
     ]
   },
@@ -49,7 +50,7 @@
   "custom/vpn": {
     "format": "{}",
     "exec": "/home/nathan/bin/vpnUp -icon",
-    "interval": 5,
+    "interval": 5
   },
   "custom/idleIndicator": {
     "format": "{}",
@@ -60,8 +61,7 @@
   "custom/layoutIndicator": {
     "format": "{}",
     "exec": "/home/nathan/.config/hypr/script/layoutSwitcher.sh get-icon",
-    "interval": 5,
-    "on-click": "/home/nathan/.config/hypr/script/layoutSwitcher.sh next"
+    "interval": 2
   },
   "custom/endpoint": {
     "format": "|",
@@ -125,11 +125,11 @@
       "on-discharging-warning": "notify-send -u normal 'Low Battery'",
       "on-discharging-critical": "notify-send -u critical 'Very Low Battery'"
     },
-    "format": "{capacity}% {icon}",
+    "format": "{capacity}% {icon} -{power}w",
     "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󰂅",
+    "format-charging": "{capacity}% 󰂅 +{power}w",
     "format-plugged": "{capacity}% 󰁹",
-    "format-alt": "{time} {icon}",
+    "format-alt": "{power}w {time} {icon}",
     "format-icons": [
       "󰁻",
       "󰁽",

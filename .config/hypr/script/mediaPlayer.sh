@@ -69,7 +69,10 @@ getDataImage(){
     title="$(playerctl metadata title)"
     pos="$(getPosition)"
     icon="$(getPlayingIcon)"
-    echo "$title - $icon $pos"
+
+    volume="$($HOME/.config/hypr/script/volumeControl.sh getVolume)"
+
+    echo "$title - $icon $pos - 󰜟 $volume%"
 }
 
 updateColors(){

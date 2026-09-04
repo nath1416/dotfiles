@@ -61,18 +61,19 @@ muteMic(){
 
 getVolumeSink(){
     local volumeSink=""
-    volumeSink="$(wpctl get-volume @DEFAULT_SINK@)"
+    volumeSink="$(wpctl get-volume @DEFAULT_SINK@ | awk -F. '{ print $2 }')"
 
-    printf "V: %s" "$volumeSink"
+    printf "$volumeSink"
     printf "\n"
 }
 
 helpMan(){
     printf "Args:\n"
-    printf "muteSpeaker\n"
-    printf "muteMic\n"
-    printf "change ARGS: +5,-5\n"
-    printf "updateLigths\n"
+    printf "\tmuteSpeaker\n"
+    printf "\tmuteMic\n"
+    printf "\tchange ARGS: +5,-5\n"
+    printf "\tupdateLigths\n"
+    printf "\tgetVolume\n"
 }
 
 main() {

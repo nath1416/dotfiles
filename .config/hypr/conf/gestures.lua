@@ -1,14 +1,14 @@
 hl.gesture({
   fingers = 4,
   direction = "up",
-  action = "cursorZoom",
-  zoom_level = 1.8
+  action = "cursor_zoom",
+  zoom_level = 1.8,
 })
 
 hl.gesture({
   fingers = 4,
   direction = "down",
-  action = "cursorZoom",
+  action = "cursor_zoom",
   zoom_level = 1.8
 })
 
@@ -48,18 +48,14 @@ hl.gesture({
 hl.gesture({
   fingers = 3,
   direction = "right",
-  action = function()
-    hl.dispatch(hl.dsp.focus({ direction = "right" }))
-  end,
+  action = "scroll_move"
 })
 
 
 hl.gesture({
   fingers = 3,
   direction = "left",
-  action = function()
-    hl.dispatch(hl.dsp.focus({ direction = "left" }))
-  end,
+  action = "scroll_move"
 })
 
 hl.gesture({
@@ -69,4 +65,3 @@ hl.gesture({
     hl.dispatch(hl.dsp.layout("consume_or_expel next"))
   end,
 })
-

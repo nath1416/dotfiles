@@ -22,5 +22,9 @@ hl.config({
             natural_scroll       = false,
             drag_lock            = 0
         },
+        touchdevice = {
+            enabled = true,
+            output = ""
+        }
     },
 })

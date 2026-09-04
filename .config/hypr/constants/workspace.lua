@@ -7,6 +7,7 @@ local mainMod = programs.mainMod
 ---@field bind string
 ---@field application string
 ---@field apply_rule? boolean
+
 ---@type NA.WORKSPACE_DATA[]
 local specialWorkspaces    = {
     {
@@ -15,7 +16,7 @@ local specialWorkspaces    = {
         application = launcher .. programs.music,
     },
     {
-        name = "dwindle",
+        name = "",
         bind = mainMod .. " + S",
         application = launcher .. programs.terminal,
         apply_rule = false,

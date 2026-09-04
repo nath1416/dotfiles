@@ -14,7 +14,50 @@ local kill_or_start = function(programName, program)
 end
 
 
+local cycleWorkspace = function()
+    local active = hl.get_active_workspace()
+
+    if active == nil then
+        return
+    end
+
+    if active.special then
+        return
+    end
+
+    if active.has_fullscreen then
+        return
+    end
+
+
+    if not active.visible then
+        return
+    end
+
+
+    local a = { scrolling = "dwindle", dwindle = "scrolling" }
+    local key = active.tiled_layout
+
+    local next_layout = a[key]
+
+    if next_layout == nil then
+        LOG({ text = "Invalid layout name: " .. key })
+        return
+    end
+
+    hl.workspace_rule({
+        layout    = next_layout,
+        workspace = active.name,
+    })
+end
+
+
 -- Keybinds Default submap
+
+
+hl.bind(mainMod .. " + G", cycleWorkspace,
+    { submap_universal = true }
+)
 
 
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -124,7 +167,6 @@ hl.bind("XF86NotificationCenter",
     hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh previous"),
     { locked = true, submap_universal = true }
 )
-
 
 --[[
 

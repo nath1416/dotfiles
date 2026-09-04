@@ -31,6 +31,9 @@ hl.config({
         on_focus_under_fullscreen = 2,
         lockdead_screen_delay = 2000,
     },
+    gestures = {
+        workspace_swipe_invert = false,
+    },
 
     ecosystem = {
         no_donation_nag = true,
@@ -88,5 +91,5 @@ hl.config({
 })
 
 
-loadTest = true
+loadTest = false
 require("plugins.test")
