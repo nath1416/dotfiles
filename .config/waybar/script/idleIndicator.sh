@@ -29,7 +29,7 @@ toggleService(){
 
 getIconStatus(){
     if isRunning; then
-        echo "󰒲 "
+        echo "󰒲"
     else
         echo " "
     fi
