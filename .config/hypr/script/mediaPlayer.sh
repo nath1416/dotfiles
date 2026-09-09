@@ -1,81 +1,81 @@
 #! /usr/bin/env bash
 
-set -e 
+set -e
 
 msgTag="19"
 
-havePlayer(){
+havePlayer() {
     playerctl status >/dev/null 2>&1
     return $?
 }
 
-getImage(){
+getImage() {
     local img
     img="$(playerctl metadata mpris:artUrl | sed 's|^file://||')"
     echo "$img"
 }
 
-getPosition(){
+getPosition() {
     local pos
     pos=$(playerctl position 2>/dev/null)
     pos=${pos%.*}
 
-    printf "%02d:%02d\n" $((pos/60)) $((pos%60))
+    printf "%02d:%02d\n" $((pos / 60)) $((pos % 60))
 }
 
-getPlayingIcon(){
+getPlayingIcon() {
     local state
     state="$(playerctl status)"
-    case "$state" in 
-        Playing)
-            printf "󰏤"
+    case "$state" in
+    Playing)
+        printf "󰏤"
         ;;
-        Paused)
-            printf ""
+    Paused)
+        printf ""
         ;;
-        *)
-            printf "Unknow: %s" "$state"
+    *)
+        printf "Unknow: %s" "$state"
         ;;
     esac
 }
 
-getData(){
-    local album
-    local artist
+getData() {
+    # local album
+    # local artist
     local title
     local pos
     local icon
 
-    album="$(playerctl metadata album)"
-    artist="$(playerctl metadata artist)"
+    # album="$(playerctl metadata album)"
+    # artist="$(playerctl metadata artist)"
     title="$(playerctl metadata title)"
     pos="$(getPosition)"
     icon="$(getPlayingIcon)"
     echo "$title - $icon $pos"
 }
-getDataImage(){
+getDataImage() {
 
     local img=""
     img="$(getImage)"
     [[ -z $img ]] && return
-    local album
-    local artist
+    # local album
+    # local artist
     local title
     local pos
     local icon
 
-    album="$(playerctl metadata album)"
-    artist="$(playerctl metadata artist)"
+    # album="$(playerctl metadata album)"
+    # artist="$(playerctl metadata artist)"
     title="$(playerctl metadata title)"
     pos="$(getPosition)"
     icon="$(getPlayingIcon)"
 
-    volume="$($HOME/.config/hypr/script/volumeControl.sh getVolume)"
+    volume="$("$HOME"/.config/hypr/script/volumeControl.sh getVolume)"
 
     echo "$title - $icon $pos - 󰜟 $volume%"
 }
 
-updateColors(){
+updateColors() {
     local img=""
     img="$(getImage)"
     [[ -z $img ]] && return
@@ -83,11 +83,11 @@ updateColors(){
     mime=$(file --brief --mime-type "$img")
 
     case "$mime" in
-        image/jpeg) ext=jpg ;;
-        image/png)  ext=png ;;
-        image/webp) ext=webp ;;
-        image/gif)  ext=gif ;;
-        *) echo "$mime" && exit 1 ;;
+    image/jpeg) ext=jpg ;;
+    image/png) ext=png ;;
+    image/webp) ext=webp ;;
+    image/gif) ext=gif ;;
+    *) echo "$mime" && exit 1 ;;
     esac
 
     local link=""
@@ -96,10 +96,10 @@ updateColors(){
     ln -sf "$img" "$link"
 }
 
-sendNotif(){
+sendNotif() {
     local image
     local data
-    
+
     image="$(getImage)"
     data="$(getData)"
     # if [[ -z $img ]] then
@@ -110,27 +110,27 @@ sendNotif(){
     notify-send -i "$image" -r "$msgTag" "$data"
 }
 
-playMedia(){
+playMedia() {
     playerctl play-pause
     sendNotif
 }
 
-stopMedia(){
+stopMedia() {
     playerctl stop
 }
 
-nextMedia(){
+nextMedia() {
     playerctl next
     sleep 2
     sendNotif
 }
-previousMedia(){
+previousMedia() {
     playerctl previous
     sleep 2
     sendNotif
 }
 
-helpMan(){
+helpMan() {
     echo "Playerctf wrapper script"
     echo ""
     echo "Arguments:"
@@ -146,44 +146,44 @@ helpMan(){
     echo "  previous"
 }
 
-main(){
-   if ! havePlayer; then
-       exit 0
-   fi 
+main() {
+    if ! havePlayer; then
+        exit 0
+    fi
 
-   case "$1" in
-       image)
-           getImage
+    case "$1" in
+    image)
+        getImage
         ;;
-        data)
-            getData
+    data)
+        getData
         ;;
-        dataImageProof)
-            getDataImage
+    dataImageProof)
+        getDataImage
         ;;
-        position)
-            getPosition
+    position)
+        getPosition
         ;;
-        getPlayingIcon)
-            getPlayingIcon
+    getPlayingIcon)
+        getPlayingIcon
         ;;
-        play-pause)
-            playMedia 
+    play-pause)
+        playMedia
         ;;
-        stop)   
-            stopMedia
+    stop)
+        stopMedia
         ;;
-        next)
-            nextMedia
+    next)
+        nextMedia
         ;;
-        previous)
-            previousMedia 
+    previous)
+        previousMedia
         ;;
-        matugenMediaPlayer)
-           updateColors 
-           ;;
-         *)
-            helpMan
+    matugenMediaPlayer)
+        updateColors
+        ;;
+    *)
+        helpMan
         ;;
     esac
 }

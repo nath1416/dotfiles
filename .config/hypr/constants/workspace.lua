@@ -11,7 +11,7 @@ local mainMod = programs.mainMod
 ---@type NA.WORKSPACE_DATA[]
 local specialWorkspaces    = {
     {
-        name = "music",
+        name = "",
         bind = mainMod .. " + T",
         application = launcher .. programs.music,
     },

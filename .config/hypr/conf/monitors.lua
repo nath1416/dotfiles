@@ -1,7 +1,7 @@
 -- Laptop Screen
 hl.monitor({
-    output   = "desc:AU Optronics 0xD291",
-    mode     = "1920x1200@60.03",
+    output   = "desc:Chimei Innolux Corporation 0x1417",
+    mode     = "1920x1200@60.00Hz",
     position = "0x0",
     scale    = "1",
 })

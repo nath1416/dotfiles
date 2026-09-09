@@ -6,12 +6,10 @@ WALLPAPER_PATH="$HOME/wallpapers"
 
 SAVE_PATH_WALLPAPER="$HOME/.config/hypr/wallpaper.txt"
 
-DEFAULT_KITTY_OPACITY=0.80
-
 verbose=0
 silent=0
 
-applyWallpaper(){
+applyWallpaper() {
 
     local wallpaperPath=""
     wallpaperPath="$1"
@@ -21,15 +19,14 @@ applyWallpaper(){
 
     [[ "$verbose" -eq 1 ]] && printf "Checking if file exist: %s\n" "$RealPath"
 
-
     if [ ! -e "$RealPath" ]; then
-        printf "Wallpaper not found\n" 
+        printf "Wallpaper not found\n"
         exit 1
     fi
-    echo "$RealPath" > "$SAVE_PATH_WALLPAPER"
+    echo "$RealPath" >"$SAVE_PATH_WALLPAPER"
 
     programWallpaper "$RealPath"
-    
+
     [[ "$verbose" -eq 1 ]] && printf "Set Wallpaper to %s\n" "$RealPath"
 
     sleep 0.8
@@ -45,14 +42,14 @@ applyWallpaper(){
 
 }
 
-programWallpaper(){
+programWallpaper() {
     local wallpaperPath=""
     wallpaperPath="$1"
 
     awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$wallpaperPath"
 }
 
-setMatugen(){
+setMatugen() {
     local path
     path="$1"
 
@@ -65,15 +62,18 @@ setMatugen(){
     fi
 }
 
-startKitten(){
+startKitten() {
     killKitten
 
     local program=""
     program="$1"
 
-    [[ -n "$program" ]] || { printf 'Program not set\n'; exit 1; }
+    [[ -n "$program" ]] || {
+        printf 'Program not set\n'
+        exit 1
+    }
 
-    kitten panel --detach --edge=background --margin-top=-1 --focus-policy=not-allowed "$program" 
+    kitten panel --detach --edge=background --margin-top=-1 --focus-policy=not-allowed "$program"
 }
 
 killKitten() {
@@ -86,30 +86,30 @@ killKitten() {
     fi
 }
 
-getRandom(){
+getRandom() {
     local wallpaper
     wallpaper=$(find "$WALLPAPER_PATH" -type f | shuf -n 1)
     echo "$wallpaper"
 }
 
-setRandom(){
+setRandom() {
     local path
     path="$(getRandom)"
     applyWallpaper "$path"
 }
 
-reloadWallpaper(){
+reloadWallpaper() {
     local lasWallpaper=""
     lasWallpaper=$(cat "$SAVE_PATH_WALLPAPER")
 
     applyWallpaper "$lasWallpaper"
 }
 
-help(){
+help() {
     local argument=""
     argument="$1"
 
-    [[ "$argument"  ]] && printf "Unknow argument: %s\n\n" "$1"
+    [[ "$argument" ]] && printf "Unknow argument: %s\n\n" "$1"
 
     printf "%s (Flag) [Argument]\n" "$0"
     printf "Flags: \n"
@@ -124,10 +124,9 @@ help(){
     printf "\t kill-kitten\n"
 }
 
-
-flag(){
-while getopts ":vhs" opt; do
-    case "$opt" in
+flag() {
+    while getopts ":vhs" opt; do
+        case "$opt" in
         v)
             verbose=1
             echo "Set vebose"
@@ -143,37 +142,37 @@ while getopts ":vhs" opt; do
             help
             exit 1
             ;;
-    esac
-done
+        esac
+    done
 }
 
-main(){
+main() {
 
     flag "$@"
     shift $((OPTIND - 1))
-case "$1" in
+    case "$1" in
     set)
         applyWallpaper "$2"
-    ;;
+        ;;
     reload)
         reloadWallpaper
-    ;;
+        ;;
     get-random)
         getRandom
-    ;;
+        ;;
     set-random)
         setRandom
-    ;;
-    kitten) 
+        ;;
+    kitten)
         startKitten "$2"
-    ;;
-    kill-kitten) 
+        ;;
+    kill-kitten)
         killKitten
-    ;;
+        ;;
     *)
         help "$@"
-    ;;
-esac
+        ;;
+    esac
 }
 
 main "$@"

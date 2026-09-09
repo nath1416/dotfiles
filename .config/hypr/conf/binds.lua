@@ -15,6 +15,11 @@ end
 
 
 local cycleWorkspace = function()
+    local active_special = hl.get_active_special_workspace()
+    if active_special then
+        return
+    end
+
     local active = hl.get_active_workspace()
 
     if active == nil then
@@ -35,20 +40,36 @@ local cycleWorkspace = function()
     end
 
 
-    local a = { scrolling = "dwindle", dwindle = "scrolling" }
-    local key = active.tiled_layout
+    local sequence = { "dwindle", "scrolling", "master", "monocle", "lua:columns" }
+    local current_layout = active.tiled_layout
+    local current_index
 
-    local next_layout = a[key]
+    for index, layout in ipairs(sequence) do
+        if layout == current_layout then
+            current_index = index
+            break
+        end
+    end
 
-    if next_layout == nil then
-        LOG({ text = "Invalid layout name: " .. key })
+    if current_index == nil then
+        LOG({ text = "Invalid layout name: " .. current_layout })
         return
     end
+
+    local next_layout = sequence[current_index % #sequence + 1]
 
     hl.workspace_rule({
         layout    = next_layout,
         workspace = active.name,
     })
+end
+
+local reload_hyprland_wayabr = function()
+    local b = hl.dsp.exec_cmd("systemctl --user restart waybar.service")
+    hl.dispatch(b)
+
+    local c = hl.dsp.exec_cmd("hyprctl reload")
+    hl.dispatch(c)
 end
 
 
@@ -63,8 +84,9 @@ hl.bind(mainMod .. " + G", cycleWorkspace,
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -USR1 waybar"))
-hl.bind(mainMod .. " + SHIFT + Y", hl.dsp.exec_cmd("systemctl --user restart waybar.service"))
+hl.bind(mainMod .. " + SHIFT + Y", reload_hyprland_wayabr)
 
 hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
 hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset identity"))
@@ -93,7 +115,6 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser), { submap_universal
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"), { submap_universal = true })
 hl.bind(mainMod .. " + SPACE", kill_or_start(programs.menuName, programs.menu), { submap_universal = true })
 
--- hl.bind("print", hl.dsp.exec_cmd(CONSTANTS.scriptScreenshot .. "-s"), { submap_universal = true })
 hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"), { submap_universal = true })
 hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { submap_universal = true })
 
@@ -116,19 +137,19 @@ hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("consume_or_expel prev"), {
 -- Bash Scripts
 hl.bind("XF86MonBrightnessUp",
     hl.dsp.exec_cmd(scriptPath .. "brightness.sh increase"),
-    { locked = true, submap_universal = true }
+    { locked = true, submap_universal = true, repeating = true }
 )
 hl.bind("XF86MonBrightnessDown",
     hl.dsp.exec_cmd(scriptPath .. "brightness.sh decrease"),
-    { locked = true, submap_universal = true }
+    { locked = true, submap_universal = true, repeating = true }
 )
 hl.bind("XF86AudioRaiseVolume",
     hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh change 5%+"),
-    { locked = true, submap_universal = true }
+    { locked = true, submap_universal = true, repeating = true }
 )
 hl.bind("XF86AudioLowerVolume",
     hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh change 5%-"),
-    { locked = true, submap_universal = true }
+    { locked = true, submap_universal = true, repeating = true }
 )
 hl.bind("XF86AudioMute",
     hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh muteSpeaker"),

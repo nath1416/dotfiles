@@ -2,9 +2,9 @@
 
 set -e
 
-chooseFileName(){
+chooseFileName() {
     local name
-    name=$(wofi --color ~/.cache/hellwal/wofi.colors  -c "$HOME/.config/wofi/custom/screenshot.config" --show dmenu)
+    name=$(wofi --color ~/.cache/hellwal/wofi.colors -c "$HOME/.config/wofi/custom/screenshot.config" --show dmenu)
     if [[ "$name" == "" ]]; then
         exit
     fi
@@ -12,11 +12,11 @@ chooseFileName(){
     echo "$fileName"
 }
 
-sendNotif(){
+sendNotif() {
     notify-send "$1"
 }
 
-fullScreen(){
+fullScreen() {
     local name
     name=$(chooseFileName)
     sleep 1
@@ -25,7 +25,7 @@ fullScreen(){
     sendNotif "ScreenShot: $name"
 }
 
-selectScreen(){
+selectScreen() {
     pkill slurp 2>/dev/null && return 0
 
     local size
@@ -39,20 +39,19 @@ selectScreen(){
     sendNotif "ScreenShot ($size): $name"
 }
 
-
-main (){
+main() {
     choice="$1"
     case $choice in
-        -f) 
-            fullScreen
-            ;;
-        -s)
-            selectScreen
-            ;;
-        *)
-            exit 0
-            ;;
-        esac
+    -f)
+        fullScreen
+        ;;
+    -s)
+        selectScreen
+        ;;
+    *)
+        exit 0
+        ;;
+    esac
 }
 
 main "$@"

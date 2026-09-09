@@ -1,37 +1,35 @@
 #! /usr/bin/env bash
 
-set -e 
+set -e
 
-sendNotif(){
+sendNotif() {
     notify-send -r "9" -t 1000 -a "brightnessctl" -h int:value:"$1" "Brightness: $1%"
 }
 
-increaseBrightness(){
+increaseBrightness() {
     local current
     current=$(brightnessctl -m -e4 -n2 set 5%+ | sed -n 's/.*,\([0-9]\+\)%,.*/\1/p')
     sendNotif "$current"
 }
 
-decreaseBrightness(){
+decreaseBrightness() {
     local current
     current=$(brightnessctl -m -e4 -n2 set 5%- | sed -n 's/.*,\([0-9]\+\)%,.*/\1/p')
     sendNotif "$current"
 }
 
-
-
-main(){
-case "$1" in
+main() {
+    case "$1" in
     increase)
-        increaseBrightness 
-    ;;
+        increaseBrightness
+        ;;
     decrease)
         decreaseBrightness
-    ;;
+        ;;
     *)
         exit 1
-    ;;
-esac
+        ;;
+    esac
 }
 
 main "$@"
