@@ -180,7 +180,7 @@ main() {
         previousMedia
         ;;
     matugenMediaPlayer)
-        updateColors
+        return
         ;;
     *)
         helpMan

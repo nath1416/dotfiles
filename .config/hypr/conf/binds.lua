@@ -40,7 +40,7 @@ local cycleWorkspace = function()
     end
 
 
-    local sequence = { "dwindle", "scrolling", "master", "monocle", "lua:columns" }
+    local sequence = { "dwindle", "scrolling", "master"}
     local current_layout = active.tiled_layout
     local current_index
 

@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 
 set -e
 
@@ -15,10 +15,10 @@ main() {
         state_icon="󰶹"
         ;;
     Full)
-        state_icon=""
         ;;
     "Not charging")
-        state_icon=""
+        state_icon=""
+        # state_icon=""
         ;;
     *)
         state_icon="unknown: $status"
