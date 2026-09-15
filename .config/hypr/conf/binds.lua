@@ -40,7 +40,7 @@ local cycleWorkspace = function()
     end
 
 
-    local sequence = { "dwindle", "scrolling", "master"}
+    local sequence = { "dwindle", "scrolling" }
     local current_layout = active.tiled_layout
     local current_index
 

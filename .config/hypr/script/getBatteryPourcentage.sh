@@ -17,8 +17,7 @@ main() {
     Full)
         ;;
     "Not charging")
-        state_icon=""
-        # state_icon=""
+        state_icon=""
         ;;
     *)
         state_icon="unknown: $status"
