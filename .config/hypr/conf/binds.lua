@@ -106,6 +106,9 @@ end
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+-- SwayNc
+hl.bind("SUPER" .. " + R", hl.dsp.exec_cmd("swaync-client -t -sw"))
+
 
 -- Keybinds Universal
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { submap_universal = true })
@@ -125,6 +128,8 @@ hl.bind(mainMod .. " + K", hl.dsp.focus({ workspace = "-1" }), { submap_universa
 hl.bind(mainMod .. " + J", hl.dsp.focus({ workspace = "+1" }), { submap_universal = true })
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ workspace = "-1" }), { submap_universal = true })
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ workspace = "+1" }), { submap_universal = true })
+
+
 
 
 -- Scrolling layout keybinds

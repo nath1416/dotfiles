@@ -41,6 +41,14 @@ hl.window_rule({
     opaque            = true,
 })
 
+hl.window_rule({
+    name              = "Qemu",
+    match             = {
+        class = "qemu"
+    },
+    no_blur           = true,
+    opaque            = true,
+})
 
 -- force floating windows
 ---@class NA.FLOATING_WINDOW_DATA

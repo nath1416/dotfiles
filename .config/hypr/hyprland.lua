@@ -91,5 +91,4 @@ hl.config({
 })
 
 
-loadTest = false
 require("plugins.test")
