@@ -1,7 +1,7 @@
 {
   "Lua.workspace.library": [
-    "/usr/share/hypr/stubs"
-    // "/home/nathan/Documents/Coding/GitProjects/HyprlandRoot/meta"
+    "/usr/share/hypr/stubs",
+    // "./"
   ],
   "Lua.diagnostics.globals": [
     "hl"

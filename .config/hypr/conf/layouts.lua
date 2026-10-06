@@ -34,11 +34,13 @@ hl.config({
     }
 })
 
+
 local customLayout = false
 
 if (not customLayout) then
     goto EOF
 end
+---
 
 
 hl.layout.register("columns", {
@@ -54,4 +56,5 @@ hl.layout.register("columns", {
     end,
 })
 
+---
 ::EOF::

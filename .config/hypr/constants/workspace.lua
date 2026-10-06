@@ -2,11 +2,7 @@ local programs = require("constants.programs")
 local launcher = programs.launcher
 local mainMod = programs.mainMod
 
----@class NA.WORKSPACE_DATA
----@field name string
----@field bind string
----@field application string
----@field apply_rule? boolean
+
 
 ---@type NA.WORKSPACE_DATA[]
 local specialWorkspaces    = {

@@ -22,7 +22,6 @@ hl.window_rule({
     border_color      = "rgb(000000)",
 })
 
--- other
 hl.window_rule({
     name         = "Force focus on wofi",
     match        = {
@@ -42,44 +41,28 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name              = "Qemu",
-    match             = {
+    name    = "Qemu",
+    match   = {
         class = "qemu"
     },
-    no_blur           = true,
-    opaque            = true,
+    no_blur = true,
+    opaque  = true,
 })
 
--- force floating windows
----@class NA.FLOATING_WINDOW_DATA
----@field name string
----@field class string
----@type NA.FLOATING_WINDOW_DATA[]
-local floatingWindows = {
-    {
-        name  = "Blueman floating",
-        class = "blueman-manager",
-    },
-    {
-        name  = "Pwvucontrol floating",
-        class = "com.saivert.pwvucontrol",
-    },
-    {
-        name  = "newtwork connection floating",
-        class = "nm-connection-editor",
-    },
-    {
-        name  = "Yubico connect",
-        class = "com.yubico.yubioath",
-    },
+
+local floatingWindowsClass = {
+    "blueman-manager",
+    "com.saivert.pwvucontrol",
+    "nm-connection-editor",
+    "com.yubico.yubioath",
 }
 
-for _, window in ipairs(floatingWindows) do
+for _, window in ipairs(floatingWindowsClass) do
     hl.window_rule({
-        name  = window.name,
+        name  = window .. "-float-rule",
         float = true,
         match = {
-            class = window.class,
+            class = window,
         },
     })
 end

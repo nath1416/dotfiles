@@ -22,20 +22,10 @@ local cycleWorkspace = function()
 
     local active = hl.get_active_workspace()
 
-    if active == nil then
-        return
-    end
-
-    if active.special then
-        return
-    end
-
-    if active.has_fullscreen then
-        return
-    end
-
-
-    if not active.visible then
+    if active == nil or
+        active.has_fullscreen or
+        not active.visible
+    then
         return
     end
 
@@ -65,37 +55,50 @@ local cycleWorkspace = function()
 end
 
 local reload_hyprland_wayabr = function()
-    local b = hl.dsp.exec_cmd("systemctl --user restart waybar.service")
-    hl.dispatch(b)
-
-    local c = hl.dsp.exec_cmd("hyprctl reload")
-    hl.dispatch(c)
+    hl.dispatch(hl.dsp.exec_cmd("systemctl --user restart waybar.service"))
+    hl.dispatch(hl.dsp.exec_cmd("hyprctl reload"))
 end
+
+
+-- Keybinds Universal
+
+hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { submap_universal = true })
+hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(programs.terminal), { submap_universal = true })
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.fileManager), { submap_universal = true })
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"), { submap_universal = true })
+hl.bind(mainMod .. " + SPACE", kill_or_start(programs.menuName, programs.menu), { submap_universal = true })
+
+hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"), { submap_universal = true })
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprlock"), { submap_universal = true })
+
+hl.bind(mainMod .. " + K", hl.dsp.focus({ workspace = "-1" }), { submap_universal = true })
+hl.bind(mainMod .. " + J", hl.dsp.focus({ workspace = "+1" }), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ workspace = "-1" }), { submap_universal = true })
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ workspace = "+1" }), { submap_universal = true })
+
+hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"), { submap_universal = true })
+hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { submap_universal = true })
 
 
 -- Keybinds Default submap
 
-
-hl.bind(mainMod .. " + G", cycleWorkspace,
-    { submap_universal = true }
-)
-
-
+hl.bind(mainMod .. " + V", hl.dsp.window.float())
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 
+hl.bind(mainMod .. " + G", cycleWorkspace)
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -USR1 waybar"))
+
 hl.bind(mainMod .. " + SHIFT + Y", reload_hyprland_wayabr)
-
-hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
-hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset identity"))
-
-hl.bind(mainMod .. " + V", hl.dsp.window.float())
-
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart waybar"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))
+
+hl.bind("SHIFT + XF86MonBrightnessUp", hl.dsp.exec_cmd("hyprctl hyprsunset temperature 2500"))
+hl.bind("SHIFT + XF86MonBrightnessDown", hl.dsp.exec_cmd("hyprctl hyprsunset identity"))
 
 for i = 1, 10 do
     local key = i % 10
@@ -106,40 +109,18 @@ end
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- SwayNc
-hl.bind("SUPER" .. " + R", hl.dsp.exec_cmd("swaync-client -t -sw"))
-
-
--- Keybinds Universal
-hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { submap_universal = true })
-hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(programs.terminal), { submap_universal = true })
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(programs.fileManager), { submap_universal = true })
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser), { submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"), { submap_universal = true })
-hl.bind(mainMod .. " + SPACE", kill_or_start(programs.menuName, programs.menu), { submap_universal = true })
-
-hl.bind("print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -s"), { submap_universal = true })
-hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { submap_universal = true })
-
-hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"), { submap_universal = true })
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprlock"), { submap_universal = true })
-
-hl.bind(mainMod .. " + K", hl.dsp.focus({ workspace = "-1" }), { submap_universal = true })
-hl.bind(mainMod .. " + J", hl.dsp.focus({ workspace = "+1" }), { submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ workspace = "-1" }), { submap_universal = true })
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ workspace = "+1" }), { submap_universal = true })
-
-
-
 
 -- Scrolling layout keybinds
+
 hl.bind(mainMod .. " + period", hl.dsp.layout("colresize +conf"), { submap_universal = true })
 hl.bind(mainMod .. " + SHIFT + period", hl.dsp.layout("colresize -conf"), { submap_universal = true })
 
 hl.bind(mainMod .. " + comma", hl.dsp.layout("consume_or_expel next"), { submap_universal = true })
 hl.bind(mainMod .. " + SHIFT + comma", hl.dsp.layout("consume_or_expel prev"), { submap_universal = true })
 
+
 -- Bash Scripts
+
 hl.bind("XF86MonBrightnessUp",
     hl.dsp.exec_cmd(scriptPath .. "brightness.sh increase"),
     { locked = true, submap_universal = true, repeating = true }
@@ -165,7 +146,9 @@ hl.bind("XF86AudioMicMute",
     { locked = true, submap_universal = true }
 )
 
+
 -- Media for external keyboard
+
 hl.bind("XF86AudioPlay",
     hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-pause"),
     { locked = true, submap_universal = true }
@@ -180,7 +163,9 @@ hl.bind("XF86AudioPrev",
     { locked = true, submap_universal = true }
 )
 
--- Media for laptop keyboard, no> media keys on Thinkapd
+
+-- Media for laptop keyboard
+
 hl.bind("XF86PickupPhone",
     hl.dsp.exec_cmd(scriptPath .. "mediaPlayer.sh play-pause"),
     { locked = true, submap_universal = true }
