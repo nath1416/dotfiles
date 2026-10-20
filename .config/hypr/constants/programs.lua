@@ -1,8 +1,8 @@
 local launcher    = "/usr/bin/app2unit "
 
-local menuName    = "wofi"
+local menuName    = "hyprlauncher -t"
 
-local menu        = launcher .. menuName .. " --show drun"
+local menu        = launcher .. menuName
 local terminal    = launcher .. "kitty"
 local fileManager = launcher .. "nautilus -w"
 local browser     = launcher .. "firefox"
