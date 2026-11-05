@@ -56,7 +56,7 @@ end
 
 local reload_hyprland_wayabr = function()
     hl.dispatch(hl.dsp.exec_cmd("systemctl --user restart waybar.service"))
-    hl.dispatch(hl.dsp.exec_cmd("hyprctl reload"))
+    hl.dispatch(hl.dsp.reload_config())
 end
 
 

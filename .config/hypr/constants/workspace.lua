@@ -15,7 +15,7 @@ local specialWorkspaces    = {
         name = "",
         bind = mainMod .. " + S",
         application = launcher .. programs.terminal,
-        apply_rule = false,
+        apply_rule = true,
     },
     {
         name = "extra",

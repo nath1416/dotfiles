@@ -20,6 +20,7 @@ hl.config({
             contrast       = 0.8916,
             brightness     = 0.8172,
             vibrancy       = 0.1696,
+            variant        = "kawase"
         },
     }
 })

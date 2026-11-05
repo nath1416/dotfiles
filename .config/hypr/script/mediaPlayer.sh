@@ -106,7 +106,7 @@ sendNotif() {
     #     notify-send -r "$msgTag" "$data"
     #     return 0
     # fi
-
+1
     notify-send -i "$image" -r "$msgTag" "$data"
 }
 

@@ -5,18 +5,20 @@ hl.config({
             scale = 0.65,
             workspace_gap = 0,
             layout = "vertical",
-            wallpaper = 0,
-            blur = false,
+            wallpaper = 2,
+            blur = true,
             shadow = {
-                enabled = true,
-                range = 25,
-                render_power = 3,
+                enabled = false,
+                range = 2,
+                render_power = 0,
                 -- color = 0xee1a1a1a,
                 -- color = CONSTANTS.colorsHex.error
             },
         },
     },
 })
+
+
 
 -- Function
 local selectClient = function()
@@ -50,4 +52,8 @@ end
 
 hl.define_submap("scrolloverview", bindsSubmapFunc)
 
-hl.bind(toggleBind, hl.plugin.scrolloverview.overview("toggle"), { submap_universal = true })
+local overviewOpen = function()
+    hl.plugin.scrolloverview.overview("toggle")
+end
+
+hl.bind(toggleBind, overviewOpen, { submap_universal = true })
