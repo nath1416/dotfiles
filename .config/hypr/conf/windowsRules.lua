@@ -60,9 +60,16 @@ local floatingWindowsClass = {
 for _, window in ipairs(floatingWindowsClass) do
     hl.window_rule({
         name  = window .. "-float-rule",
+        opaque  = true,
         float = true,
         match = {
             class = window,
         },
     })
 end
+
+hl.window_rule({
+    name  = "remote-viewer-no-inhibit",
+    match = { class = "^(remote-viewer)$" },   -- RE2 regex here
+    no_shortcuts_inhibit = true,
+})

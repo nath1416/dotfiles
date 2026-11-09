@@ -1,3 +1,12 @@
+local hyprlaucher = hl.layer_rule({
+  name       = "hyprlaucher rules",
+  match      = { namespace = "hyprlauncher" },
+  dim_around = true,
+})
+
+hyprlaucher:set_enabled(true)
+
+
 local waybarBlured = hl.layer_rule({
   name  = "Waybar layer rules",
   match = { namespace = "waybar" },
@@ -5,7 +14,6 @@ local waybarBlured = hl.layer_rule({
 })
 
 waybarBlured:set_enabled(false)
-
 
 ---@param w HL.Workspace
 local toggle_special_waybar_blur = function(w)

@@ -84,8 +84,8 @@ hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { su
 -- Keybinds Default submap
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float())
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" , repeating = true}))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" , repeating = true}))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 
 hl.bind(mainMod .. " + G", cycleWorkspace)
