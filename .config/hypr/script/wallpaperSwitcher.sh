@@ -8,6 +8,9 @@ SAVE_PATH_WALLPAPER="$HOME/.config/hypr/wallpaper.txt"
 
 verbose=0
 silent=0
+noAnim=0
+
+TRANSITION_PARAM="--transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60"
 
 applyWallpaper() {
 
@@ -25,7 +28,8 @@ applyWallpaper() {
     fi
     echo "$RealPath" >"$SAVE_PATH_WALLPAPER"
 
-    programWallpaper "$RealPath"
+
+    programWallpaper "$TRANSITION_PARAM" "$RealPath"
 
     [[ "$verbose" -eq 1 ]] && printf "Set Wallpaper to %s\n" "$RealPath"
 
@@ -43,11 +47,20 @@ applyWallpaper() {
 }
 
 programWallpaper() {
-    local wallpaperPath=""
-    wallpaperPath="$1"
+    local wallpaperPath="$2"
+    local transitionParam="$1"
 
-    awww img --transition-bezier .71,.4,1,.73 --transition-pos top-right --transition-duration 1 --transition-type wipe --transition-fps 60 "$wallpaperPath"
+    local -a transitionArgs=()
+
+    if [[ -n "$transitionParam" ]]; then
+        read -r -a transitionArgs <<< "$transitionParam"
+    fi
+
+    [[ "$noAnim" -eq 1 ]] && transitionArgs=(-t none)
+
+    awww img "${transitionArgs[@]}" "$wallpaperPath"
 }
+
 
 setMatugen() {
     local path
@@ -105,6 +118,10 @@ reloadWallpaper() {
     applyWallpaper "$lasWallpaper"
 }
 
+getCurrent(){
+        cat "$SAVE_PATH_WALLPAPER"
+}
+
 help() {
     local argument=""
     argument="$1"
@@ -125,11 +142,14 @@ help() {
 }
 
 flag() {
-    while getopts ":vhs" opt; do
+    while getopts ":vnhs" opt; do
         case "$opt" in
         v)
             verbose=1
             echo "Set vebose"
+            ;;
+        n)
+            noAnim=1
             ;;
         s)
             silent=1
@@ -156,6 +176,9 @@ main() {
         ;;
     reload)
         reloadWallpaper
+        ;;
+    get)
+        getCurrent
         ;;
     get-random)
         getRandom

@@ -69,7 +69,8 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(programs.browser), { submap_universal
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(programs.browser .. " --private-window"), { submap_universal = true })
 hl.bind(mainMod .. " + SPACE", kill_or_start(programs.menuName, programs.menu), { submap_universal = true })
 
-hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh set-random"), { submap_universal = true })
+hl.bind(mainMod .. " + U", hl.dsp.exec_cmd(scriptPath .. "wallpaperSwitcher.sh -n set-random"),
+    { submap_universal = true })
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("hyprlock"), { submap_universal = true })
 
 hl.bind(mainMod .. " + K", hl.dsp.focus({ workspace = "-1" }), { submap_universal = true })
@@ -84,16 +85,16 @@ hl.bind("SHIFT + print", hl.dsp.exec_cmd(scriptPath .. "screenshot.sh -f"), { su
 -- Keybinds Default submap
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float())
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" , repeating = true}))
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" , repeating = true}))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left", repeating = true }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right", repeating = true }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind("XF86Favorites", cycleWorkspace)
 
-hl.bind(mainMod .. " + G", cycleWorkspace)
+
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -USR1 waybar"))
 
 hl.bind(mainMod .. " + SHIFT + Y", reload_hyprland_wayabr)
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("systemctl --user restart waybar"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("uwsm stop"))
 
@@ -145,6 +146,7 @@ hl.bind("XF86AudioMicMute",
     hl.dsp.exec_cmd(scriptPath .. "volumeControl.sh muteMic"),
     { locked = true, submap_universal = true }
 )
+
 
 
 -- Media for external keyboard

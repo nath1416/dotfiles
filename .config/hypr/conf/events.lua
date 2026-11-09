@@ -34,5 +34,6 @@ hl.on("hyprland.start", function()
 end)
 
 hl.on("monitor.added", function()
-    hl.exec_cmd("sleep 2 && " .. CONSTANTS.scriptPath .. "wallpaperSwitcher.sh -s reload")
+    hl.exec_cmd("sleep 2 && " .. CONSTANTS.scriptPath .. "wallpaperSwitcher.sh -n -s reload")
 end)
+
